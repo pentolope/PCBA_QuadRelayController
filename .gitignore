@@ -1,12 +1,5 @@
-# Nothing under these paths is a source of truth. Every one of them is produced
-# by a tool from something else in this repository, and a benchmark repository
-# that commits them stops being cheap to clone thirty-two times over.
-
-# --- Python bytecode --------------------------------------------------------
 __pycache__/
 *.py[cod]
-
-# --- KiCad local scratch ----------------------------------------------------
 *-backups/
 fp-info-cache
 *.lck
@@ -16,33 +9,16 @@ fp-info-cache
 *.tmp
 *.kicad_pcb-bak
 *.kicad_sch-bak
-
-# --- Toolkit run output -----------------------------------------------------
-# `run.py validate|release|selftest` owns one attempt directory per invocation
-# and writes nothing outside it. The verdict JSON is the evidence; the work
-# tree that produced it is not.
 out/
 build/
 verification/out/
-
-# --- Placement and routing search scratch -----------------------------------
-# A candidate is a comparison artefact until a human promotes it. An unpromoted
-# pool is deleted, not committed; a promoted one is moved somewhere it is named
-# and explained.
-candidates/*
-!candidates/README.md
+candidates/
 benchmark/**/workdir_*/
 benchmark/**/candidates/
 *.kicad_pcb.pre-*
-
-# --- Field-solver scratch ---------------------------------------------------
-# openEMS writes field dumps and mesh data measured in hundreds of megabytes.
-# Keep the extracted result; never the run that produced it.
 openems/
 *.h5
 *.vtk
 *.vtr
 *.vtu
-
-# --- Logs -------------------------------------------------------------------
 *.log

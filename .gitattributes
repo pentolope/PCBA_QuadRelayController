@@ -1,24 +1,4 @@
-# Line-ending policy.
-#
-# Two classes of file, deliberately treated differently:
-#
-#   design sources     normalised to LF in the repository AND in the working
-#                      tree, so a checkout is byte-identical on every platform
-#                      and a digest taken over them means something.
-#
-#   production output  never touched. Gerbers, drills, the fabrication archive
-#                      and the BOM/CPL that ship to a fabricator are hashed as
-#                      exact raw bytes; normalising them after generation would
-#                      invalidate the hashes recorded in a release manifest.
-#
-# The toolkit's checkout-independent digests (pcbqa/canonical.py) are driven by
-# this file, so changing it changes what a digest means. Change it deliberately,
-# and re-approve anything bound to the old bytes.
-
-# Default: text, normalised to LF in the repository and on checkout.
 *                    text=auto eol=lf
-
-# --- KiCad design files: text, LF everywhere -------------------------------
 *.kicad_pcb          text eol=lf
 *.kicad_sch          text eol=lf
 *.kicad_pro          text eol=lf
@@ -27,8 +7,6 @@
 *.kicad_mod          text eol=lf
 *.kicad_dru          text eol=lf
 *.kicad_wks          text eol=lf
-
-# --- Project sources: explicit LF ------------------------------------------
 fp-lib-table         text eol=lf
 sym-lib-table        text eol=lf
 *.py                 text eol=lf
@@ -36,10 +14,7 @@ sym-lib-table        text eol=lf
 *.json               text eol=lf
 *.net                text eol=lf
 *.csv                text eol=lf
-
-# --- Production / fabrication output: exact bytes, never normalised --------
 generated/release/** -text
-
 *.gbr                binary
 *.gbrjob             binary
 *.drl                binary
