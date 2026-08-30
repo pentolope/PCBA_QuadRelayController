@@ -152,6 +152,13 @@ python3 tooling/PCBA_AutoDesignAndTest/run.py validate board/manifest.json
 ```
 
 Every gate whose policy block is absent reports `NOT_APPLICABLE` **with a
-reason** and still appears in the matrix. Absence is never a silent pass, so the
-first run tells you exactly what this board has not yet opted into. See
+reason** and still appears in the matrix, so the first run tells you exactly
+what this board has not yet opted into. See
 [the toolkit's onboarding guide](tooling/PCBA_AutoDesignAndTest/examples/onboarding.md).
+
+**Do not report an ACCEPTED verdict from this board.** Run the validator against
+`board/manifest.template.json` today and it exits 0 and prints ACCEPTED — with
+every gate `NOT_APPLICABLE` and no gate reading `sources.pcb`, so the missing
+board file goes unnoticed. The matrix is the evidence; the verdict line is not.
+An empty matrix is not a passing one, and citing it as a result is exactly the
+unearned green light this benchmark exists to detect.

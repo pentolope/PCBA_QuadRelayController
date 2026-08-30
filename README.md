@@ -71,6 +71,7 @@ live in [PCBA_AutoDesignAndTest_Bench](https://github.com/pentolope/PCBA_AutoDes
 | `docs/sources.md` | the classes of evidence the design will have to cite |
 | `docs/status.md` | what exists, what does not, and what is deliberately absent |
 | `candidates/` | disposable search output, ignored by Git |
+| `.claude/skills/` | the claim-audit and accountability-review skills [CLAUDE.md](CLAUDE.md) requires before a push |
 | `tooling/PCBA_AutoDesignAndTest` | the shared verification/routing/release toolkit, as a pinned submodule |
 
 ## Getting the repository

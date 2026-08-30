@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 22,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -92,6 +93,53 @@
       "id": "REQ-13",
       "requirement": "This repository stays a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic must not accumulate in the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Channel count",
+      "value": "Four relay channels",
+      "brief_evidence": "Design a four-channel relay controller operated by a small MCU."
+    },
+    {
+      "aspect": "Controller",
+      "value": "A small MCU; no family, part, package or core named",
+      "brief_evidence": "relay controller operated by a small MCU. Logic power is 5 V"
+    },
+    {
+      "aspect": "Logic supply",
+      "value": "5 V",
+      "brief_evidence": "Logic power is 5 V; each relay switches an external load through screw terminals."
+    },
+    {
+      "aspect": "Load connection",
+      "value": "Each relay switches an external load through screw terminals",
+      "brief_evidence": "each relay switches an external load through screw terminals"
+    },
+    {
+      "aspect": "Relay driver stage",
+      "value": "Transistor/MOSFET relay drivers required; device and topology unspecified",
+      "brief_evidence": "transistor/MOSFET relay drivers, flyback suppression"
+    },
+    {
+      "aspect": "Flyback suppression",
+      "value": "Required; suppression method not specified",
+      "brief_evidence": "flyback suppression, status indication, and a programming interface."
+    },
+    {
+      "aspect": "Input protection",
+      "value": "Required; protected nodes and scheme not specified",
+      "brief_evidence": "Include input protection, transistor/MOSFET relay drivers"
+    },
+    {
+      "aspect": "Status indication and programming interface",
+      "value": "Both required; indication form, programming standard and the physical form of the interface all unspecified",
+      "brief_evidence": "status indication, and a programming interface."
+    },
+    {
+      "aspect": "High/low voltage partition",
+      "value": "Switched side physically separated from logic side",
+      "brief_evidence": "Keep the switched side physically separated from the logic side and choose conservative clearances"
     }
   ],
   "open_decisions": [

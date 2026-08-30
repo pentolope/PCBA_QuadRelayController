@@ -2,7 +2,9 @@
   "schema_version": 2,
   "board_id": "quad_relay_controller",
   "constraint_version": "unset",
-  "description": "TEMPLATE - not yet a live manifest. This is the toolkit's documented minimum manifest (examples/onboarding.md), pre-filled with this board's identity. 'sources.pcb' names the file the board will have; that file does not exist yet, so this manifest is deliberately NOT named manifest.json and running the validator against it will fail on the missing source. Rename it once the board exists, set constraint_version to a real frozen identity, and add policy blocks one at a time - every gate whose block is absent reports NOT_APPLICABLE with a reason and still appears in the matrix, so the first run tells you what you have not yet opted into. Absence is never a silent pass.",
+  "description": "TEMPLATE - not yet a live manifest. This is the toolkit's documented minimum manifest (examples/onboarding.md), pre-filled with this board's identity. 'sources.pcb' names the file the board will have; that file does not exist yet, which is why this is deliberately NOT named manifest.json.",
+  "verdict_warning": "Running `run.py validate` against this template EXITS 0 and prints ACCEPTED. That verdict is worthless here and must not be reported as a result. Every gate returns NOT_APPLICABLE because no policy block opts into it, and no gate reads sources.pcb, so the absent board file is never noticed. ACCEPTED on an undesigned board means only that nothing was checked. Read the gate matrix, never the verdict line. The toolkit is behaving as designed - a gate whose policy is absent reports NOT_APPLICABLE WITH A REASON and still appears in the matrix - and it is the reader's job not to mistake an empty matrix for a passing one.",
+  "how_to_make_it_real": "Rename to manifest.json once the board exists, set constraint_version to a real frozen identity, and add policy blocks one at a time. The first run then tells you exactly what this board has not yet opted into.",
   "project_root": "..",
   "tools": {
     "kicad_cli": "kicad-cli"

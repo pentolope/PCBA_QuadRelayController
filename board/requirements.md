@@ -220,10 +220,14 @@ The brief states no process or test requirements beyond remaining a consumer of 
 
 ## Where a decision gets recorded
 
-1. Answer it under its `OPEN-nn` heading above, with the reasoning and the
-   evidence that made the choice.
-2. Set `chosen` and `rationale` on the matching entry in
-   [requirements.json](requirements.json).
+1. Set `chosen` and `rationale` on the matching entry in
+   [requirements.json](requirements.json). **That file is the authoritative
+   record**, and the only one the benchmark's scripts read: a decision written
+   only in prose is invisible to `board_status.py` and to any result that
+   counts how many decisions an attempt actually made.
+2. Answer it under its `OPEN-nn` heading here as well, with the reasoning and
+   the evidence that made the choice. This file is the readable copy; where the
+   two disagree, the JSON is what happened.
 3. Cite the datasheet or standard in [docs/sources.md](../docs/sources.md).
 
 A choice recorded this way stays visibly a choice. That is what lets a later
