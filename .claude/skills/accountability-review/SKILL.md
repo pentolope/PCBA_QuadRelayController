@@ -22,7 +22,8 @@ the author says about it. An inflated claim is not primarily a lie -
 it is an opaque pane over exactly the place where the work may have
 drifted from the request. "Every net is routed" hides which nets are
 not. So the drafts must be accurate in order for anyone to check
-fidelity through them, and that is why the claim audit runs first.
+fidelity through them, and that is why step 3 binds every claim
+before the review package is assembled.
 
 ## Procedure
 
