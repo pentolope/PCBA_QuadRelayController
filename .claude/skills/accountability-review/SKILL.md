@@ -61,11 +61,24 @@ before the review package is assembled.
      (`git diff origin/<branch>` in each repo being pushed);
    - the drafted commit message(s) and report text;
    - the claim table from the audit;
-   - the standing invariants, stated verbatim: never modify the
-     authoritative Board A PCB; never touch `main`; no PRs; never
-     submit an order; fail-closed over fail-open; waivers are bound
-     to board bytes; the board file - never a tool log - is the
-     arbiter; unmeasured never becomes zero.
+   - the standing invariants **as this repository states them**,
+     quoted verbatim, each with the file and heading it came from.
+     Gather them from the repository's own governing documents -
+     `CLAUDE.md` first, then whatever it points to: `README.md`, a
+     protocol document, `docs/` - and from the same documents in any
+     submodule the change touches.
+
+     Import nothing. An invariant that is not written down in the
+     repository under review does not bind the review. One carried
+     in from another repository or a retired workflow is worse than
+     absent: it sends the reviewer hunting for a violation of a rule
+     this project never adopted, and it lends a stale rule the
+     authority of a current one. If a rule ought to bind and is not
+     written down, that is a finding about the repository - say so,
+     and do not review against it as though it were.
+
+     If the repository states no invariants at all, record that.
+     Silence is a fact about the project, not a licence.
 
 5. **Spawn a general-purpose subagent** with only that package,
    **running on Opus 5** (pass the model override; user-directed
@@ -85,7 +98,10 @@ before the review package is assembled.
      claim is where (a) and (b) hide - abstraction inflation, and
      fail-open defaults whose behaviour on silence, absence,
      staleness, forgery or reuse is a quiet pass.
-   - Also check each standing invariant against the diff directly.
+   - Also check each invariant gathered in step 4 against the diff
+     directly, citing where in the repository it is written. Judge
+     the diff only against those; a rule you believe in but cannot
+     point to in this repository is not one of them.
    - For every finding, name: the exact claim or code, which part of
      the request it bears on, why it is wrong, and the artifact or
      command that would prove or disprove it. Rank by consequence to
@@ -133,11 +149,12 @@ before the review package is assembled.
    for a fresh reviewer to find, and running one is ceremony.
 
    A cycle is opened by **actual work on the repository**: anything
-   that changes what the board is, what the gates measure, what a
-   release contains, what the tooling does, or what the
-   documentation asserts on the project's behalf. When it is
-   genuinely unclear, review - one pass is cheaper than a cycle
-   nobody checked against the request. But do not manufacture a
+   that changes what the repository's subject is - a board, a
+   catalogue, a protocol - what the gates measure, what a release
+   contains, what the tooling does, or what the documentation
+   asserts on the project's behalf. When it is genuinely unclear,
+   review - one pass is cheaper than a cycle nobody checked against
+   the request. But do not manufacture a
    review for a prompt that only told you what to type.
 
 9. **Two passes per cycle, and no more.** If the second pass finds
@@ -170,7 +187,14 @@ before the review package is assembled.
   the cycle.
 - The cap is two passes for the whole cycle as step 8 defines it -
   not two per repository, not two per commit, not two per round of
-  fixes. A cycle that pushes both repos reviews both in one package.
+  fixes. A cycle that pushes several repositories reviews all of
+  them in one package.
+- The review is bound by two things and no others: the request, and
+  the invariants this repository writes down. Everything else -
+  another board's constraints, a workflow this project has retired,
+  a convention the reviewer brought with it - is out of scope, and
+  applying it produces findings that are correct about some other
+  project and irrelevant to this one.
 - The copy in this repository is the authoritative one; it is
   versioned with the work it governs, so a reader can see which rule
   a given cycle was run under. A convenience copy may sit in
