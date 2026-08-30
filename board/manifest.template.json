@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "board_id": "quad_relay_controller",
+  "constraint_version": "unset",
+  "description": "TEMPLATE - not yet a live manifest. This is the toolkit's documented minimum manifest (examples/onboarding.md), pre-filled with this board's identity. 'sources.pcb' names the file the board will have; that file does not exist yet, so this manifest is deliberately NOT named manifest.json and running the validator against it will fail on the missing source. Rename it once the board exists, set constraint_version to a real frozen identity, and add policy blocks one at a time - every gate whose block is absent reports NOT_APPLICABLE with a reason and still appears in the matrix, so the first run tells you what you have not yet opted into. Absence is never a silent pass.",
+  "project_root": "..",
+  "tools": {
+    "kicad_cli": "kicad-cli"
+  },
+  "sources": {
+    "pcb": "quad_relay_controller.kicad_pcb"
+  },
+  "board_origin_mm": [
+    0.0,
+    0.0
+  ],
+  "documentation_globs": [],
+  "waivers": []
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "description": [
+    "Where this board's build finds its tools, and nothing else.",
+    "",
+    "Linux-native. KiCad is the distribution package, so kicad-cli and the",
+    "stock libraries sit on the system prefix and `pcbnew` imports from the",
+    "system interpreter's dist-packages - there is no separate bundled Python",
+    "to find. `cli` and `python` are bare command names on purpose: they",
+    "resolve through PATH, which keeps a fresh clone working on any machine",
+    "that has the packages, and the resolved absolute path is recorded in the",
+    "run's own provenance rather than frozen here.",
+    "",
+    "Design rules, net classes, via sizes and clearances are deliberately NOT",
+    "restated here. Once this board has a project they live in the .kicad_pro",
+    "net classes, which is the same source the generator, the router and the",
+    "validator all read. A second copy of a threshold is a rival threshold.",
+    "",
+    "This board has not been designed yet, so no path below points at a board",
+    "file. The tool identities are still the ones the board will use, and they",
+    "are recorded now so that a design run starts from a stated environment",
+    "rather than from whatever happened to be installed."
+  ],
+  "kicad": {
+    "cli": "kicad-cli",
+    "python": "python3",
+    "required_major": 10,
+    "stock_footprint_libraries": "/usr/share/kicad/footprints",
+    "stock_symbol_libraries": "/usr/share/kicad/symbols"
+  },
+  "router": {
+    "name": "KiCad Routing Tools",
+    "development_checkout": null,
+    "development_checkout_note": "Null on purpose. The router is a submodule of the toolkit at tooling/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools, pinned to a commit on its pcba-autonomy branch, so a recursive clone has it and no absolute path has to be true on more than one machine. This key survives as the development affordance it is: set it to a local checkout to test an unpinned router, and pcbqa.krt will prefer it over the submodule. Setting it to a path that is not a KRT root is an error, never a silent fall-through.",
+    "note": "Resolved through pcbqa.krt: explicit override, then PCB_KRT_PATH, then this development checkout, then the router vendored into the toolkit as its tooling/KiCadRoutingTools submodule, then a single active plugin installation. With development_checkout null it is the SUBMODULE that resolves, which is what a benchmark run should use: a pinned router outranks whatever a particular machine has installed, so a result is attributable to a commit."
+  },
+  "toolkit": {
+    "path": "tooling/PCBA_AutoDesignAndTest",
+    "note": "The pinned submodule, and the only way this repository reaches the toolkit. No sibling checkout, no absolute path, no PYTHONPATH assumption."
+  }
+}
