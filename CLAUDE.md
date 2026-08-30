@@ -122,11 +122,11 @@ submodules.
 
 ## Publishing discipline
 
-Before any push of design-cycle work, run `/claim-audit` on the drafted commit
-message and report — every claim-bearing word binds to an artefact recomputed on
-the spot, never to the process that produced it — and then
-`/accountability-review`, which asks whether the work did what was asked, from a
-context that does not share this session's account of what was asked.
+Before any push of design-cycle work, run `/accountability-review`, which asks
+whether the work did what was asked, from a context that does not share this
+session's account of what was asked. Its claim-binding step holds every
+claim-bearing word in the drafted commit message and report to an artefact
+recomputed on the spot, never to the process that produced it.
 
 For a board at this stage the audit is short and the discipline is not: the
 honest claim about an undesigned board is that it is undesigned.

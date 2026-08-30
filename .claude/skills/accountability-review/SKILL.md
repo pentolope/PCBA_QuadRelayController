@@ -40,10 +40,18 @@ fidelity through them, and that is why the claim audit runs first.
    thing the reviewer audits - it is how a reader who was not here
    can tell whether the request was answered.
 
-3. **Run `/claim-audit`** if it has not run on the current drafts.
-   Its job here is subordinate: every claim-bearing word binds to an
-   artifact recomputed on the spot, so that the fidelity table above
-   can be trusted as evidence rather than as assurance.
+3. **Bind every claim-bearing word to a recomputed artifact.** Scan
+   the drafts for `complete`, `routed`, `connected`, `valid`,
+   `verified`, `proven`, `all`, `every`, `fully`, `passes`,
+   `unchanged`, `reproduces`, `identical`, `deterministic`, `fixed`,
+   `works`, `zero`, `never`, `always`. Each occurrence asserting a
+   fact about the work is a claim, and each claim binds to an
+   artifact recomputed on the spot - never to the process that
+   produced it. This step is subordinate to the table above: it is
+   what lets the fidelity table be read as evidence rather than as
+   assurance. The two failures it exists to catch are abstraction
+   inflation - the machinery measured X, the summary claimed X' one
+   level up - and fail-open defaults inside fail-closed designs.
 
 4. **Assemble the review package**, nothing else:
    - the request, as written down in step 1;
