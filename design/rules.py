@@ -13,7 +13,7 @@ import os
 import re
 import sys
 
-from . import clearance, layout, netlist
+from . import clearance, layout, netlist, requirements
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARAMETERS_PATH = os.path.join(REPO_ROOT, "components", "parameters.json")
@@ -34,8 +34,6 @@ EVIDENCE_CLASSES = {
     ASSUMED: "assumed-behavioral",
     DERIVED: "design-source",
 }
-
-BRIEF = "BRIEF.md"
 
 #: Nets that must reach a probe, from the brief's bring-up requirement.
 PROBE_REQUIRED_NETS = ("V5IN", "VCOIL", "+5V", "GND") + tuple(
@@ -92,7 +90,14 @@ def _evidence(basis, documents, assumptions=(), omissions=()):
 
 
 def _requirement(name, op, value):
-    return claim.requirement(name, BRIEF, {"op": op, "value": value})
+    """A requirement, sourced from the register rather than from the brief.
+
+    The source string names the kind of statement this is, because "the brief
+    asked for it" and "this design derived it" fail for different reasons and
+    a single source string that says BRIEF.md for both hides which one it was.
+    """
+    return claim.requirement(name, requirements.source_of(name),
+                             {"op": op, "value": value})
 
 
 def _claim(identity, units, significance, value, basis, documents,
@@ -1087,6 +1092,25 @@ def evaluate_all():
 REPORT_PATH = os.path.join(REPO_ROOT, "generated", "requirements.json")
 
 
+def check_register_join(evaluated):
+    """Every registered requirement is judged, and every judged one is
+    registered.
+
+    The first direction is enforced when the claim is built - an unregistered
+    name raises there. This is the other direction: a register entry nothing
+    is judged against is prose that has drifted away from the design, and it
+    is exactly what makes a register worth less than no register at all.
+    """
+    judged = {result["claim"]["requirement"]["name"]
+              for result in evaluated if result["claim"].get("requirement")}
+    unused = sorted(set(requirements.REGISTER) - judged)
+    if unused:
+        raise ValueError(
+            "requirement register carries %d entry/entries no claim is "
+            "judged against: %s" % (len(unused), ", ".join(unused)))
+    return sorted(judged)
+
+
 def write_report():
     """The whole claim set, as an artifact rather than a console report.
 
@@ -1096,8 +1120,11 @@ def write_report():
     what "passed" was allowed to mean.
     """
     evaluated = evaluate_all()
+    check_register_join(evaluated)
+    requirements.write()
     document = {
         "kind": "board-requirement-evidence",
+        "register": os.path.relpath(requirements.REGISTER_PATH, REPO_ROOT),
         "summary": summarise(evaluated),
         "results": [
             {"id": result["id"], "identity": result["identity"],

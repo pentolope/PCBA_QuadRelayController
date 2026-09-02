@@ -12,7 +12,8 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from design import (build, clearance, cost, evidence, floorplan,  # noqa: E402
-                    ksym, layout, netlist, place, route, rules, simulation)
+                    ksym, layout, netlist, place, requirements, route,
+                    rules, simulation)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -324,6 +325,78 @@ class Manufacturability(unittest.TestCase):
     def test_the_build_can_be_supplied(self):
         limits = cost.stock_limited_boards()
         self.assertTrue(all(limit > 0 for limit in limits.values()), limits)
+
+
+class RequirementRegister(unittest.TestCase):
+    """Every requirement says what kind of statement it is."""
+
+    def test_register_is_well_formed(self):
+        self.assertTrue(requirements.check())
+
+    def test_every_judged_requirement_is_registered(self):
+        for result in rules.evaluate_all():
+            requirement = result["claim"].get("requirement")
+            if requirement:
+                self.assertIn(requirement["name"], requirements.REGISTER,
+                              "%s judges an unregistered requirement"
+                              % result["id"])
+
+    def test_every_registered_requirement_is_judged(self):
+        self.assertTrue(rules.check_register_join(rules.evaluate_all()))
+
+    def test_claim_sources_name_the_statement_kind(self):
+        kinds = set(requirements.KINDS)
+        for result in rules.evaluate_all():
+            requirement = result["claim"].get("requirement")
+            if not requirement:
+                continue
+            kind = requirement["source"].split(":", 1)[0]
+            self.assertIn(kind, kinds,
+                          "%s does not name a statement kind" % result["id"])
+
+    def test_no_requirement_is_sourced_only_to_the_brief(self):
+        """The defect this register exists to fix, kept fixed.
+
+        Every requirement used to be recorded as though the brief had stated
+        it, including thresholds this design derived and thresholds it simply
+        chose. A bare brief path as a source is that defect returning.
+        """
+        for result in rules.evaluate_all():
+            requirement = result["claim"].get("requirement")
+            if requirement:
+                self.assertNotEqual(requirement["source"],
+                                    requirements.BRIEF, result["id"])
+
+    def test_brief_clauses_cited_by_user_requirements_exist(self):
+        anchors = requirements._brief_anchors()
+        for name, record in requirements.REGISTER.items():
+            if record["kind"] != requirements.USER:
+                continue
+            for clause in record["derived_from"]:
+                self.assertIn(clause.split("#", 1)[1], anchors, name)
+
+    def test_the_brief_open_choices_are_all_closed_by_a_decision(self):
+        decisions = [record for record in requirements.STATEMENTS.values()
+                     if record["kind"] == requirements.DECISION]
+        self.assertGreaterEqual(len(decisions), 3, requirements.STATEMENTS)
+
+    def test_the_unknown_claim_declares_a_physical_test(self):
+        """An unprovable requirement has to say so, not go quiet."""
+        for result in rules.evaluate_all():
+            if result["verdict"]["result"] != "UNKNOWN":
+                continue
+            record = requirements.entry(
+                result["claim"]["requirement"]["name"])
+            self.assertTrue(record["physical_test_still_required"],
+                            result["id"])
+
+    def test_the_register_document_round_trips(self):
+        path = requirements.write()
+        with open(path, encoding="utf-8") as handle:
+            document = json.load(handle)
+        self.assertEqual(
+            {entry["name"] for entry in document["requirements"]},
+            set(requirements.REGISTER))
 
 
 if __name__ == "__main__":
