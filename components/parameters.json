@@ -177,7 +177,22 @@
           "document": "1n4148w_semtech",
           "value": 0.15
         },
+        "characteristics_temperature_c": {
+          "basis": "direct",
+          "document": "1n4148w_semtech",
+          "value": 25.0
+        },
         "forward_voltage_max_v": {
+          "0.001": {
+            "basis": "direct",
+            "document": "1n4148w_semtech",
+            "value": 0.715
+          },
+          "0.01": {
+            "basis": "direct",
+            "document": "1n4148w_semtech",
+            "value": 0.855
+          },
           "0.05": {
             "basis": "direct",
             "document": "1n4148w_semtech",

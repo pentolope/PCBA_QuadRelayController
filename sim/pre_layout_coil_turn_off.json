@@ -1,0 +1,88 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "FORCE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "an ideal source far above the node it drives, so the network below behaves as a current source"
+    },
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the coil supply at the top of its range, which is the rail the clamp sits on top of"
+    },
+    "RFORCE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the coil's inductive current at the instant of turn-off, as a series resistance sized against a voltage the drain cannot reach, so the current it delivers is never below the coil current"
+    }
+  },
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 5.25
+    },
+    {
+      "kind": "vsource_dc",
+      "name": "FORCE",
+      "nodes": [
+        "force",
+        "0"
+      ],
+      "value": 1000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RFORCE",
+      "nodes": [
+        "force",
+        "drain"
+      ],
+      "value": 10644.642857142857
+    },
+    {
+      "kind": "model_instance",
+      "model": "flyback_diode_1n4148w",
+      "name": "DFLY",
+      "nodes": [
+        "drain",
+        "rail"
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 30.0
+      },
+      "kind": "op_voltage",
+      "knowledge": {
+        "basis": {
+          "detail": "the diode model is a chord through datasheet maxima and so lies above the real part, and the forcing network delivers at least the coil current, so the drain voltage it produces bounds the real one from above",
+          "kind": "assumed"
+        },
+        "kind": "upper_bound"
+      },
+      "name": "driver_drain_voltage",
+      "node": "drain"
+    }
+  ],
+  "name": "coil_turn_off_clamp_at_the_driver_drain",
+  "operating_conditions": {
+    "temperature_c": 25.0
+  },
+  "required_coverage": {
+    "device_electrical": [
+      "datasheet-behavioral",
+      "vendor-spice",
+      "measured"
+    ]
+  }
+}

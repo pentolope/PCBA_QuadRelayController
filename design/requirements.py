@@ -238,7 +238,7 @@ REGISTER = {
         "the brief requires clamping 'below the driver's breakdown voltage', "
         "which is the FET's BVdss plus the diode's forward drop as the clamp "
         "level",
-        (ANALYTIC,)),
+        (ANALYTIC, CIRCUIT_SIM)),
 
     "within_the_declared_loop_target": _decision(
         "each flyback turn-off loop encloses no more than the declared area "

@@ -1,0 +1,76 @@
+[
+  {
+    "conditions": {
+      "temperature_c": {
+        "kind": "fixed-reference",
+        "source": "the ambient the datasheet states its forward characteristics at",
+        "units": "degC",
+        "value": 25.0
+      }
+    },
+    "derivation": {
+      "bound_argument": "V(I) = N.Vt.ln(I/IS) + I.RS is convex in ln(I) for RS >= 0, so it lies at or below its chord; the chord is drawn through the datasheet's maxima, which the real device may not exceed",
+      "bound_direction": "upper_bound",
+      "fitted_through": [
+        {
+          "current_a": 0.05,
+          "max_forward_v": 1.0
+        },
+        {
+          "current_a": 0.15,
+          "max_forward_v": 1.25
+        }
+      ],
+      "method": "two-point chord through datasheet forward-voltage maxima, fitted with zero series resistance",
+      "n_times_thermal_voltage_v": 0.227559807,
+      "other_datasheet_points_not_fitted": [
+        {
+          "current_a": 0.001,
+          "max_forward_v": 0.715
+        },
+        {
+          "current_a": 0.01,
+          "max_forward_v": 0.855
+        }
+      ],
+      "saturation_current_a": 0.0006172839506172843,
+      "valid_current_range_a": [
+        0.05,
+        0.15
+      ]
+    },
+    "evidence": [
+      {
+        "applicability": {
+          "detail": "forward conduction between 0.05 A and 0.15 A, where the fitted expression is a chord between two datasheet maxima and bounds the real device's forward voltage from above",
+          "status": "applicable"
+        },
+        "assumptions": [
+          "the real device obeys V = N.Vt.ln(I/IS) + I.RS with a non-negative series resistance, which is what makes its curve convex in ln(I) and so no higher than the chord",
+          "the datasheet's stated maxima are limits the part is not allowed to exceed, so a device passing at or below both endpoints lies at or below this chord throughout"
+        ],
+        "evidence_class": "datasheet-behavioral",
+        "omitted_contributions": [
+          "reverse recovery, which the datasheet states as a time rather than a charge and which this model does not represent",
+          "self-heating: the fit is at the single ambient the datasheet characterises and the model does not respond to junction temperature",
+          "junction capacitance, which is stated but not fitted because no scenario here asks a question it would change"
+        ],
+        "phenomenon": "device_electrical",
+        "provenance": {
+          "documents": [
+            "1n4148w_semtech"
+          ],
+          "source": "components/parameters.json"
+        }
+      }
+    ],
+    "identity": "flyback_diode_1n4148w",
+    "kind": "diode",
+    "notes": "not a vendor model and not a device model: an upper-bound envelope of one datasheet limit over one current range. The emission coefficient it carries is a fit artefact and is not a physical property of the part.",
+    "ports": [
+      "a",
+      "k"
+    ],
+    "spice": ".subckt flyback_diode_1n4148w a k\nD1 a k flyback_diode_1n4148w_junction\n.model flyback_diode_1n4148w_junction D(IS=6.172840e-04 N=8.857025 RS=0 TNOM=25)\n.ends flyback_diode_1n4148w"
+  }
+]

@@ -488,8 +488,9 @@
   "simulation": {
     "stages": {
       "pre_layout": [
-        "sim/pre_layout_rail_droop.json",
-        "sim/pre_layout_gate_hold_off.json"
+        "sim/pre_layout_coil_turn_off.json",
+        "sim/pre_layout_gate_hold_off.json",
+        "sim/pre_layout_rail_droop.json"
       ],
       "post_layout": [
         "sim/post_layout_rail_droop.json"
@@ -508,7 +509,8 @@
         }
       },
       "physical_inputs": "fab/physical_inputs.json"
-    }
+    },
+    "models": "sim/models.json"
   },
   "timing": {
     "physical_stackup": {

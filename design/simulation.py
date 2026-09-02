@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from . import layout, netlist, rules
+from . import layout, models, netlist, rules
 
 REPO_ROOT = layout.REPO_ROOT
 SIM_DIR = os.path.join(REPO_ROOT, "sim")
@@ -25,6 +25,11 @@ EXTRACTED_MODEL_ALIAS = "coil_supply_copper"
 
 #: How long the rail is watched after the coils are switched on.
 DROOP_WINDOW_S = 2.0e-3
+
+#: The open-circuit voltage of the Thevenin stand-in for the coil's inductive
+#: current at turn-off. Large compared with the clamp it drives into, so its
+#: series resistance sets the current and not the node it feeds.
+FORCING_SOURCE_V = 1000.0
 
 
 def _parameters():
@@ -158,6 +163,85 @@ def rail_droop_scenario(parameters, model_identity=None):
     return scenario
 
 
+def coil_turn_off_scenario(parameters):
+    """The drain at the instant a coil is switched off.
+
+    An inductor's current does not change in the instant its driver opens, so
+    the coil current at that instant is the steady-state current it was
+    carrying, and it has to go somewhere: through the flyback device, into the
+    coil supply. The drain therefore steps to the coil rail plus the device's
+    forward drop, and that step is the largest voltage the driver ever sees.
+
+    Two things make this an upper bound rather than an estimate. The diode
+    model is a chord through datasheet maxima and lies above the real part.
+    And the current is forced by a source whose series resistance is sized
+    against a voltage the drain provably cannot reach, so the current it
+    delivers is at least the coil current - never less - and forward voltage
+    rises with current.
+
+    What it does NOT establish is how long the decay lasts or how much energy
+    the device absorbs. Both need the coil inductance, which this relay's
+    datasheet does not state, so neither is claimed here.
+    """
+    supply = rules.Supply(parameters)
+    nfet = parameters["parts"][rules._mpn("Q1")]
+    diode = parameters["parts"][rules._mpn("D1")]["diode"]
+    breakdown_v = nfet["fet"]["vds_max_v"]["value"]
+    # The drain cannot exceed the rail plus the largest forward voltage the
+    # datasheet permits at any characterised current, so sizing the forcing
+    # resistance against that ceiling guarantees the current is not short.
+    ceiling_v = supply.coil_rail_max_v + max(
+        entry["value"] for entry in diode["forward_voltage_max_v"].values())
+    forcing_ohm = ((FORCING_SOURCE_V - ceiling_v)
+                   / supply.coil_current_max_a)
+    return {
+        "name": "coil_turn_off_clamp_at_the_driver_drain",
+        "elements": [
+            {"kind": "vsource_dc", "name": "RAIL", "nodes": ["rail", "0"],
+             "value": supply.coil_rail_max_v},
+            {"kind": "vsource_dc", "name": "FORCE", "nodes": ["force", "0"],
+             "value": FORCING_SOURCE_V},
+            {"kind": "resistor", "name": "RFORCE",
+             "nodes": ["force", "drain"], "value": forcing_ohm},
+            {"kind": "model_instance", "name": "DFLY",
+             "nodes": ["drain", "rail"], "model": models.FLYBACK_DIODE},
+        ],
+        "analyses": [{"kind": "op"}],
+        "operating_conditions": {"temperature_c":
+                                 diode["characteristics_temperature_c"][
+                                     "value"]},
+        "measurements": [
+            _measurement("driver_drain_voltage", "op_voltage", "drain",
+                         "<=", breakdown_v,
+                         knowledge={
+                             "kind": "upper_bound",
+                             "basis": {
+                                 "kind": "assumed",
+                                 "detail": "the diode model is a chord "
+                                           "through datasheet maxima and so "
+                                           "lies above the real part, and "
+                                           "the forcing network delivers at "
+                                           "least the coil current, so the "
+                                           "drain voltage it produces bounds "
+                                           "the real one from above",
+                             }}),
+        ],
+        "required_coverage": {"device_electrical": ["datasheet-behavioral",
+                                                    "vendor-spice",
+                                                    "measured"]},
+        "assumptions": _ideal({
+            "RAIL": "the coil supply at the top of its range, which is the "
+                    "rail the clamp sits on top of",
+            "FORCE": "an ideal source far above the node it drives, so the "
+                     "network below behaves as a current source",
+            "RFORCE": "the coil's inductive current at the instant of "
+                      "turn-off, as a series resistance sized against a "
+                      "voltage the drain cannot reach, so the current it "
+                      "delivers is never below the coil current",
+        }),
+    }
+
+
 def gate_hold_off_scenario(parameters):
     """The gate with nothing driving it, against a worst-case pull-up.
 
@@ -213,6 +297,8 @@ def write():
             ("pre_layout_rail_droop.json", rail_droop_scenario(parameters)),
             ("pre_layout_gate_hold_off.json",
              gate_hold_off_scenario(parameters)),
+            ("pre_layout_coil_turn_off.json",
+             coil_turn_off_scenario(parameters)),
             ("post_layout_rail_droop.json",
              rail_droop_scenario(parameters, EXTRACTED_MODEL_ALIAS))):
         written.append(_write(os.path.join(SIM_DIR, name), document))

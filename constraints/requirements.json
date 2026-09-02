@@ -180,7 +180,8 @@
       "rationale": "the brief requires clamping 'below the driver's breakdown voltage', which is the FET's BVdss plus the diode's forward drop as the clamp level",
       "statement": "the clamped turn-off voltage stays below the driver FET's drain-source breakdown",
       "verified_by": [
-        "ANALYTIC"
+        "ANALYTIC",
+        "CIRCUIT_SIM"
       ]
     },
     {

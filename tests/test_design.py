@@ -12,8 +12,8 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from design import (build, clearance, cost, evidence, floorplan,  # noqa: E402
-                    ksym, layout, netlist, place, requirements, route,
-                    rules, simulation)
+                    ksym, layout, models, netlist, place, requirements,
+                    route, rules, simulation)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -235,7 +235,10 @@ class Requirements(unittest.TestCase):
 
 class Scenarios(unittest.TestCase):
     def test_every_scenario_validates(self):
-        for name in os.listdir(os.path.join(REPO_ROOT, "sim")):
+        registry = os.path.basename(models.MODELS_PATH)
+        for name in sorted(os.listdir(os.path.join(REPO_ROOT, "sim"))):
+            if name == registry:
+                continue
             path = os.path.join(REPO_ROOT, "sim", name)
             with open(path, encoding="utf-8") as handle:
                 sim_scenario.validate_scenario(json.load(handle))
@@ -247,6 +250,8 @@ class Scenarios(unittest.TestCase):
                 simulation.rail_droop_scenario(parameters),
             "pre_layout_gate_hold_off.json":
                 simulation.gate_hold_off_scenario(parameters),
+            "pre_layout_coil_turn_off.json":
+                simulation.coil_turn_off_scenario(parameters),
             "post_layout_rail_droop.json": simulation.rail_droop_scenario(
                 parameters, simulation.EXTRACTED_MODEL_ALIAS),
         }
@@ -397,6 +402,94 @@ class RequirementRegister(unittest.TestCase):
         self.assertEqual(
             {entry["name"] for entry in document["requirements"]},
             set(requirements.REGISTER))
+
+
+class BoardInTheTree(unittest.TestCase):
+    """The routed board is a generated artifact; nothing may quietly replace
+    it.
+
+    Regenerating the board from the design source produces the placement and
+    the switched copper but not the router's output, so a stray call to the
+    layout writer leaves a file that still opens, still passes a casual look,
+    and has lost every routed net. The routing record names the digest of the
+    candidate that was accepted, so the check costs a hash.
+    """
+
+    def test_the_board_is_the_accepted_routing_candidate(self):
+        with open(os.path.join(REPO_ROOT, "generated", "routing.json"),
+                  encoding="utf-8") as handle:
+            record = json.load(handle)
+        self.assertEqual(route.digest(layout.BOARD_PATH),
+                         record["adopted_sha256"],
+                         "the board in the tree is not the routed candidate "
+                         "generated/routing.json accepted; regenerate the "
+                         "routing rather than committing this")
+
+
+class DiodeModel(unittest.TestCase):
+    """The flyback model is an upper bound, and only where it says it is."""
+
+    def test_the_fit_reproduces_both_datasheet_points(self):
+        parameters = rules.load_parameters()
+        points = rules._spec(parameters, "D1")["diode"]["forward_voltage_max_v"]
+        for current in models.FIT_CURRENTS_A:
+            self.assertAlmostEqual(
+                models.forward_voltage(parameters, current),
+                points["%g" % current]["value"], places=9)
+
+    def test_the_fit_bounds_the_datasheet_points_it_was_not_fitted_through(
+            self):
+        """Below the fitted range the chord is an extrapolation, and it is a
+        low one: the model refuses there rather than returning a number that
+        would understate the drop."""
+        parameters = rules.load_parameters()
+        points = rules._spec(parameters, "D1")["diode"]["forward_voltage_max_v"]
+        for current in sorted(float(key) for key in points):
+            if current in models.FIT_CURRENTS_A:
+                continue
+            with self.assertRaises(ValueError):
+                models.forward_voltage(parameters, current)
+
+    def test_the_bound_is_above_the_true_curve_of_a_diode_with_series_r(self):
+        """The convexity argument, checked on a device that meets both limits.
+
+        A diode with a positive series resistance passing through the same two
+        datasheet maxima must lie at or below the chord everywhere between
+        them; that is what licenses the fit to be called an upper bound.
+        """
+        import math
+        parameters = rules.load_parameters()
+        points = rules._spec(parameters, "D1")["diode"]["forward_voltage_max_v"]
+        low, high = models.FIT_CURRENTS_A
+        v_low = points["%g" % low]["value"]
+        v_high = points["%g" % high]["value"]
+        n_vt = 2.0 * models.thermal_voltage(25.0)
+        series_ohm = ((v_high - v_low) - n_vt * math.log(high / low)) \
+            / (high - low)
+        self.assertGreater(series_ohm, 0.0)
+        saturation = low * math.exp(-(v_low - low * series_ohm) / n_vt)
+        for step in range(1, 20):
+            current = low + (high - low) * step / 20.0
+            physical = n_vt * math.log(current / saturation) \
+                + current * series_ohm
+            self.assertLessEqual(physical,
+                                 models.forward_voltage(parameters, current)
+                                 + 1e-12, current)
+
+    def test_the_coil_current_is_inside_the_fitted_range(self):
+        self.assertTrue(models.check())
+
+    def test_the_registry_document_is_the_generated_one(self):
+        with open(models.MODELS_PATH, encoding="utf-8") as handle:
+            self.assertEqual(json.load(handle), json.loads(json.dumps(
+                models.records(), sort_keys=True)))
+
+    def test_the_manifest_declares_the_registry(self):
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            manifest = json.load(handle)
+        self.assertEqual(manifest["simulation"]["models"],
+                         os.path.relpath(models.MODELS_PATH, REPO_ROOT))
 
 
 if __name__ == "__main__":
