@@ -492,5 +492,72 @@ class DiodeModel(unittest.TestCase):
                          os.path.relpath(models.MODELS_PATH, REPO_ROOT))
 
 
+class ElectricalPaths(unittest.TestCase):
+    """The declared paths are the topology the netlist actually describes.
+
+    The manifest names pads directly, so a renumbered resistor or a moved MCU
+    pin would leave a declaration that is still well formed and no longer
+    describes this board. These rebuild the expected declaration from the
+    design source and compare.
+    """
+
+    def _interfaces(self):
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            return json.load(handle)["timing"]["interfaces"]
+
+    def test_every_declared_path_crosses_a_series_component(self):
+        for name, spec in self._interfaces().items():
+            steps = spec["routes"]["template"]["steps"]
+            kinds = [step["kind"] for step in steps]
+            self.assertIn("component", kinds, name)
+            self.assertEqual(kinds[0], "copper", name)
+            self.assertEqual(kinds[-1], "copper", name)
+
+    def test_the_bindings_cover_every_channel(self):
+        for name, spec in self._interfaces().items():
+            bindings = spec["routes"]["bindings"]
+            self.assertEqual(
+                sorted(binding["n"] for binding in bindings),
+                sorted(str(channel)
+                       for channel in range(1, netlist.CHANNEL_COUNT + 1)),
+                name)
+            self.assertEqual(spec["expected_path_count"],
+                             netlist.CHANNEL_COUNT, name)
+
+    def test_the_declared_pads_are_on_the_nets_they_are_declared_on(self):
+        for name, spec in self._interfaces().items():
+            template = spec["routes"]["template"]
+            for binding in spec["routes"]["bindings"]:
+                for step in template["steps"]:
+                    if step["kind"] != "copper":
+                        continue
+                    net = step["net"].format(**binding)
+                    members = set(netlist.NETS[net])
+                    for end in ("from", "to"):
+                        self.assertIn(step[end].format(**binding), members,
+                                      "%s: %s" % (name, net))
+
+    def test_the_command_pins_are_the_ones_the_netlist_assigns(self):
+        spec = self._interfaces()["relay_command"]
+        declared = [binding["pin"] for binding in spec["routes"]["bindings"]]
+        self.assertEqual(declared, list(netlist.CHANNEL_COMMAND_PINS))
+
+    def test_a_traversal_without_a_delay_model_is_not_taken_as_zero(self):
+        """The toolkit records an unmodelled traversal as a lower bound of
+        zero with the omission stated, never as a delay of zero."""
+        sys.path.insert(0, TOOLKIT_ROOT)
+        from pcbqa import component_models
+        for name, spec in self._interfaces().items():
+            for step in spec["routes"]["template"]["steps"]:
+                if step["kind"] != "component":
+                    continue
+                record = component_models.evaluate(step.get("delay_model"),
+                                                   step["reference"])
+                self.assertEqual(record["knowledge"], "lower_bound", name)
+                self.assertTrue(
+                    record["evidence"]["omitted_contributions"], name)
+
+
 if __name__ == "__main__":
     unittest.main()

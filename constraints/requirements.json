@@ -119,7 +119,8 @@
       "rationale": "the guaranteed drive level used by the gate claim is only guaranteed at the datasheet's stated test current; drawing more would make that level an extrapolation",
       "statement": "each command pin sources no more than the current its output-high level is specified at",
       "verified_by": [
-        "ANALYTIC"
+        "ANALYTIC",
+        "GEOMETRY"
       ]
     },
     {
@@ -238,7 +239,8 @@
       "rationale": "the brief asks for a stage 'fully on at the drive level the chosen MCU guarantees'; 'fully on' is only meaningful against a drive level the FET datasheet actually characterises",
       "statement": "each driver gate reaches at least the gate-source voltage the FET's on-resistance is characterised at",
       "verified_by": [
-        "ANALYTIC"
+        "ANALYTIC",
+        "GEOMETRY"
       ]
     },
     {
@@ -430,7 +432,8 @@
       "rationale": "the brief's 'total pin current within ratings' is bounded per pin as well as in aggregate, and the per-pin figure is the tighter one here because each command pin also drives an indicator",
       "statement": "no MCU pin sources more than its per-pin absolute maximum",
       "verified_by": [
-        "ANALYTIC"
+        "ANALYTIC",
+        "GEOMETRY"
       ]
     },
     {

@@ -518,6 +518,136 @@
         "GND"
       ],
       "require_complete": false
+    },
+    "interfaces": {
+      "relay_command": {
+        "note": "the driver gate is not on the net the MCU pin drives: the series resistor between them starts a new net, so a measurement of either net alone measures a fragment of the command path",
+        "expected_path_count": 4,
+        "required_component_crossings": 1,
+        "routes": {
+          "template": {
+            "id": "relay_command_ch{n}",
+            "steps": [
+              {
+                "kind": "copper",
+                "net": "RLY{n}_CMD",
+                "from": "U1.{pin}",
+                "to": "R{r}.1"
+              },
+              {
+                "kind": "component",
+                "reference": "R{r}",
+                "from_pad": "1",
+                "to_pad": "2",
+                "delay_model": {
+                  "model": "none",
+                  "justification": "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                }
+              },
+              {
+                "kind": "copper",
+                "net": "RLY{n}_G",
+                "from": "R{r}.2",
+                "to": "Q{q}.1"
+              }
+            ]
+          },
+          "bindings": [
+            {
+              "n": "1",
+              "pin": "3",
+              "r": "1",
+              "q": "1",
+              "d": "5"
+            },
+            {
+              "n": "2",
+              "pin": "4",
+              "r": "2",
+              "q": "2",
+              "d": "6"
+            },
+            {
+              "n": "3",
+              "pin": "5",
+              "r": "3",
+              "q": "3",
+              "d": "7"
+            },
+            {
+              "n": "4",
+              "pin": "6",
+              "r": "4",
+              "q": "4",
+              "d": "8"
+            }
+          ]
+        }
+      },
+      "channel_indicator": {
+        "note": "the second load on the same MCU pin; the pin-current claim assumes both branches leave the pin, and this is where that assumption meets the copper",
+        "expected_path_count": 4,
+        "required_component_crossings": 1,
+        "routes": {
+          "template": {
+            "id": "channel_indicator_ch{n}",
+            "steps": [
+              {
+                "kind": "copper",
+                "net": "RLY{n}_CMD",
+                "from": "U1.{pin}",
+                "to": "R{r}.1"
+              },
+              {
+                "kind": "component",
+                "reference": "R{r}",
+                "from_pad": "1",
+                "to_pad": "2",
+                "delay_model": {
+                  "model": "none",
+                  "justification": "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                }
+              },
+              {
+                "kind": "copper",
+                "net": "LED{n}_A",
+                "from": "R{r}.2",
+                "to": "D{d}.2"
+              }
+            ]
+          },
+          "bindings": [
+            {
+              "n": "1",
+              "pin": "3",
+              "r": "9",
+              "q": "1",
+              "d": "5"
+            },
+            {
+              "n": "2",
+              "pin": "4",
+              "r": "10",
+              "q": "2",
+              "d": "6"
+            },
+            {
+              "n": "3",
+              "pin": "5",
+              "r": "11",
+              "q": "3",
+              "d": "7"
+            },
+            {
+              "n": "4",
+              "pin": "6",
+              "r": "12",
+              "q": "4",
+              "d": "8"
+            }
+          ]
+        }
+      }
     }
   },
   "connector_gender_tokens": {

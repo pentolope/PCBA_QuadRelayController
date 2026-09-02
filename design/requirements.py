@@ -170,7 +170,7 @@ REGISTER = {
         "the brief asks for a stage 'fully on at the drive level the chosen "
         "MCU guarantees'; 'fully on' is only meaningful against a drive level "
         "the FET datasheet actually characterises",
-        (ANALYTIC,)),
+        (ANALYTIC, GEOMETRY)),
 
     "gate_below_threshold": _derived(
         "each driver gate stays below the FET's minimum gate-source threshold "
@@ -196,7 +196,7 @@ REGISTER = {
         "the brief's 'total pin current within ratings' is bounded per pin as "
         "well as in aggregate, and the per-pin figure is the tighter one here "
         "because each command pin also drives an indicator",
-        (ANALYTIC,)),
+        (ANALYTIC, GEOMETRY)),
 
     "at_or_below_the_voh_test_current": _derived(
         "each command pin sources no more than the current its output-high "
@@ -205,7 +205,7 @@ REGISTER = {
         "the guaranteed drive level used by the gate claim is only guaranteed "
         "at the datasheet's stated test current; drawing more would make that "
         "level an extrapolation",
-        (ANALYTIC,)),
+        (ANALYTIC, GEOMETRY)),
 
     "within_resistor_rating": _derived(
         "every resistor dissipates less than its package rating",
