@@ -13,12 +13,13 @@ if REPO_ROOT not in sys.path:
 
 from design import (build, clearance, cost, evidence, floorplan,  # noqa: E402
                     ksym, layout, models, netlist, place, requirements,
-                    route, rules, simulation)
+                    route, rules, simulation, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
     sys.path.insert(0, TOOLKIT_ROOT)
 
+from pcbqa import claim as pcbqa_claim  # noqa: E402
 from pcbqa.sim import scenario as sim_scenario  # noqa: E402
 
 
@@ -203,11 +204,30 @@ class Requirements(unittest.TestCase):
                     if result["verdict"]["result"] == "FAIL"]
         self.assertEqual(failures, [])
 
-    def test_the_only_unresolved_claim_is_the_one_that_needs_a_measurement(self):
+    #: Every claim this board cannot settle, named. Listed rather than
+    #: counted so that a new unresolved claim is a deliberate edit here and
+    #: not a number quietly going up.
+    UNRESOLVED = [
+        "board_temperature_rise_above_ambient",
+        "parts_whose_datasheet_states_no_ambient_rating",
+        "switched_copper_temperature_rise",
+    ]
+
+    def test_the_unresolved_claims_are_exactly_the_ones_named(self):
         unresolved = sorted(
             result["id"] for result in rules.evaluate_all()
             if result["verdict"]["result"] == "UNKNOWN")
-        self.assertEqual(unresolved, ["switched_copper_temperature_rise"])
+        self.assertEqual(unresolved, self.UNRESOLVED)
+
+    def test_every_unresolved_claim_states_what_it_omits(self):
+        """An unresolved claim that named no omission would be indexing
+        ignorance rather than recording it."""
+        for result in rules.evaluate_all():
+            if result["verdict"]["result"] != "UNKNOWN":
+                continue
+            self.assertTrue(
+                result["claim"]["evidence"]["omitted_contributions"],
+                result["id"])
 
     def test_the_committed_requirement_evidence_is_current(self):
         with open(rules.REPORT_PATH, encoding="utf-8") as handle:
@@ -557,6 +577,104 @@ class ElectricalPaths(unittest.TestCase):
                 self.assertEqual(record["knowledge"], "lower_bound", name)
                 self.assertTrue(
                     record["evidence"]["omitted_contributions"], name)
+
+
+class Thermal(unittest.TestCase):
+    """A simple thermal estimate, and the line where it stops."""
+
+    def setUp(self):
+        self.parameters = rules.load_parameters()
+
+    def test_the_declared_ambient_drives_the_thermal_checks(self):
+        """Raise the ambient and the checks that depend on it start failing.
+
+        A thermal claim that passed at every ambient would be judging nothing.
+        """
+        original = netlist.MAX_AMBIENT_C
+        try:
+            failing = {}
+            for ambient in (netlist.MAX_AMBIENT_C, 71.0):
+                netlist.MAX_AMBIENT_C = ambient
+                failing[ambient] = {
+                    result["id"] for result in rules.evaluate_all()
+                    if result["verdict"]["result"] == "FAIL"}
+            self.assertEqual(failing[original], set())
+            self.assertIn("the_resistor_rating_applies_at_the_declared_ambient",
+                          failing[71.0])
+        finally:
+            netlist.MAX_AMBIENT_C = original
+
+    def test_the_driver_limit_is_a_steady_state_figure(self):
+        """The datasheet's headline number is a ten-second rating.
+
+        Judging a continuously-on driver against it would compare a steady
+        dissipation with a transient limit.
+        """
+        fet = rules._spec(self.parameters, "Q1")["fet"]
+        derived = thermal.steady_state_power_limit_w(fet)
+        self.assertLess(derived, fet["power_max_w_70c"]["value"])
+        for result in rules.evaluate_driver_dissipation(self.parameters):
+            self.assertAlmostEqual(
+                result["claim"]["requirement"]["assertion"]["value"], derived)
+
+    def test_the_junction_to_lead_rise_is_a_lower_bound_on_the_total(self):
+        """Junction to lead is part of junction to ambient, never more."""
+        for _, spec, _, _, _ in thermal._semiconductors(self.parameters):
+            self.assertLess(spec["theta_jl_steady_max_c_per_w"]["value"],
+                            spec["theta_ja_steady_max_c_per_w"]["value"])
+
+    def test_the_coil_drive_survives_past_the_relays_own_rated_ambient(self):
+        critical_c, _, _ = thermal.coil_critical_temperature_c(self.parameters)
+        rated_c = rules._spec(self.parameters, "K1")[
+            "ambient_temperature_c"]["max"]["value"]
+        self.assertGreaterEqual(critical_c, rated_c)
+
+    def test_the_coil_conclusion_is_not_sensitive_to_the_tempco(self):
+        """The copper coefficient is asserted, not read from a frozen
+        document, so the conclusion must survive it being wrong."""
+        original = thermal.COPPER_TEMPCO_PER_C
+        rated_c = rules._spec(self.parameters, "K1")[
+            "ambient_temperature_c"]["max"]["value"]
+        try:
+            thermal.COPPER_TEMPCO_PER_C = 0.00434
+            critical_c, _, _ = thermal.coil_critical_temperature_c(
+                self.parameters)
+            self.assertGreaterEqual(critical_c, rated_c)
+        finally:
+            thermal.COPPER_TEMPCO_PER_C = original
+
+    def test_the_board_rise_is_unknown_rather_than_estimated(self):
+        """Section 24 forbids claiming a temperature the boundary conditions
+        do not support; the claim has to say so, not go quiet."""
+        for result in thermal.evaluate_board_rise(self.parameters):
+            verdict = pcbqa_claim.verdict(result["claim"])
+            self.assertEqual(verdict["result"], "UNKNOWN")
+            self.assertTrue(
+                result["claim"]["evidence"]["omitted_contributions"])
+
+    def test_no_claim_asserts_a_junction_temperature(self):
+        for result in rules.evaluate_all():
+            self.assertNotIn("junction_temperature", result["id"])
+
+    def test_the_dissipation_inventory_covers_every_dissipating_part(self):
+        inventory = thermal.dissipation(self.parameters)
+        self.assertIn("relay_coils", inventory["logic_side"])
+        self.assertIn("relay_contacts", inventory["switched_side"])
+        for group in inventory.values():
+            for name, entry in group.items():
+                self.assertGreater(entry["watts"], 0.0, name)
+                self.assertTrue(entry["detail"], name)
+                self.assertTrue(entry["documents"], name)
+
+    def test_the_coils_are_the_largest_logic_side_source(self):
+        logic = thermal.dissipation(self.parameters)["logic_side"]
+        largest = max(logic, key=lambda name: logic[name]["watts"])
+        self.assertEqual(largest, "relay_coils")
+
+    def test_the_estimate_document_labels_itself_as_simple(self):
+        document = thermal.document(self.parameters)
+        self.assertTrue(document["estimate_class"].startswith("simple"))
+        self.assertTrue(document["not_established"])
 
 
 if __name__ == "__main__":

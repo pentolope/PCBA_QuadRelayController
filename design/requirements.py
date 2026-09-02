@@ -401,6 +401,79 @@ REGISTER = {
         ("no declared count, leaving the figure to be read off the board",),
         (GEOMETRY, MANUFACTURING_CHECK)),
 
+    # --- thermal ------------------------------------------------------------
+
+    "covers_the_declared_maximum_ambient": _derived(
+        "every part's rated operating ambient covers the maximum ambient "
+        "this board declares",
+        DRIVE, "py32f003_puya",
+        "the brief conditions its dissipation requirement on maximum "
+        "ambient; once the board declares one, a part rated below it is "
+        "outside its own specification before any dissipation is considered",
+        (STATIC, DOCUMENTATION)),
+
+    "an_ambient_rating_is_established": _derived(
+        "every fitted part has a datasheet-stated operating ambient range at "
+        "all",
+        DRIVE, "hb9500m_kangnex",
+        "a part whose datasheet states no temperature range is not covered "
+        "at the declared ambient by having a rating that happens to be high "
+        "enough; it has no rating, which is a different answer from a rating "
+        "that passes, and only a vendor confirmation or a qualification test "
+        "closes it",
+        (DOCUMENTATION, PHYSICAL_TEST), physical_test=True),
+
+    "below_the_derating_knee": _derived(
+        "the declared maximum ambient is below the temperature at which the "
+        "resistors' power rating starts to fall",
+        DRIVE, "res_0603_uniroyal",
+        "the resistor dissipation claims are judged against the full package "
+        "rating, and that rating is only continuous up to the datasheet's "
+        "stated knee; above it the comparison would be against a figure the "
+        "part no longer carries",
+        (ANALYTIC, DOCUMENTATION)),
+
+    "within_the_junction_budget": _derived(
+        "the junction-to-lead rise leaves the junction inside its limit at "
+        "the declared maximum ambient",
+        DRIVE, ("ao3400a_aos", "ao3401a_aos"),
+        "junction to lead is a package property and does not depend on the "
+        "board, so it is the part of the junction rise this board can "
+        "establish; it is a lower bound on the total, which makes this a "
+        "necessary condition and not a sufficient one",
+        (ANALYTIC,), physical_test=True),
+
+    "at_or_above_the_datasheet_board": _derived(
+        "each driver has junction margin even on the thermal path the "
+        "datasheet's own test board provides",
+        DRIVE, ("ao3400a_aos", "ao3401a_aos"),
+        "a junction temperature must not be claimed from a generic "
+        "junction-to-ambient figure whose test board is not this board, so "
+        "the margin is reported as the factor by which this board's thermal "
+        "path could be worse than that test board before the junction limit "
+        "is reached",
+        (ANALYTIC,), physical_test=True),
+
+    "at_or_above_the_relay_rated_ambient": _derived(
+        "the coil temperature at which the drive margin runs out is at or "
+        "above the relay's own rated maximum ambient",
+        FUNCTION, "g2rl_omron",
+        "the relay's coil resistance and must-operate voltage are specified "
+        "at 23 degC, and pull-in is set by ampere-turns, so the voltage the "
+        "coil must see rises with its temperature; a board whose margin ran "
+        "out below the relay's rated ambient could not use the part across "
+        "the range it is sold for",
+        (ANALYTIC,), physical_test=True),
+
+    "within_the_ambient_headroom": _derived(
+        "the board's own temperature rise leaves every part inside its rated "
+        "ambient",
+        DRIVE, "g2rl_omron",
+        "the declared ambient is what the air around the board is, not what "
+        "the board is; the difference is the rise its own dissipation "
+        "produces, and no part's rating is met until that is accounted for",
+        (THERMAL_SIM, PHYSICAL_TEST), physical_test=True),
+
     "at_or_above_the_planned_build_quantity": _derived(
         "the catalogue can supply the planned build quantity of the binding "
         "part",
@@ -519,24 +592,23 @@ STATEMENTS = {
         "physical_test_still_required": False,
     },
 
-    "maximum_ambient": {
-        "kind": ASSUMPTION,
-        "statement": "the maximum ambient the dissipation claims are "
-                     "evaluated at is the reference ambient of the package "
-                     "ratings they are compared against",
-        "reason": "the brief conditions the dissipation requirement on "
-                  "'maximum ambient' without stating one, and this board "
-                  "does not yet state one either; the dissipation figures are "
-                  "therefore established but the junction temperatures they "
-                  "imply are not",
-        "revisable": True,
-        "invalidated_by": "any stated maximum ambient above the package "
-                          "ratings' reference ambient, which would derate "
-                          "every package figure these claims are judged "
-                          "against",
-        "verified_by": (THERMAL_SIM, PHYSICAL_TEST),
-        "physical_test_still_required": True,
-    },
+    "maximum_ambient": _decision(
+        "the board is designed for a maximum ambient of 40 degC",
+        "the brief conditions its dissipation requirement on 'maximum "
+        "ambient' and states no figure, so the board declares one. Every "
+        "package rating is derated to it, every part's stated ambient range "
+        "is checked against it, and the relay coil's drive margin is "
+        "evaluated from it. 40 degC sits below the resistors' derating knee "
+        "and leaves 45 degC between it and the lowest rated ambient on the "
+        "board, which is the relay's",
+        ("25 degC, rejected as a bench figure that would understate every "
+         "package derating in any real enclosure",
+         "70 degC, rejected because it is the resistors' derating knee, so "
+         "every resistor rating would start to fall and the coil drive "
+         "margin would be spent on ambient rather than on self-heating",
+         "85 degC, the relay's own ceiling, rejected because it would leave "
+         "no headroom at all for the board's own temperature rise"),
+        (ANALYTIC, THERMAL_SIM, PHYSICAL_TEST), physical_test=True),
 }
 
 

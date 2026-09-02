@@ -55,6 +55,56 @@
             "detail": "model applies to this scope",
             "status": "applicable"
           },
+          "assumptions": [
+            "the board dissipates at most 2.732 W on the logic side and a further 8.960 W in the switched contacts and terminals with every channel closed at the marked current, each term at its own worst case, so the total bounds any single operating point from above",
+            "the headroom is measured to the lowest rated ambient on the board, which is the relay's"
+          ],
+          "evidence_class": "assumed-behavioral",
+          "omitted_contributions": [
+            "the board's thermal resistance to ambient: no thermal solve over this copper and no measurement on an assembled board exists, so the rise the stated dissipation produces is not established and every junction temperature on this board is unknown above its ambient",
+            "airflow: still air is neither assumed nor established, and the orientation the board is mounted in is not specified"
+          ],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "unknown",
+        "knowledge_basis": null,
+        "quantity": {},
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 45.0
+          },
+          "name": "within_the_ambient_headroom",
+          "source": "derived_requirement:g2rl_omron"
+        },
+        "scope": {
+          "identity": "board",
+          "level": "board"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "board_temperature_rise_above_ambient",
+      "identity": "board",
+      "verdict": {
+        "basis": "unknown",
+        "exact": false,
+        "knowledge_basis": null,
+        "result": "UNKNOWN"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
           "assumptions": [],
           "evidence_class": "design-source",
           "omitted_contributions": [],
@@ -488,6 +538,58 @@
             "detail": "model applies to this scope",
             "status": "applicable"
           },
+          "assumptions": [
+            "the relay's coil resistance and its 3.5 V must-operate voltage are both specified at 23 degC, and pull-in is set by ampere-turns, so the must-operate voltage scales with coil resistance and therefore with temperature",
+            "annealed copper's resistance temperature coefficient is taken as 0.00393 per degC; the conclusion holds for any value below 0.00451 per degC, which is above every published figure for copper",
+            "this is the coil's own temperature, which is the ambient plus a self-heating rise this board does not establish"
+          ],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 94.1372834120926
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 85.0
+          },
+          "name": "at_or_above_the_relay_rated_ambient",
+          "source": "derived_requirement:g2rl_omron"
+        },
+        "scope": {
+          "identity": "relay_coils",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "coil_drive_survives_to_the_relays_rated_ambient",
+      "identity": "K1..K4",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
           "assumptions": [],
           "evidence_class": "datasheet-behavioral",
           "omitted_contributions": [],
@@ -683,7 +785,8 @@
             "status": "applicable"
           },
           "assumptions": [
-            "the on-resistance is taken at the lowest gate drive the datasheet characterises, which is below the drive this board applies"
+            "the on-resistance is taken at the lowest gate drive the datasheet characterises, which is below the drive this board applies",
+            "the limit is the steady-state dissipation the datasheet's junction limit and junction-to-ambient resistance allow at 40 degC ambient, not the datasheet's headline figure, which is quoted against a ten-second thermal resistance"
           ],
           "evidence_class": "datasheet-behavioral",
           "omitted_contributions": [],
@@ -705,7 +808,7 @@
         "requirement": {
           "assertion": {
             "op": "<=",
-            "value": 0.9
+            "value": 0.88
           },
           "name": "within_package_dissipation",
           "source": "derived_requirement:ao3400a_aos+kt0603r_kento"
@@ -1281,6 +1384,62 @@
             "detail": "model applies to this scope",
             "status": "applicable"
           },
+          "assumptions": [
+            "for the resistors the figure compared against is the top of their full-rating range rather than the top of their operating range, which the datasheet gives only as a derating figure; it is a lower bound on their operating ceiling, so this check errs towards failing"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron",
+              "kt0603r_kento",
+              "mlcc_100nf_yageo",
+              "mlcc_10uf_samsung",
+              "py32f003_puya",
+              "res_0603_uniroyal",
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "covers_the_declared_maximum_ambient",
+          "source": "derived_requirement:py32f003_puya"
+        },
+        "scope": {
+          "identity": "declared_ambient",
+          "level": "net"
+        },
+        "significance": "thermal",
+        "units": "violations"
+      },
+      "id": "every_stated_ambient_rating_covers_the_declared_maximum",
+      "identity": "declared_ambient",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
           "assumptions": [],
           "evidence_class": "datasheet-behavioral",
           "omitted_contributions": [],
@@ -1722,6 +1881,210 @@
             "status": "applicable"
           },
           "assumptions": [
+            "the factor is how many times worse this board's junction-to-ambient path could be than the datasheet's test board before the junction limit is reached at the declared ambient",
+            "the datasheet figure is measured on steady state, device on a 1 in2 FR-4 board with 2 oz copper in still air at Ta = 25 degC, which is neither this board nor this copper weight, so it is used as a reference point and not as this board's thermal resistance"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 2104.591836734694
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 1.0
+          },
+          "name": "at_or_above_the_datasheet_board",
+          "source": "derived_requirement:ao3400a_aos+ao3401a_aos"
+        },
+        "scope": {
+          "identity": "Q1..Q4",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "x"
+      },
+      "id": "junction_margin_on_the_datasheet_test_board",
+      "identity": "Q1..Q4",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the factor is how many times worse this board's junction-to-ambient path could be than the datasheet's test board before the junction limit is reached at the declared ambient",
+            "the datasheet figure is measured on steady state, device on a 1 in2 FR-4 board with 2 oz copper in still air at Ta = 25 degC, which is neither this board nor this copper weight, so it is used as a reference point and not as this board's thermal resistance"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 64.5057170024242
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 1.0
+          },
+          "name": "at_or_above_the_datasheet_board",
+          "source": "derived_requirement:ao3400a_aos+ao3401a_aos"
+        },
+        "scope": {
+          "identity": "Q5",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "x"
+      },
+      "id": "junction_margin_on_the_datasheet_test_board",
+      "identity": "Q5",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the part is conducting its coil current at the highest on-resistance the datasheet characterises",
+            "junction to lead is a package property and does not depend on the board, so this rise is established; it is a LOWER bound on the total junction rise, because the lead-to-ambient path is on top of it"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.03345066666666667
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 110.0
+          },
+          "name": "within_the_junction_budget",
+          "source": "derived_requirement:ao3400a_aos+ao3401a_aos"
+        },
+        "scope": {
+          "identity": "Q1..Q4",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "junction_to_lead_rise_within_the_budget",
+      "identity": "Q1..Q4",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the part is carrying the whole board current at its on-resistance",
+            "junction to lead is a package property and does not depend on the board, so this rise is established; it is a LOWER bound on the total junction rise, because the lead-to-ambient path is on top of it"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 1.0913761333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 110.0
+          },
+          "name": "within_the_junction_budget",
+          "source": "derived_requirement:ao3400a_aos+ao3401a_aos"
+        },
+        "scope": {
+          "identity": "Q5",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "junction_to_lead_rise_within_the_budget",
+      "identity": "Q5",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
             "every coil energised at once, each drawing the maximum its resistance tolerance allows, with the MCU rail loaded to the datasheet's own maximum current into VCC",
             "the board is fed at the low end of its declared input range",
             "the field wiring and the source feeding the input terminal together present no more than 0.5 ohm, which is a budget this board states rather than a property it can measure"
@@ -1864,6 +2227,54 @@
         "exact": true,
         "knowledge_basis": null,
         "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the datasheets frozen for HB9500M-9.5-03P-13-00A, KF128-5.08-2P-AA, KH-2.54PH180-1X4P-L11.5, KH-2.54PH180-1X5P-L11.5 state no operating temperature range, so their suitability at the declared ambient is not established here"
+          ],
+          "evidence_class": "assumed-behavioral",
+          "omitted_contributions": [
+            "the ambient rating of every part whose datasheet does not state one; a vendor confirmation or a qualification test is what would close this"
+          ],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "unknown",
+        "knowledge_basis": null,
+        "quantity": {},
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 40.0
+          },
+          "name": "an_ambient_rating_is_established",
+          "source": "derived_requirement:hb9500m_kangnex"
+        },
+        "scope": {
+          "identity": "declared_ambient",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "parts_whose_datasheet_states_no_ambient_rating",
+      "identity": "declared_ambient",
+      "verdict": {
+        "basis": "unknown",
+        "exact": false,
+        "knowledge_basis": null,
+        "result": "UNKNOWN"
       }
     },
     {
@@ -3363,6 +3774,56 @@
             "detail": "model applies to this scope",
             "status": "applicable"
           },
+          "assumptions": [
+            "the full power rating is continuous up to this temperature, so no derating is applied below it"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 40.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 70.0
+          },
+          "name": "below_the_derating_knee",
+          "source": "derived_requirement:res_0603_uniroyal"
+        },
+        "scope": {
+          "identity": "resistors",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "the_resistor_rating_applies_at_the_declared_ambient",
+      "identity": "R1..R16",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
           "assumptions": [],
           "evidence_class": "design-source",
           "omitted_contributions": [],
@@ -3404,7 +3865,7 @@
     }
   ],
   "summary": {
-    "PASS": 68,
-    "UNKNOWN": 1
+    "PASS": 75,
+    "UNKNOWN": 3
   }
 }

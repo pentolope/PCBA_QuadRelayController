@@ -407,6 +407,13 @@ def evaluate_driver_dissipation(parameters):
     on_resistance = max(entry["value"]
                         for entry in nfet["fet"]["rds_on_ohm"].values())
     power_w = supply.coil_current_max_a ** 2 * on_resistance
+    # Not the datasheet's headline figure: that one is quoted against the
+    # ten-second junction-to-ambient resistance, so it is a transient rating
+    # and this driver is on continuously. The steady-state limit at the
+    # ambient this board declares is derived from the same datasheet instead.
+    fet = nfet["fet"]
+    limit_w = ((fet["junction_max_c"]["value"] - netlist.MAX_AMBIENT_C)
+               / fet["theta_ja_steady_max_c_per_w"]["value"])
     return [{
         "id": "driver_dissipation_within_rating",
         "identity": "Q1..Q%d" % netlist.CHANNEL_COUNT,
@@ -414,12 +421,17 @@ def evaluate_driver_dissipation(parameters):
         "claim": _claim(
             "channel_driver", "W", "thermal", power_w, DIRECT,
             ("ao3400a_aos", "g2rl_omron"),
-            _requirement("within_package_dissipation", "<=",
-                         nfet["fet"]["power_max_w_70c"]["value"]),
+            _requirement("within_package_dissipation", "<=", limit_w),
             scope_level="group",
             assumptions=("the on-resistance is taken at the lowest gate "
                          "drive the datasheet characterises, which is below "
-                         "the drive this board applies",))}]
+                         "the drive this board applies",
+                         "the limit is the steady-state dissipation the "
+                         "datasheet's junction limit and junction-to-ambient "
+                         "resistance allow at %g degC ambient, not the "
+                         "datasheet's headline figure, which is quoted "
+                         "against a ten-second thermal resistance"
+                         % netlist.MAX_AMBIENT_C,))}]
 
 
 def evaluate_pin_loading(parameters):
@@ -1084,6 +1096,10 @@ def evaluate_all():
                      evaluate_assembly,
                      evaluate_switched_copper_ampacity):
         results.extend(producer(parameters))
+    # Late import: the thermal producers read this module's supply model and
+    # its claim helpers, so they cannot be imported at module scope.
+    from . import thermal
+    results.extend(thermal.evaluate_all(parameters))
     for result in results:
         result["verdict"] = claim.verdict(result["claim"])
     return results
@@ -1119,9 +1135,11 @@ def write_report():
     verdict - so a later reader can see not only that the board passed but
     what "passed" was allowed to mean.
     """
+    from . import thermal
     evaluated = evaluate_all()
     check_register_join(evaluated)
     requirements.write()
+    thermal.write()
     document = {
         "kind": "board-requirement-evidence",
         "register": os.path.relpath(requirements.REGISTER_PATH, REPO_ROOT),

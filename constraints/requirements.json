@@ -37,6 +37,21 @@
       ]
     },
     {
+      "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "an_ambient_rating_is_established",
+      "origin": "hb9500m_kangnex",
+      "physical_test_still_required": true,
+      "rationale": "a part whose datasheet states no temperature range is not covered at the declared ambient by having a rating that happens to be high enough; it has no rating, which is a different answer from a rating that passes, and only a vendor confirmation or a qualification test closes it",
+      "statement": "every fitted part has a datasheet-stated operating ambient range at all",
+      "verified_by": [
+        "DOCUMENTATION",
+        "PHYSICAL_TEST"
+      ]
+    },
+    {
       "alternatives_considered": [
         "no declared count, leaving the figure to be read off the board"
       ],
@@ -81,6 +96,23 @@
     },
     {
       "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_datasheet_board",
+      "origin": [
+        "ao3400a_aos",
+        "ao3401a_aos"
+      ],
+      "physical_test_still_required": true,
+      "rationale": "a junction temperature must not be claimed from a generic junction-to-ambient figure whose test board is not this board, so the margin is reported as the factor by which this board's thermal path could be worse than that test board before the junction limit is reached",
+      "statement": "each driver has junction margin even on the thermal path the datasheet's own test board provides",
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
         "BRIEF.md#open-choices"
       ],
       "kind": "derived_requirement",
@@ -106,6 +138,20 @@
       "verified_by": [
         "GEOMETRY",
         "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#functional-requirements"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_relay_rated_ambient",
+      "origin": "g2rl_omron",
+      "physical_test_still_required": true,
+      "rationale": "the relay's coil resistance and must-operate voltage are specified at 23 degC, and pull-in is set by ampere-turns, so the voltage the coil must see rises with its temperature; a board whose margin ran out below the relay's rated ambient could not use the part across the range it is sold for",
+      "statement": "the coil temperature at which the drive margin runs out is at or above the relay's own rated maximum ambient",
+      "verified_by": [
+        "ANALYTIC"
       ]
     },
     {
@@ -183,6 +229,36 @@
       "verified_by": [
         "ANALYTIC",
         "CIRCUIT_SIM"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_derating_knee",
+      "origin": "res_0603_uniroyal",
+      "physical_test_still_required": false,
+      "rationale": "the resistor dissipation claims are judged against the full package rating, and that rating is only continuous up to the datasheet's stated knee; above it the comparison would be against a figure the part no longer carries",
+      "statement": "the declared maximum ambient is below the temperature at which the resistors' power rating starts to fall",
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "covers_the_declared_maximum_ambient",
+      "origin": "py32f003_puya",
+      "physical_test_still_required": false,
+      "rationale": "the brief conditions its dissipation requirement on maximum ambient; once the board declares one, a part rated below it is outside its own specification before any dissipation is considered",
+      "statement": "every part's rated operating ambient covers the maximum ambient this board declares",
+      "verified_by": [
+        "STATIC",
+        "DOCUMENTATION"
       ]
     },
     {
@@ -466,6 +542,21 @@
     },
     {
       "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_ambient_headroom",
+      "origin": "g2rl_omron",
+      "physical_test_still_required": true,
+      "rationale": "the declared ambient is what the air around the board is, not what the board is; the difference is the rise its own dissipation produces, and no part's rating is met until that is accounted for",
+      "statement": "the board's own temperature rise leaves every part inside its rated ambient",
+      "verified_by": [
+        "THERMAL_SIM",
+        "PHYSICAL_TEST"
+      ]
+    },
+    {
+      "derived_from": [
         "BRIEF.md#separation-clearance-and-markings"
       ],
       "kind": "derived_requirement",
@@ -503,6 +594,23 @@
       "statement": "each flyback turn-off loop encloses no more than the declared area target",
       "verified_by": [
         "GEOMETRY"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#relay-drive-and-flyback-suppression"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_junction_budget",
+      "origin": [
+        "ao3400a_aos",
+        "ao3401a_aos"
+      ],
+      "physical_test_still_required": true,
+      "rationale": "junction to lead is a package property and does not depend on the board, so it is the part of the junction rise this board can establish; it is a lower bound on the total, which makes this a necessary condition and not a sufficient one",
+      "statement": "the junction-to-lead rise leaves the junction inside its limit at the declared maximum ambient",
+      "verified_by": [
+        "ANALYTIC"
       ]
     },
     {
@@ -577,14 +685,18 @@
       ]
     },
     {
-      "invalidated_by": "any stated maximum ambient above the package ratings' reference ambient, which would derate every package figure these claims are judged against",
-      "kind": "assumption",
+      "alternatives_considered": [
+        "25 degC, rejected as a bench figure that would understate every package derating in any real enclosure",
+        "70 degC, rejected because it is the resistors' derating knee, so every resistor rating would start to fall and the coil drive margin would be spent on ambient rather than on self-heating",
+        "85 degC, the relay's own ceiling, rejected because it would leave no headroom at all for the board's own temperature rise"
+      ],
+      "kind": "design_decision",
       "name": "maximum_ambient",
       "physical_test_still_required": true,
-      "reason": "the brief conditions the dissipation requirement on 'maximum ambient' without stating one, and this board does not yet state one either; the dissipation figures are therefore established but the junction temperatures they imply are not",
-      "revisable": true,
-      "statement": "the maximum ambient the dissipation claims are evaluated at is the reference ambient of the package ratings they are compared against",
+      "rationale": "the brief conditions its dissipation requirement on 'maximum ambient' and states no figure, so the board declares one. Every package rating is derated to it, every part's stated ambient range is checked against it, and the relay coil's drive margin is evaluated from it. 40 degC sits below the resistors' derating knee and leaves 45 degC between it and the lowest rated ambient on the board, which is the relay's",
+      "statement": "the board is designed for a maximum ambient of 40 degC",
       "verified_by": [
+        "ANALYTIC",
         "THERMAL_SIM",
         "PHYSICAL_TEST"
       ]
@@ -646,9 +758,9 @@
     }
   ],
   "summary": {
-    "assumption": 3,
-    "derived_requirement": 24,
-    "design_decision": 11,
+    "assumption": 2,
+    "derived_requirement": 31,
+    "design_decision": 12,
     "user_requirement": 6
   },
   "vocabulary": {

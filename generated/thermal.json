@@ -1,0 +1,93 @@
+{
+  "coil_drive": {
+    "copper_tempco_per_c": 0.00393,
+    "critical_coil_temperature_c": 94.1372834120926,
+    "must_operate_v_at_23_c": 3.5
+  },
+  "context": {
+    "generated_by": "design/thermal.py"
+  },
+  "declared_max_ambient_c": 40.0,
+  "dissipation_w": {
+    "logic_side": {
+      "channel_drivers": {
+        "detail": "4 drivers conducting their coil current",
+        "documents": [
+          "ao3400a_aos"
+        ],
+        "watts": 0.0016725333333333335
+      },
+      "gate_and_indicator_networks": {
+        "detail": "every resistor except the rail series element",
+        "documents": [
+          "res_0603_uniroyal"
+        ],
+        "watts": 0.1428416576086957
+      },
+      "indicators": {
+        "detail": "all 5 indicators lit",
+        "documents": [
+          "kt0603r_kento"
+        ],
+        "watts": 0.041999999999999996
+      },
+      "mcu": {
+        "detail": "the datasheet's own maximum current into VCC, which is far above the part's typical consumption",
+        "documents": [
+          "py32f003_puya"
+        ],
+        "watts": 0.525
+      },
+      "rail_series_resistor": {
+        "detail": "the element between the coil supply and the logic rail, carrying the whole MCU supply current",
+        "documents": [
+          "res_0603_uniroyal"
+        ],
+        "watts": 0.047000000000000014
+      },
+      "relay_coils": {
+        "detail": "4 coils at the top of the coil rail and the bottom of the coil's resistance tolerance",
+        "documents": [
+          "g2rl_omron"
+        ],
+        "watts": 1.9600000000000002
+      },
+      "reverse_polarity_device": {
+        "detail": "the whole board current through the input device",
+        "documents": [
+          "ao3401a_aos"
+        ],
+        "watts": 0.013642201666666668
+      }
+    },
+    "switched_side": {
+      "relay_contacts": {
+        "detail": "4 closed contacts each carrying the marked 4 A at the datasheet's MAXIMUM contact resistance, which is an initial low-current measurement limit; the relay's own 16 A carry rating could not be met if the resistance at rated current were really that high, so this bounds the dissipation from well above",
+        "documents": [
+          "g2rl_omron"
+        ],
+        "watts": 6.4
+      },
+      "switched_terminals": {
+        "detail": "two contacts per channel carrying the marked 4 A",
+        "documents": [
+          "hb9500m_kangnex"
+        ],
+        "watts": 2.56
+      }
+    }
+  },
+  "estimate_class": "simple: a dissipation inventory and package-limit derating at a declared ambient. No thermal solve, no copper spreading model, no airflow assumption, and therefore no board temperature and no junction temperature.",
+  "kind": "thermal-estimate",
+  "not_established": [
+    "board temperature rise above ambient",
+    "junction temperature of any part",
+    "airflow and mounting orientation",
+    "the operating ambient range of the terminal blocks and headers, whose datasheets state none"
+  ],
+  "totals_w": {
+    "logic_side": 2.732156392608696,
+    "switched_side": 8.96
+  },
+  "worst_case": "every term is that part's own worst case, so the total bounds any single operating point from above rather than describing one"
+}

@@ -286,6 +286,13 @@ FLYBACK_LOOP_AREA_TARGET_MM2 = 60.0
 #: this is a finding, not a footnote.
 PLANNED_BUILD_QUANTITY = 50
 
+#: The maximum ambient the board is designed to operate at. The brief
+#: conditions its dissipation requirement on "maximum ambient" and states no
+#: figure, so the board declares one: every package rating is derated to it,
+#: every part's stated ambient range is checked against it, and the coil drive
+#: margin is evaluated from it.
+MAX_AMBIENT_C = 40.0
+
 #: The BOR option-byte setting the board's rail claim is evaluated against.
 #: VBOR8 is the highest threshold the part offers, so a rail that stays above
 #: it stays above every other selectable setting.

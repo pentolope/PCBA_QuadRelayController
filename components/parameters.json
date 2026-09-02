@@ -5,6 +5,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -33,6 +39,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -61,6 +73,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -89,6 +107,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -117,6 +141,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -145,6 +175,12 @@
       "digital_outputs": {},
       "ground_pins": [],
       "resistor": {
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "the rating is continuous from -55 degC to this temperature; above it the load is derated along a curve the datasheet gives only as a figure",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
         "power_max_w": {
           "basis": "direct",
           "document": "res_0603_uniroyal",
@@ -204,6 +240,11 @@
             "value": 1.25
           }
         },
+        "junction_max_c": {
+          "basis": "direct",
+          "document": "1n4148w_semtech",
+          "value": 150.0
+        },
         "peak_reverse_voltage_v": {
           "basis": "direct",
           "document": "1n4148w_semtech",
@@ -228,6 +269,11 @@
           "basis": "direct",
           "document": "1n4148w_semtech",
           "value": 1.0
+        },
+        "theta_ja_c_per_w": {
+          "basis": "direct",
+          "document": "1n4148w_semtech",
+          "value": 312.0
         }
       },
       "ground_pins": [],
@@ -271,8 +317,14 @@
           "document": "ao3400a_aos",
           "value": 6.3e-10
         },
+        "junction_max_c": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 150.0
+        },
         "power_max_w_70c": {
           "basis": "direct",
+          "conditions": "based on Tj(max) = 150 degC using the t <= 10 s junction-to-ambient resistance, so it is a transient rating and not a steady-state one",
           "document": "ao3400a_aos",
           "value": 0.9
         },
@@ -292,6 +344,18 @@
           "basis": "direct",
           "document": "ao3400a_aos",
           "value": 125.0
+        },
+        "theta_ja_steady_max_c_per_w": {
+          "basis": "direct",
+          "conditions": "steady state, device on a 1 in2 FR-4 board with 2 oz copper in still air at Ta = 25 degC; this board is neither that board nor that copper weight",
+          "document": "ao3400a_aos",
+          "value": 125.0
+        },
+        "theta_jl_steady_max_c_per_w": {
+          "basis": "direct",
+          "conditions": "steady state, junction to lead; a package property, so it does not depend on the board the part is fitted to",
+          "document": "ao3400a_aos",
+          "value": 80.0
         },
         "vds_max_v": {
           "basis": "direct",
@@ -351,8 +415,14 @@
           "document": "ao3401a_aos",
           "value": 3.2
         },
+        "junction_max_c": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": 150.0
+        },
         "power_max_w_70c": {
           "basis": "direct",
+          "conditions": "based on Tj(max) = 150 degC using the t <= 10 s junction-to-ambient resistance, so it is a transient rating and not a steady-state one",
           "document": "ao3401a_aos",
           "value": 0.9
         },
@@ -372,6 +442,18 @@
           "basis": "direct",
           "document": "ao3401a_aos",
           "value": 125.0
+        },
+        "theta_ja_steady_max_c_per_w": {
+          "basis": "direct",
+          "conditions": "steady state, device on a 1 in2 FR-4 board with 2 oz copper in still air at Ta = 25 degC; this board is neither that board nor that copper weight",
+          "document": "ao3401a_aos",
+          "value": 125.0
+        },
+        "theta_jl_steady_max_c_per_w": {
+          "basis": "direct",
+          "conditions": "steady state, junction to lead; a package property, so it does not depend on the board the part is fitted to",
+          "document": "ao3401a_aos",
+          "value": 80.0
         },
         "vds_max_v": {
           "basis": "direct",
@@ -414,6 +496,12 @@
     },
     "CC0603KRX7R9BB104": {
       "capacitor": {
+        "ambient_max_c": {
+          "basis": "derived",
+          "derivation": "the EIA class 2 dielectric code X7R defines the upper temperature of the range the capacitance tolerance is specified over",
+          "document": "mlcc_100nf_yageo",
+          "value": 125.0
+        },
         "dielectric": {
           "basis": "direct",
           "document": "mlcc_100nf_yageo",
@@ -442,6 +530,12 @@
     },
     "CL21A106KAYNNNE": {
       "capacitor": {
+        "ambient_max_c": {
+          "basis": "derived",
+          "derivation": "the EIA class 2 dielectric code X5R defines the upper temperature of the range the capacitance tolerance is specified over",
+          "document": "mlcc_10uf_samsung",
+          "value": 85.0
+        },
         "dielectric": {
           "basis": "direct",
           "document": "mlcc_10uf_samsung",
@@ -809,6 +903,11 @@
         }
       },
       "led": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 85.0
+        },
         "forward_current_max_a": {
           "basis": "direct",
           "document": "kt0603r_kento",
@@ -846,6 +945,11 @@
       "supply_pins": []
     },
     "PY32F003F18P6TU": {
+      "ambient_max_c": {
+        "basis": "direct",
+        "document": "py32f003_puya",
+        "value": 85.0
+      },
       "digital_inputs": {
         "10": {
           "input_capacitance_f": {
@@ -1137,6 +1241,11 @@
       ]
     },
     "TPD1E10B06DPYR": {
+      "ambient_max_c": {
+        "basis": "direct",
+        "document": "tpd1e10b06_ti",
+        "value": 125.0
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "ground_pins": [],
@@ -1174,7 +1283,12 @@
         "document": "tpd1e10b06_ti",
         "value": 1e-07
       },
-      "supply_pins": []
+      "supply_pins": [],
+      "theta_ja_max_c_per_w": {
+        "basis": "direct",
+        "document": "tpd1e10b06_ti",
+        "value": 730.8
+      }
     }
   },
   "schema_version": 2
