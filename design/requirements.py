@@ -550,6 +550,28 @@ STATEMENTS = {
          "certified creepage is 6.4 mm rather than 8 mm",),
         (DOCUMENTATION,)),
 
+    "routing_angle_style": _decision(
+        "the board declares no routing angle style",
+        "the routing is 45-degree work in practice - 252 of its 270 corners "
+        "turn by a multiple of 45 degrees - but it is not uniformly so, and "
+        "declaring a style the copper does not keep would be a declaration "
+        "that fails rather than a property that holds. Of the 18 corners "
+        "that are off the grid, 17 have an arm shorter than 0.15 mm and are "
+        "the stubs the router lays to reach a pad centre; one is a genuine "
+        "off-grid corner, a 46.2 degree turn on the +5V net on the back "
+        "layer with a 3.3 mm arm. Nothing in the brief, in IEC 60664-1 or in "
+        "the fabricator's stated capabilities requires an angle style, so "
+        "the census is recorded and no requirement is invented to judge it",
+        ("declaring 45-degree style, which the copper would fail on one "
+         "corner and seventeen pad-entry stubs",
+         "declaring 45-degree style with a tolerance wide enough to swallow "
+         "a 33.7 degree turn, which would be a check that judges nothing",
+         "re-routing to put every corner on the grid, which needs the router "
+         "to insert doglegs it does not insert today and would discard an "
+         "accepted, verified routing candidate for a workmanship preference "
+         "no requirement asks for"),
+        (GEOMETRY,)),
+
     "terminal_function_order": _decision(
         "each switched terminal presents its contacts in the order "
         "normally-open, common, normally-closed",

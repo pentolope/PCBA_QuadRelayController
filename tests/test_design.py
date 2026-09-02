@@ -677,5 +677,38 @@ class Thermal(unittest.TestCase):
         self.assertTrue(document["not_established"])
 
 
+class RoutingAngles(unittest.TestCase):
+    """The board declares no angle style, so the census stands in for one.
+
+    A decision recorded in prose drifts away from the copper the moment the
+    routing changes. These read the numbers back off the board.
+    """
+
+    def setUp(self):
+        self.census = route.angle_census()
+
+    def test_the_recorded_census_matches_the_board(self):
+        record = requirements.STATEMENTS["routing_angle_style"]
+        for figure in (self.census["corners"],
+                       self.census["on_multiples_of_45_deg"],
+                       self.census["off_style"]):
+            self.assertIn(str(figure), record["rationale"],
+                          "the routing angle census no longer matches the "
+                          "figures the decision records")
+
+    def test_every_off_style_corner_but_one_is_pad_entry_geometry(self):
+        beyond = self.census["off_style_beyond_pad_entry"]
+        self.assertEqual(len(beyond), 1, beyond)
+        self.assertEqual(beyond[0]["net"], "+5V")
+
+    def test_the_manifest_declares_no_angle_style(self):
+        """Declaring one the copper does not keep would be worse than
+        declaring none."""
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            manifest = json.load(handle)
+        self.assertNotIn("permitted_turn_degrees", manifest.get("routing", {}))
+
+
 if __name__ == "__main__":
     unittest.main()

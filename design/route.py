@@ -250,6 +250,68 @@ def run():
     return layout.BOARD_PATH, PROVENANCE_PATH
 
 
+#: A track arm shorter than this is pad or via entry geometry rather than a
+#: routing decision: it is the stub the router lays to reach a pad centre
+#: from the direction it approached in. Set from the narrowest pad on the
+#: board, because a stub cannot be longer than the pad it enters and still be
+#: entry geometry.
+PAD_ENTRY_ARM_MM = 0.15
+
+
+def angle_census(board_path=None):
+    """Every corner in the routing, grouped by how far off 45-degree it turns.
+
+    This board declares no angle style, so nothing judges this. It is measured
+    anyway: "the board makes no such declaration" and "nobody looked" are
+    different statements, and only the first is worth recording.
+    """
+    board = pcbnew.LoadBoard(board_path or layout.BOARD_PATH)
+    segments = [track for track in board.GetTracks()
+                if isinstance(track, pcbnew.PCB_TRACK)
+                and not isinstance(track, pcbnew.PCB_VIA)]
+    joins = {}
+    for track in segments:
+        for point in _endpoints(track):
+            joins.setdefault((track.GetLayer(), point.x, point.y),
+                             []).append(track)
+    on_style, off_style = 0, []
+    for (layer, px, py), group in joins.items():
+        if len(group) != 2:
+            continue
+        arms = []
+        for track in group:
+            start, end = track.GetStart(), track.GetEnd()
+            other = end if (start.x, start.y) == (px, py) else start
+            arms.append((other.x - px, other.y - py))
+        (ax, ay), (bx, by) = arms
+        na, nb = math.hypot(ax, ay), math.hypot(bx, by)
+        if not na or not nb:
+            continue
+        cosine = max(-1.0, min(1.0, (ax * bx + ay * by) / (na * nb)))
+        turn = 180.0 - math.degrees(math.acos(cosine))
+        if min(abs(turn - permitted)
+               for permitted in (0.0, 45.0, 90.0, 135.0, 180.0)) <= 1e-6:
+            on_style += 1
+            continue
+        off_style.append({
+            "net": group[0].GetNetname(),
+            "layer": board.GetLayerName(layer),
+            "turn_deg": round(turn, 3),
+            "shortest_arm_mm": round(pcbnew.ToMM(min(na, nb)), 4),
+        })
+    beyond = [entry for entry in off_style
+              if entry["shortest_arm_mm"] > PAD_ENTRY_ARM_MM]
+    return {
+        "corners": on_style + len(off_style),
+        "on_multiples_of_45_deg": on_style,
+        "off_style": len(off_style),
+        "off_style_beyond_pad_entry": sorted(
+            beyond, key=lambda entry: -entry["shortest_arm_mm"]),
+        "pad_entry_arm_mm": PAD_ENTRY_ARM_MM,
+        "detail": sorted(off_style, key=lambda entry: -entry["turn_deg"]),
+    }
+
+
 def _endpoints(track):
     return (track.GetStart(), track.GetEnd())
 
