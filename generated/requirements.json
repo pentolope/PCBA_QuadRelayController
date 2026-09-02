@@ -3073,6 +3073,54 @@
             "status": "applicable"
           },
           "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 250.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 250.0
+          },
+          "name": "within_the_certified_insulation_voltage",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "K1",
+          "level": "group"
+        },
+        "significance": "isolation",
+        "units": "V"
+      },
+      "id": "the_barrier_component_is_certified_reinforced_at_the_rating",
+      "identity": "K1",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
           "evidence_class": "design-source",
           "omitted_contributions": [],
           "phenomenon": "device_electrical",
@@ -3104,6 +3152,202 @@
       },
       "id": "the_board_carries_its_terminal_and_rating_markings",
       "identity": "silkscreen",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the board is designed to overvoltage category II; this asks the further question of whether it would also satisfy the category III the relay is certified for",
+            "pollution degree 3, which the relay is also certified for, is NOT evaluated: the frozen table subset carries only the degree 1 and 2 columns"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "clearance_creepage_ti_slup421"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 9.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 5.5
+          },
+          "name": "reinforced_clearance_at_category_III",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "mm"
+      },
+      "id": "the_boundary_also_meets_the_stricter_overvoltage_category",
+      "identity": "isolation_boundary",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 8.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 8.0
+          },
+          "name": "at_or_above_the_component_creepage",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "mm"
+      },
+      "id": "the_boundary_is_no_narrower_than_the_barrier_component",
+      "identity": "isolation_boundary",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "stock is what the catalogue snapshot in components/jlcpcb.json recorded when it was taken; it is a point-in-time reading, not a reservation",
+            "the binding part is C1524515 (G2RL-1-E DC5)"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 83.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 50.0
+          },
+          "name": "at_or_above_the_planned_build_quantity",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "supply",
+          "level": "board"
+        },
+        "significance": "supply_chain",
+        "units": "boards"
+      },
+      "id": "the_catalogue_can_supply_the_planned_build",
+      "identity": "C1524515",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "assumptions_agree_with_the_certification",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "violations"
+      },
+      "id": "the_derivation_matches_the_certified_material_group",
+      "identity": "isolation_boundary",
       "verdict": {
         "basis": "exact",
         "exact": true,
@@ -3159,7 +3403,7 @@
     }
   ],
   "summary": {
-    "PASS": 63,
+    "PASS": 68,
     "UNKNOWN": 1
   }
 }

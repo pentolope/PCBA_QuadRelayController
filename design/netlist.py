@@ -282,6 +282,10 @@ INPUT_PATH_BUDGET_OHM = 0.5
 #: its coil pins, which is comfortably inside this.
 FLYBACK_LOOP_AREA_TARGET_MM2 = 60.0
 
+#: The build this board is costed and supplied for. A stock reading below
+#: this is a finding, not a footnote.
+PLANNED_BUILD_QUANTITY = 50
+
 #: The BOR option-byte setting the board's rail claim is evaluated against.
 #: VBOR8 is the highest threshold the part offers, so a rail that stays above
 #: it stays above every other selectable setting.

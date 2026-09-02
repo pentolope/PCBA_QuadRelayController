@@ -888,6 +888,106 @@ def evaluate_markings(parameters):
     }]
 
 
+def evaluate_insulation_classification(parameters):
+    """The barrier component's own certification, against this board's design.
+
+    The relay is the one part that bridges the boundary, so its certified
+    classification is the strongest evidence available for the assumptions the
+    derivation rests on - and the ceiling on what the board can claim.
+    """
+    relay = _spec(parameters, "K1")["isolation"]
+    document = relay["material_group"]["document"]
+    results = [
+        {"id": "the_barrier_component_is_certified_reinforced_at_the_rating",
+         "identity": "K1",
+         "measured": relay["rated_insulation_voltage_v"]["value"],
+         "claim": _claim(
+             "K1", "V", "isolation",
+             netlist.SWITCHED_RATING["voltage_rms_v"], DIRECT, (document,),
+             _requirement("within_the_certified_insulation_voltage", "<=",
+                          relay["rated_insulation_voltage_v"]["value"]),
+             scope_level="group")},
+        {"id": "the_boundary_is_no_narrower_than_the_barrier_component",
+         "identity": "isolation_boundary",
+         "measured_mm": clearance.BOUNDARY_MM,
+         "claim": _claim(
+             "isolation_boundary", "mm", "isolation", clearance.BOUNDARY_MM,
+             DIRECT, (document,),
+             _requirement("at_or_above_the_component_creepage", ">=",
+                          relay["creepage_mm"]["value"]))},
+    ]
+    mismatch = []
+    if not relay["material_group"]["value"].startswith(
+            clearance.MATERIAL_GROUP):
+        mismatch.append({"assumed": clearance.MATERIAL_GROUP,
+                         "certified": relay["material_group"]["value"],
+                         "issue": "the derivation's material group is not the "
+                                  "one the barrier component is certified "
+                                  "for"})
+    if relay["insulation_type_coil_to_contact"]["value"] != "reinforced":
+        mismatch.append({"issue": "the barrier component is not certified "
+                                  "for reinforced insulation",
+                         "certified": relay[
+                             "insulation_type_coil_to_contact"]["value"]})
+    results.append({
+        "id": "the_derivation_matches_the_certified_material_group",
+        "identity": "isolation_boundary",
+        "violations": mismatch,
+        "claim": _structural("isolation_boundary", "isolation", mismatch,
+                             "assumptions_agree_with_the_certification",
+                             documents=(document,), basis=DIRECT),
+    })
+    results.append({
+        "id": "the_boundary_also_meets_the_stricter_overvoltage_category",
+        "identity": "isolation_boundary",
+        "measured_mm": layout.LOGIC_MIN_Y_MM - layout.SWITCHED_MAX_Y_MM,
+        "claim": _claim(
+            "isolation_boundary", "mm", "isolation",
+            layout.LOGIC_MIN_Y_MM - layout.SWITCHED_MAX_Y_MM, DIRECT,
+            (clearance.EVIDENCE_DOCUMENT,),
+            _requirement("reinforced_clearance_at_category_%s"
+                         % clearance.RELAY_CERTIFIED_OVERVOLTAGE_CATEGORY,
+                         ">=", clearance.reinforced_clearance_mm(
+                             category=clearance
+                             .RELAY_CERTIFIED_OVERVOLTAGE_CATEGORY)),
+            assumptions=(
+                "the board is designed to overvoltage category %s; this asks "
+                "the further question of whether it would also satisfy the "
+                "category %s the relay is certified for"
+                % (clearance.OVERVOLTAGE_CATEGORY,
+                   clearance.RELAY_CERTIFIED_OVERVOLTAGE_CATEGORY),
+                "pollution degree 3, which the relay is also certified for, "
+                "is NOT evaluated: the frozen table subset carries only the "
+                "degree 1 and 2 columns",)),
+    })
+    return results
+
+
+def evaluate_supply_availability(parameters):
+    """Whether the catalogue can actually supply the build this board plans."""
+    from . import cost
+    limits = cost.stock_limited_boards()
+    catalog = cost.load_catalog()["parts"]
+    worst = min(limits, key=limits.get)
+    return [{
+        "id": "the_catalogue_can_supply_the_planned_build",
+        "identity": worst,
+        "measured": limits[worst],
+        "claim": _claim(
+            "supply", "boards", "supply_chain", float(limits[worst]),
+            DIRECT, (),
+            _requirement("at_or_above_the_planned_build_quantity", ">=",
+                         float(netlist.PLANNED_BUILD_QUANTITY)),
+            scope_level="board",
+            assumptions=(
+                "stock is what the catalogue snapshot in "
+                "components/jlcpcb.json recorded when it was taken; it is a "
+                "point-in-time reading, not a reservation",
+                "the binding part is %s (%s)"
+                % (worst, catalog[worst]["mpn"]),)),
+    }]
+
+
 def evaluate_probe_access(parameters):
     pin_map = _pin_map()
     probed = set()
@@ -973,6 +1073,8 @@ def evaluate_all():
                      evaluate_resistor_dissipation, evaluate_esd_coverage,
                      evaluate_switched_ratings, evaluate_absolute_maximum,
                      evaluate_boundary, evaluate_flyback_loop,
+                     evaluate_insulation_classification,
+                     evaluate_supply_availability,
                      evaluate_markings, evaluate_probe_access,
                      evaluate_assembly,
                      evaluate_switched_copper_ampacity):

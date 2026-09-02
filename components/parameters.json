@@ -583,6 +583,31 @@
           "basis": "direct",
           "document": "g2rl_omron",
           "value": 10.0
+        },
+        "insulation_type_coil_to_contact": {
+          "basis": "direct",
+          "document": "g2rl_omron",
+          "value": "reinforced"
+        },
+        "material_group": {
+          "basis": "direct",
+          "document": "g2rl_omron",
+          "value": "IIIa"
+        },
+        "overvoltage_category": {
+          "basis": "direct",
+          "document": "g2rl_omron",
+          "value": "III"
+        },
+        "pollution_degree": {
+          "basis": "direct",
+          "document": "g2rl_omron",
+          "value": 3
+        },
+        "rated_insulation_voltage_v": {
+          "basis": "direct",
+          "document": "g2rl_omron",
+          "value": 250.0
         }
       },
       "land_pattern": {

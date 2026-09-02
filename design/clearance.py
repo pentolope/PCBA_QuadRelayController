@@ -44,9 +44,20 @@ CLEARANCE_PD2_MM = {500: 0.2, 1500: 0.5, 2500: 1.5, 4000: 3.0, 6000: 5.5}
 
 #: Conditions the derivation is made under. Each is an assumption about how
 #: the board is installed, not something the board can establish by itself.
+#:
+#: The material group is the one exception: the relay that forms the barrier
+#: is certified for group IIIa, and IIIa is inside the group III column these
+#: tables carry, so the assumption is corroborated rather than merely stated.
+#: `rules.py` checks that against the relay's own record.
 POLLUTION_DEGREE = 2
 MATERIAL_GROUP = "III"
 OVERVOLTAGE_CATEGORY = "II"
+
+#: The stricter installation the relay itself is certified for. The board is
+#: not designed to it - pollution degree 3 cannot even be evaluated from the
+#: frozen table subset, which carries only the degree 1 and 2 columns - but
+#: the clearance it would demand is computed so the margin is on the record.
+RELAY_CERTIFIED_OVERVOLTAGE_CATEGORY = "III"
 
 WORKING_VOLTAGE_V = netlist.SWITCHED_RATING["voltage_rms_v"]
 
@@ -86,14 +97,15 @@ def basic_clearance_mm(voltage_v=None):
     return CLEARANCE_PD2_MM[impulse]
 
 
-def reinforced_clearance_mm(voltage_v=None):
+def reinforced_clearance_mm(voltage_v=None, category=None):
     """One step up the impulse column, per IEC 60664-1 section 5.1.6."""
     voltage = WORKING_VOLTAGE_V if voltage_v is None else voltage_v
+    category = category or OVERVOLTAGE_CATEGORY
     row = _impulse_row(voltage)
     order = ["I", "II", "III", "IV"]
-    index = order.index(OVERVOLTAGE_CATEGORY)
+    index = order.index(category)
     if index + 1 >= len(order):
-        raise ValueError("no category above " + OVERVOLTAGE_CATEGORY)
+        raise ValueError("no category above " + category)
     return CLEARANCE_PD2_MM[row[order[index + 1]]]
 
 
@@ -132,6 +144,9 @@ def requirement_record():
         "basic_clearance_mm": basic_clearance_mm(),
         "reinforced_clearance_mm": reinforced_clearance_mm(),
         "relay_stated_isolation_mm": RELAY_STATED_ISOLATION_MM,
+        "reinforced_clearance_at_relay_category_mm": reinforced_clearance_mm(
+            category=RELAY_CERTIFIED_OVERVOLTAGE_CATEGORY),
+        "pollution_degree_3_evaluable": False,
         "within_channel_design_mm": WITHIN_CHANNEL_MM,
         "boundary_design_mm": BOUNDARY_MM,
     }
