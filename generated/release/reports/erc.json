@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-09-02T01:44:34",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/f5828241-ef95-534d-a7d1-563fd0666747",
+      "violations": []
+    }
+  ],
+  "source": "quad_relay_controller.kicad_sch",
+  "source_sha256": "3a133402bf3c1fe3308fbb63c17bbc39c55cac31150599160ad99e6624dcbdbe",
+  "source_closure_sha256": "0acc8a508b92a95cf22363c201ac8ecd2a73ccabe03519da583ffd6ff357d94d"
+}

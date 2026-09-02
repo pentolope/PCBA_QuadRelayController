@@ -1,0 +1,274 @@
+{
+  "blocks": [
+    {
+      "exclusive": true,
+      "name": "switched_terminals",
+      "note": "the only parts allowed below the boundary are the terminals the switched contacts leave through",
+      "refs": [
+        "J2",
+        "J3",
+        "J4",
+        "J5"
+      ],
+      "side": "F",
+      "zone": [
+        30.0,
+        100.0,
+        170.0,
+        118.0
+      ]
+    },
+    {
+      "name": "relays",
+      "note": "each relay body spans the boundary; its coil pins are on the logic side and its contact pins on the switched side",
+      "refs": [
+        "K1",
+        "K2",
+        "K3",
+        "K4"
+      ],
+      "side": "F",
+      "zone": [
+        30.0,
+        68.0,
+        170.0,
+        100.0
+      ]
+    },
+    {
+      "name": "driver_ch1",
+      "note": "channel 1 driver, flyback and indicator stay above their own relay",
+      "refs": [
+        "D1",
+        "Q1",
+        "R1",
+        "R5",
+        "R9",
+        "D5",
+        "TP5",
+        "TP9"
+      ],
+      "side": "F",
+      "zone": [
+        32.0,
+        53.5,
+        66.0,
+        68.0
+      ]
+    },
+    {
+      "name": "driver_ch2",
+      "note": "channel 2 driver, flyback and indicator stay above their own relay",
+      "refs": [
+        "D2",
+        "Q2",
+        "R2",
+        "R6",
+        "R10",
+        "D6",
+        "TP6",
+        "TP10"
+      ],
+      "side": "F",
+      "zone": [
+        66.0,
+        53.5,
+        100.0,
+        68.0
+      ]
+    },
+    {
+      "name": "driver_ch3",
+      "note": "channel 3 driver, flyback and indicator stay above their own relay",
+      "refs": [
+        "D3",
+        "Q3",
+        "R3",
+        "R7",
+        "R11",
+        "D7",
+        "TP7",
+        "TP11"
+      ],
+      "side": "F",
+      "zone": [
+        100.0,
+        53.5,
+        134.0,
+        68.0
+      ]
+    },
+    {
+      "name": "driver_ch4",
+      "note": "channel 4 driver, flyback and indicator stay above their own relay",
+      "refs": [
+        "D4",
+        "Q4",
+        "R4",
+        "R8",
+        "R12",
+        "D8",
+        "TP8",
+        "TP12"
+      ],
+      "side": "F",
+      "zone": [
+        134.0,
+        53.5,
+        168.0,
+        68.0
+      ]
+    },
+    {
+      "name": "shared_logic",
+      "note": "supply input, protection, MCU and the two host-facing headers",
+      "refs": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D9",
+        "J1",
+        "J6",
+        "J7",
+        "Q5",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "TP1",
+        "TP2",
+        "TP3",
+        "TP4",
+        "U1"
+      ],
+      "side": "F",
+      "zone": [
+        30.0,
+        30.0,
+        170.0,
+        51.5
+      ]
+    }
+  ],
+  "board": "quad_relay_controller.kicad_pcb",
+  "context": {
+    "frame": "page millimetres; the board's lower-left corner is at page (30, 118)",
+    "generated_by": "design/floorplan.py"
+  },
+  "defaults": {
+    "zone_tolerance_mm": 0.5
+  },
+  "edge_connectors": [
+    {
+      "along_edge_band": {
+        "from": 0.0929,
+        "to": 0.1786
+      },
+      "edge": "south",
+      "note": "field wiring leaves the switched edge, away from the logic side",
+      "ref": "J2"
+    },
+    {
+      "along_edge_band": {
+        "from": 0.3357,
+        "to": 0.4214
+      },
+      "edge": "south",
+      "note": "field wiring leaves the switched edge, away from the logic side",
+      "ref": "J3"
+    },
+    {
+      "along_edge_band": {
+        "from": 0.5786,
+        "to": 0.6643
+      },
+      "edge": "south",
+      "note": "field wiring leaves the switched edge, away from the logic side",
+      "ref": "J4"
+    },
+    {
+      "along_edge_band": {
+        "from": 0.8214,
+        "to": 0.9071
+      },
+      "edge": "south",
+      "note": "field wiring leaves the switched edge, away from the logic side",
+      "ref": "J5"
+    },
+    {
+      "edge": "north",
+      "note": "logic-side connector, reachable without crossing the boundary",
+      "ref": "J1"
+    },
+    {
+      "edge": "north",
+      "note": "logic-side connector, reachable without crossing the boundary",
+      "ref": "J6"
+    },
+    {
+      "edge": "north",
+      "note": "logic-side connector, reachable without crossing the boundary",
+      "ref": "J7"
+    }
+  ],
+  "keepouts": [
+    {
+      "allow": [
+        "K1",
+        "K2",
+        "K3",
+        "K4"
+      ],
+      "context": {
+        "derived_from": "IEC 60664-1 reinforced creepage at 250 V rms, pollution degree 2, material group III",
+        "required_mm": 8.0
+      },
+      "name": "isolation_boundary",
+      "note": "9 mm of bare laminate; only the relay bodies cross it, and they carry no pad inside it",
+      "rect": [
+        30.0,
+        76.0,
+        170.0,
+        85.0
+      ],
+      "sides": [
+        "F",
+        "B"
+      ]
+    }
+  ],
+  "kind": "floorplan-intent",
+  "must_lock": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "J2",
+    "J3",
+    "J4",
+    "J5",
+    "K1",
+    "K2",
+    "K3",
+    "K4"
+  ],
+  "schema": 1,
+  "severity": {
+    "decap_ungraded": "warn"
+  },
+  "units": "mm"
+}

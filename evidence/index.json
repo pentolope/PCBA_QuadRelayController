@@ -1,0 +1,182 @@
+{
+  "documents": {
+    "1n4148w_semtech": {
+      "applies_to": [
+        "1N4148W"
+      ],
+      "bytes": 271760,
+      "document_id": "Semtech Electronics 1N4148W, Rev 05, 20/09/2016",
+      "file": "datasheets/1n4148w_st.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "54de8e4089bb8221cf6cf191ee3acc2bdb20c9933cf59e7b5de3ef4ee291ce3f",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1811061725_ST-Semtech-1N4148W_C81598.pdf"
+    },
+    "ao3400a_aos": {
+      "applies_to": [
+        "AO3400A"
+      ],
+      "bytes": 491520,
+      "document_id": "AO3400A Rev 3, December 2011",
+      "file": "datasheets/ao3400a_aos.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "e5bfeef6cd3aa209f2e191ba42d5616259e8e7143ff01ed6c532b8ec3b13ab73",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1811081213_Alpha---Omega-Semicon-AO3400A_C20917.pdf"
+    },
+    "ao3401a_aos": {
+      "applies_to": [
+        "AO3401A"
+      ],
+      "bytes": 326568,
+      "document_id": "AO3401A Rev 3.1, December 2023",
+      "file": "datasheets/ao3401a_aos.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "0d8e3261ae280e007b5837fff60c55142f2d92af71edc4d02aee6f7a760a785c",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2412061733_Alpha---Omega-Semicon-AO3401A_C15127.pdf"
+    },
+    "clearance_creepage_ti_slup419": {
+      "applies_to": [
+        "IEC 60664-1 tables F.1, F.2, F.4"
+      ],
+      "bytes": 392176,
+      "document_id": "SLUP419, March 2024",
+      "file": "datasheets/clearance_creepage_ti_slup419.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "87d0fc2c5989664c2c6bb5f0b8eada5b7cbf39ed7c04ab32627554f9dcd4ca2b",
+      "url": "https://www.ti.com/lit/pdf/slup419"
+    },
+    "clearance_creepage_ti_slup421": {
+      "applies_to": [
+        "IEC 60664-1 tables F.1, F.2, F.4"
+      ],
+      "bytes": 1228561,
+      "document_id": "SLUP421, Demystifying Clearance and Creepage Distance for High-Voltage End Equipment",
+      "file": "datasheets/clearance_creepage_ti_slup421.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "5084d455163498428182db41331fce3c69d87e508ebdd81a7ebc97e616b42317",
+      "url": "https://www.ti.com/lit/pdf/SLUP421"
+    },
+    "g2rl_omron": {
+      "applies_to": [
+        "G2RL-1-E DC5"
+      ],
+      "bytes": 1592143,
+      "document_id": "Omron G2RL PCB Power Relay datasheet",
+      "file": "datasheets/g2rl_omron.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "89ce57abbc4b089234dd5e0d9dce7d6ea9e23765fbf01a64d1bf1252d96365fd",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2211282130_Omron-Electronics-G2RL-1-E-DC5_C1524515.pdf"
+    },
+    "hb9500m_kangnex": {
+      "applies_to": [
+        "HB9500M-9.5-03P-13-00A"
+      ],
+      "bytes": 1248592,
+      "document_id": "Ningbo Kangnex HB9500M series drawing, pitch 9.50 mm",
+      "file": "datasheets/hb9500m_kangnex.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "0d6688464946e9e6e436ebb13f49ac1b881e556b8a94ee20711f998496367530",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1912251712_Ningbo-Kangnex-Elec-HB9500M-9-5-3P_C162697.pdf"
+    },
+    "header1x4_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X4P-L11.5"
+      ],
+      "bytes": 223632,
+      "file": "datasheets/header1x4_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "6c11078dacb13ca2d8672a61ff555c97ec2cfdc14a84b18e25b9577d3059b7b2",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2110191530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X4P-L11-5_C2905435.pdf"
+    },
+    "header1x5_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X5P-L11.5"
+      ],
+      "bytes": 226222,
+      "file": "datasheets/header1x5_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3bc2ce00ab6d9dc8e45b2222ccf5677a092bb7c8f4e0a365a07104f958596a81",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201121530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X5P-L11-5_C2932699.pdf"
+    },
+    "kf128_cixikefa": {
+      "applies_to": [
+        "KF128-5.08-2P-AA"
+      ],
+      "bytes": 434784,
+      "document_id": "Cixi Kefa KF128-5.08 drawing rev A, 2021-03-13",
+      "file": "datasheets/kf128_cixikefa.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4781221a025b068464bce493173984ac1e90efb9db90c1433e1e448ea9bdaead",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2408211511_Cixi-Kefa-Elec-KF128-5-08-2P-AA_C474952.pdf"
+    },
+    "kt0603r_kento": {
+      "applies_to": [
+        "KT-0603R"
+      ],
+      "bytes": 610865,
+      "document_id": "Hubei KENTO KT-0603R specification, Rev A.0, 2018-12-06",
+      "file": "datasheets/kt0603r_kento.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "a3bac1cc9c59cb306ad03512945cce12c87bb54252abc223b796e1d20d41d4a1",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_1810231112_Hubei-KENTO-Elec-KT-0603R_C2286.pdf"
+    },
+    "mlcc_100nf_yageo": {
+      "applies_to": [
+        "CC0603KRX7R9BB104"
+      ],
+      "bytes": 1131214,
+      "file": "datasheets/mlcc_100nf_yageo.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "61a606825ab314ea318cfb5362848a62fdffb851efa9818d642e9a541c56a648",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf"
+    },
+    "mlcc_10uf_samsung": {
+      "applies_to": [
+        "CL21A106KAYNNNE"
+      ],
+      "bytes": 7856403,
+      "file": "datasheets/mlcc_10uf_samsung.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "96baebe4bd0ce363e87be28b5b003f511f1502e084a6fc4f02333ded56c808f6",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL21A106KAYNNNE_C15850.pdf"
+    },
+    "py32f003_puya": {
+      "applies_to": [
+        "PY32F003F18P6TU"
+      ],
+      "bytes": 2830704,
+      "document_id": "PY32F003 Datasheet Rev1.7",
+      "file": "datasheets/py32f003_puya.pdf",
+      "retrieved": "2026-09-01",
+      "sha256": "826d02a0318e50c404ebcfd9667dff25674075d8ef479de44b4874a2aaa3dace",
+      "url": "https://download.py32.org/Datasheet/en/PY32F003_Datasheet_Rev1.7.pdf"
+    },
+    "res_0603_uniroyal": {
+      "applies_to": [
+        "0603WAF1000T5E",
+        "0603WAF2201T5E",
+        "0603WAF1501T5E",
+        "0603WAF1002T5E",
+        "0603WAF1003T5E",
+        "0603WAF470KT5E"
+      ],
+      "bytes": 467557,
+      "document_id": "Uniroyal chip resistor series specification",
+      "file": "datasheets/res_0603_uniroyal.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "11cd644d5d8a34a6d12775afb80bf58d8fc11f0c3b700dbd0f7a59942ceaa5ef",
+      "url": "https://www.lcsc.com/datasheet/lcsc_datasheet_2411221126_UNI-ROYAL-Uniroyal-Elec-0603WAF1000T5E_C22775.pdf"
+    },
+    "tpd1e10b06_ti": {
+      "applies_to": [
+        "TPD1E10B06DPYR"
+      ],
+      "bytes": 2371535,
+      "document_id": "SLLSEB1G, revised August 2024",
+      "file": "datasheets/tpd1e10b06_ti.pdf",
+      "retrieved": "2026-09-01",
+      "sha256": "6ffe72cb5f5e607fcafd05eef9809632402241eb44cd859a3652f43a35323da9",
+      "url": "https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf"
+    }
+  },
+  "schema_version": 1
+}

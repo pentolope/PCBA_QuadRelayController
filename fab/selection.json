@@ -1,0 +1,55 @@
+{
+  "feasible": true,
+  "fabricator": "jlcpcb",
+  "profile": {
+    "copper_layers": 2,
+    "board_thickness_mm": 1.6,
+    "impedance_control": false,
+    "outer_copper_oz": 1,
+    "inner_copper_oz": null
+  },
+  "stackup": null,
+  "stackup_candidates": [],
+  "rejections": [],
+  "explanations": [
+    "2 copper layers is among the discrete offered counts [capabilities]",
+    "1.6 mm is a stated standard FR-4 thickness with no stated restriction for 2 layers [capabilities]",
+    "1 oz outer copper is an offered option for this board class [capabilities, copper-weight]",
+    "trace/space 0.25/0.15 mm clears the strictest published 0.1/0.1 mm for 1 oz outer copper at 2 layers [trace_space 1.0oz 1-2-layers-fr4 (copper-weight), trace_space 1.0oz 1-and-2-layer (capabilities)]",
+    "the 0.3 mm minimum drill clears the stated 0.15-6.3 mm drilled-hole range for this board class [capabilities]",
+    "the 0.6 mm minimum via diameter clears the stated 0.25 mm minimum for this board class (via hole size and diameter minima for 2-layer boards) [capabilities]",
+    "no published construction matches 2 copper layers at 1.6 mm nominal for this requirement profile; the fabricator's stackup tables describe specific builds and nothing is scaled or invented for others",
+    "no impedance requirement is stated, so no impedance-grade process is selected: the least sophisticated process that satisfies the requirements is preferred"
+  ],
+  "requirements_checked": [
+    "board_thickness_mm",
+    "copper_layers",
+    "impedance_control",
+    "material",
+    "min_drill_mm",
+    "min_space_mm",
+    "min_track_mm",
+    "min_via_diameter_mm",
+    "outer_copper_oz"
+  ],
+  "not_in_vocabulary": [
+    "board dimensions and outline",
+    "surface finish",
+    "annular ring",
+    "NPTH and slot geometry",
+    "plated slots",
+    "castellated edges",
+    "edge-to-copper clearance",
+    "solder-mask constraints",
+    "via covering (tented / plugged / filled)",
+    "via annular-ring and hole-to-diameter relationships",
+    "blind and buried via technology",
+    "gold fingers",
+    "controlled-depth routing",
+    "special materials beyond standard FR-4",
+    "panelization",
+    "assembly constraints"
+  ],
+  "vocabulary_note": "feasible means feasible against the checked requirements only; the properties under not_in_vocabulary were NOT inspected and must be judged separately",
+  "approved_normalized_sha256": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c"
+}

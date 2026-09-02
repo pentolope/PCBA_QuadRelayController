@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "board_id": "quad_relay_controller",
+  "constraint_version": "layout-stage-2026-09-02",
+  "release_profile": "jlcpcb-2layer-assembled",
+  "generated_utc": "2026-09-02T07:44:38.217410+00:00",
+  "source_closure_sha256": "0acc8a508b92a95cf22363c201ac8ecd2a73ccabe03519da583ffd6ff357d94d",
+  "source_closure_files": 18,
+  "tools": {
+    "kicad": "10.0.5",
+    "kicad_cli": "kicad-cli"
+  },
+  "toolkit": {
+    "commit": "9528bfa3466b95f2e48b989d0b71fff8350865ad",
+    "working_tree_dirty": false,
+    "detail": "git HEAD of the toolkit checkout that executed this validation"
+  },
+  "commands": [
+    "kicad-cli sch erc --output erc.json --format json --severity-all --severity-exclusions --exit-code-violations quad_relay_controller.kicad_sch",
+    "kicad-cli pcb drc --output drc.json --format json --severity-all --severity-exclusions --all-track-errors --schematic-parity --refill-zones --save-board --exit-code-violations quad_relay_controller.kicad_pcb",
+    "kicad-cli pcb export gerbers --output export --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask quad_relay_controller.kicad_pcb",
+    "kicad-cli pcb export drill --output export --format excellon --excellon-separate-th --drill-origin plot quad_relay_controller.kicad_pcb",
+    "kicad-cli pcb export pos --output cpl.csv --format csv --units mm --side both --exclude-dnp quad_relay_controller.kicad_pcb",
+    "kicad-cli sch export bom --output bom.csv --fields ${QUANTITY},Reference,Value,Footprint,LCSC --labels Quantity,Designator,Comment,Footprint,LCSC Part # --group-by Value,Footprint,LCSC --exclude-dnp --ref-range-delimiter  quad_relay_controller.kicad_sch",
+    "zip quad_relay_controller-fabrication.zip"
+  ],
+  "artifacts": {
+    "bom.csv": "ab5d9cdf6a7dd257312d13af7668848d36cd431992d2fb96f52b6f21fa8510cf",
+    "cpl.csv": "c3bc546cc29ccb997a366b3b8a8b39029090bcb49497ee0386cc5aa173488233",
+    "gerbers/quad_relay_controller-B_Cu.gbr": "e73a07f39105271a961f59ca7e7299f937784ec539091c4d3c90544900ed2a08",
+    "gerbers/quad_relay_controller-B_Mask.gbr": "e41bffdc5665efd1a9f53920c0c832c6bccec5f90b6e52dd91f82c1a39c784c7",
+    "gerbers/quad_relay_controller-B_Silkscreen.gbr": "be727da9536a1604f163cac4b5bedb80884e1417521938b7081c79f97b4b31c6",
+    "gerbers/quad_relay_controller-Edge_Cuts.gbr": "196b83b3fa059c6d3e913880ea2c28abc38001d482becadb773e902e78ec92e7",
+    "gerbers/quad_relay_controller-F_Cu.gbr": "4c32f02e2ff1c02cf1ff8f9f1f3c9d469d3b23dce7711bdb447c143c5d3dc16f",
+    "gerbers/quad_relay_controller-F_Mask.gbr": "e520b332afbd8406dbb4ecde03340bac558ad7399c085b153f162ac18eae2e98",
+    "gerbers/quad_relay_controller-F_Paste.gbr": "5349b5790d450492dc2b59dc724359c0fecd303fc24f370755c8d818625f6180",
+    "gerbers/quad_relay_controller-F_Silkscreen.gbr": "9a24c012e7fe23f57e0fad58b239ec6d594ba9fa8e71fb677a353007b808b785",
+    "gerbers/quad_relay_controller-NPTH.drl": "a5b1dcb45313a6f59f494523c30d5fc63df45846550c005a12cee839f3d8ca29",
+    "gerbers/quad_relay_controller-PTH.drl": "9918687ab29b494c1b94bf6f6290ec446e02fbe2666f81e8ff7d79633bd5242b",
+    "gerbers/quad_relay_controller-job.gbrjob": "f5814e0dad61c97b01a64a59d06398c14114a722bc598bd5f9e557923e656892",
+    "quad_relay_controller-fabrication.zip": "dff7361c96f0c028fecc06328f0b3deb2be4a7c26b607f6de9a8b3d46f40a2ed",
+    "reports/drc.json": "9632e4556fbf3976e3880bafb56b643d45c45e8c0c8c604b616dd80f71c691b3",
+    "reports/erc.json": "5ad38f1772818ece61bd259edca27cccc85da2ba35ca77a8d6a89ffe9cdc5c43"
+  },
+  "excluded_layers": []
+}

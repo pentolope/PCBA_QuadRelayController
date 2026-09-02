@@ -1,0 +1,759 @@
+{
+  "currency": "USD",
+  "parts": {
+    "C14663": {
+      "library_type": "base",
+      "manufacturer": "YAGEO",
+      "mpn": "CC0603KRX7R9BB104",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 499,
+          "min_qty": 1,
+          "unit_usd": 0.0138
+        },
+        {
+          "max_qty": 1499,
+          "min_qty": 500,
+          "unit_usd": 0.0104
+        },
+        {
+          "max_qty": 3999,
+          "min_qty": 1500,
+          "unit_usd": 0.0088
+        },
+        {
+          "max_qty": 23999,
+          "min_qty": 4000,
+          "unit_usd": 0.0074
+        },
+        {
+          "max_qty": 47999,
+          "min_qty": 24000,
+          "unit_usd": 0.0069
+        },
+        {
+          "max_qty": null,
+          "min_qty": 48000,
+          "unit_usd": 0.0066
+        }
+      ],
+      "stock": 78681320
+    },
+    "C15127": {
+      "library_type": "base",
+      "manufacturer": "Alpha & Omega Semicon",
+      "mpn": "AO3401A",
+      "package": "SOT-23",
+      "price_breaks": [
+        {
+          "max_qty": 49,
+          "min_qty": 1,
+          "unit_usd": 0.0967
+        },
+        {
+          "max_qty": 149,
+          "min_qty": 50,
+          "unit_usd": 0.079
+        },
+        {
+          "max_qty": 499,
+          "min_qty": 150,
+          "unit_usd": 0.07
+        },
+        {
+          "max_qty": 2999,
+          "min_qty": 500,
+          "unit_usd": 0.0625
+        },
+        {
+          "max_qty": 5999,
+          "min_qty": 3000,
+          "unit_usd": 0.0599
+        },
+        {
+          "max_qty": null,
+          "min_qty": 6000,
+          "unit_usd": 0.0581
+        }
+      ],
+      "stock": 805034
+    },
+    "C1524515": {
+      "library_type": "extended",
+      "manufacturer": "Omron Electronics",
+      "mpn": "G2RL-1-E DC5",
+      "package": "DIP,28.8x12.5mm",
+      "price_breaks": [
+        {
+          "max_qty": 9,
+          "min_qty": 1,
+          "unit_usd": 2.3649
+        },
+        {
+          "max_qty": 39,
+          "min_qty": 10,
+          "unit_usd": 2.0389
+        },
+        {
+          "max_qty": 99,
+          "min_qty": 40,
+          "unit_usd": 1.8345
+        },
+        {
+          "max_qty": 499,
+          "min_qty": 100,
+          "unit_usd": 1.6236
+        },
+        {
+          "max_qty": 999,
+          "min_qty": 500,
+          "unit_usd": 1.5296
+        },
+        {
+          "max_qty": null,
+          "min_qty": 1000,
+          "unit_usd": 1.489
+        }
+      ],
+      "stock": 334
+    },
+    "C15850": {
+      "library_type": "base",
+      "manufacturer": "Samsung Electro-Mechanics",
+      "mpn": "CL21A106KAYNNNE",
+      "package": "0805",
+      "price_breaks": [
+        {
+          "max_qty": 199,
+          "min_qty": 1,
+          "unit_usd": 0.0868
+        },
+        {
+          "max_qty": 599,
+          "min_qty": 200,
+          "unit_usd": 0.069
+        },
+        {
+          "max_qty": 1999,
+          "min_qty": 600,
+          "unit_usd": 0.0597
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 2000,
+          "unit_usd": 0.0523
+        },
+        {
+          "max_qty": 19999,
+          "min_qty": 10000,
+          "unit_usd": 0.0495
+        },
+        {
+          "max_qty": null,
+          "min_qty": 20000,
+          "unit_usd": 0.0477
+        }
+      ],
+      "stock": 8269232
+    },
+    "C162697": {
+      "library_type": "extended",
+      "manufacturer": "Ningbo Kangnex Elec",
+      "mpn": "HB9500M-9.5-03P-13-00A",
+      "package": "Plugin,P=9.5mm",
+      "price_breaks": [
+        {
+          "max_qty": 49,
+          "min_qty": 1,
+          "unit_usd": 0.2268
+        },
+        {
+          "max_qty": 149,
+          "min_qty": 50,
+          "unit_usd": 0.1778
+        },
+        {
+          "max_qty": 499,
+          "min_qty": 150,
+          "unit_usd": 0.1519
+        },
+        {
+          "max_qty": 2499,
+          "min_qty": 500,
+          "unit_usd": 0.1258
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 2500,
+          "unit_usd": 0.1141
+        },
+        {
+          "max_qty": null,
+          "min_qty": 5000,
+          "unit_usd": 0.1071
+        }
+      ],
+      "stock": 8660
+    },
+    "C20917": {
+      "library_type": "base",
+      "manufacturer": "Alpha & Omega Semicon",
+      "mpn": "AO3400A",
+      "package": "SOT-23",
+      "price_breaks": [
+        {
+          "max_qty": 49,
+          "min_qty": 1,
+          "unit_usd": 0.0844
+        },
+        {
+          "max_qty": 149,
+          "min_qty": 50,
+          "unit_usd": 0.0677
+        },
+        {
+          "max_qty": 499,
+          "min_qty": 150,
+          "unit_usd": 0.0591
+        },
+        {
+          "max_qty": 2999,
+          "min_qty": 500,
+          "unit_usd": 0.052
+        },
+        {
+          "max_qty": 5999,
+          "min_qty": 3000,
+          "unit_usd": 0.0494
+        },
+        {
+          "max_qty": null,
+          "min_qty": 6000,
+          "unit_usd": 0.0477
+        }
+      ],
+      "stock": 1025805
+    },
+    "C22775": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF1000T5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.004
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.0033
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0029
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0025
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0023
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0023
+        }
+      ],
+      "stock": 14651872
+    },
+    "C22843": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF1501T5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0026
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.0021
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0018
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0016
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0014
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0014
+        }
+      ],
+      "stock": 3808052
+    },
+    "C2286": {
+      "library_type": "base",
+      "manufacturer": "Hubei KENTO Elec",
+      "mpn": "KT-0603R",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0074
+        },
+        {
+          "max_qty": 3999,
+          "min_qty": 1000,
+          "unit_usd": 0.0057
+        },
+        {
+          "max_qty": 7999,
+          "min_qty": 4000,
+          "unit_usd": 0.0044
+        },
+        {
+          "max_qty": 47999,
+          "min_qty": 8000,
+          "unit_usd": 0.0039
+        },
+        {
+          "max_qty": 99999,
+          "min_qty": 48000,
+          "unit_usd": 0.0036
+        },
+        {
+          "max_qty": null,
+          "min_qty": 100000,
+          "unit_usd": 0.0035
+        }
+      ],
+      "stock": 4953128
+    },
+    "C23164": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF470KT5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0028
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.0023
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0019
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0018
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0016
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0016
+        }
+      ],
+      "stock": 1249844
+    },
+    "C25803": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF1003T5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0041
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.0032
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0028
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0023
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0021
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0021
+        }
+      ],
+      "stock": 24080207
+    },
+    "C25804": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF1002T5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0025
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.002
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0018
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0017
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0016
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0016
+        }
+      ],
+      "stock": 30456975
+    },
+    "C2905435": {
+      "library_type": "extended",
+      "manufacturer": "Shenzhen Kinghelm Elec",
+      "mpn": "KH-2.54PH180-1X4P-L11.5",
+      "package": "Plugin,P=2.54mm",
+      "price_breaks": [
+        {
+          "max_qty": 199,
+          "min_qty": 1,
+          "unit_usd": 0.031
+        },
+        {
+          "max_qty": 599,
+          "min_qty": 200,
+          "unit_usd": 0.0244
+        },
+        {
+          "max_qty": 1999,
+          "min_qty": 600,
+          "unit_usd": 0.0195
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 2000,
+          "unit_usd": 0.0172
+        },
+        {
+          "max_qty": 19999,
+          "min_qty": 10000,
+          "unit_usd": 0.0153
+        },
+        {
+          "max_qty": null,
+          "min_qty": 20000,
+          "unit_usd": 0.0143
+        }
+      ],
+      "stock": 8442
+    },
+    "C2932699": {
+      "library_type": "extended",
+      "manufacturer": "Shenzhen Kinghelm Elec",
+      "mpn": "KH-2.54PH180-1X5P-L11.5",
+      "package": "Plugin,P=2.54mm",
+      "price_breaks": [
+        {
+          "max_qty": 199,
+          "min_qty": 1,
+          "unit_usd": 0.0369
+        },
+        {
+          "max_qty": 599,
+          "min_qty": 200,
+          "unit_usd": 0.0291
+        },
+        {
+          "max_qty": 1999,
+          "min_qty": 600,
+          "unit_usd": 0.0232
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 2000,
+          "unit_usd": 0.0206
+        },
+        {
+          "max_qty": 19999,
+          "min_qty": 10000,
+          "unit_usd": 0.0184
+        },
+        {
+          "max_qty": 39999,
+          "min_qty": 20000,
+          "unit_usd": 0.0171
+        },
+        {
+          "max_qty": 79999,
+          "min_qty": 40000,
+          "unit_usd": 0.0169
+        },
+        {
+          "max_qty": null,
+          "min_qty": 80000,
+          "unit_usd": 0.0168
+        }
+      ],
+      "stock": 5448
+    },
+    "C4190": {
+      "library_type": "base",
+      "manufacturer": "UNI-ROYAL(Uniroyal Elec)",
+      "mpn": "0603WAF2201T5E",
+      "package": "0603",
+      "price_breaks": [
+        {
+          "max_qty": 999,
+          "min_qty": 1,
+          "unit_usd": 0.0022
+        },
+        {
+          "max_qty": 4999,
+          "min_qty": 1000,
+          "unit_usd": 0.0017
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 5000,
+          "unit_usd": 0.0015
+        },
+        {
+          "max_qty": 49999,
+          "min_qty": 10000,
+          "unit_usd": 0.0013
+        },
+        {
+          "max_qty": 50199,
+          "min_qty": 50000,
+          "unit_usd": 0.0012
+        },
+        {
+          "max_qty": null,
+          "min_qty": 50200,
+          "unit_usd": 0.0012
+        }
+      ],
+      "stock": 7176899
+    },
+    "C474952": {
+      "library_type": "extended",
+      "manufacturer": "Cixi Kefa Elec",
+      "mpn": "KF128-5.08-2P-AA",
+      "package": "Plugin,P=5.08mm",
+      "price_breaks": [
+        {
+          "max_qty": 49,
+          "min_qty": 1,
+          "unit_usd": 0.191
+        },
+        {
+          "max_qty": 149,
+          "min_qty": 50,
+          "unit_usd": 0.1494
+        },
+        {
+          "max_qty": 599,
+          "min_qty": 150,
+          "unit_usd": 0.1293
+        },
+        {
+          "max_qty": 2399,
+          "min_qty": 600,
+          "unit_usd": 0.1079
+        },
+        {
+          "max_qty": 4799,
+          "min_qty": 2400,
+          "unit_usd": 0.1029
+        },
+        {
+          "max_qty": null,
+          "min_qty": 4800,
+          "unit_usd": 0.1
+        }
+      ],
+      "stock": 34804
+    },
+    "C48260": {
+      "library_type": "extended",
+      "manufacturer": "Texas Instruments",
+      "mpn": "TPD1E10B06DPYR",
+      "package": "X1-SON-2(0.6x1)",
+      "price_breaks": [
+        {
+          "max_qty": 199,
+          "min_qty": 1,
+          "unit_usd": 0.0421
+        },
+        {
+          "max_qty": 599,
+          "min_qty": 200,
+          "unit_usd": 0.0336
+        },
+        {
+          "max_qty": 1999,
+          "min_qty": 600,
+          "unit_usd": 0.0299
+        },
+        {
+          "max_qty": 9999,
+          "min_qty": 2000,
+          "unit_usd": 0.0271
+        },
+        {
+          "max_qty": 19999,
+          "min_qty": 10000,
+          "unit_usd": 0.026
+        },
+        {
+          "max_qty": null,
+          "min_qty": 20000,
+          "unit_usd": 0.0252
+        }
+      ],
+      "stock": 96307
+    },
+    "C5379864": {
+      "library_type": "extended",
+      "manufacturer": "PUYA",
+      "mpn": "PY32F003F18P6TU",
+      "package": "TSSOP-20",
+      "price_breaks": [
+        {
+          "max_qty": 9,
+          "min_qty": 1,
+          "unit_usd": 0.3113
+        },
+        {
+          "max_qty": 47,
+          "min_qty": 10,
+          "unit_usd": 0.2408
+        },
+        {
+          "max_qty": 95,
+          "min_qty": 48,
+          "unit_usd": 0.2106
+        },
+        {
+          "max_qty": 479,
+          "min_qty": 96,
+          "unit_usd": 0.1729
+        },
+        {
+          "max_qty": 1007,
+          "min_qty": 480,
+          "unit_usd": 0.1561
+        },
+        {
+          "max_qty": null,
+          "min_qty": 1008,
+          "unit_usd": 0.146
+        }
+      ],
+      "stock": 23331
+    },
+    "C81598": {
+      "library_type": "base",
+      "manufacturer": "ST(Semtech)",
+      "mpn": "1N4148W",
+      "package": "SOD-123",
+      "price_breaks": [
+        {
+          "max_qty": 499,
+          "min_qty": 1,
+          "unit_usd": 0.0117
+        },
+        {
+          "max_qty": 2999,
+          "min_qty": 500,
+          "unit_usd": 0.0092
+        },
+        {
+          "max_qty": 5999,
+          "min_qty": 3000,
+          "unit_usd": 0.0071
+        },
+        {
+          "max_qty": 23999,
+          "min_qty": 6000,
+          "unit_usd": 0.0063
+        },
+        {
+          "max_qty": 50999,
+          "min_qty": 24000,
+          "unit_usd": 0.0059
+        },
+        {
+          "max_qty": null,
+          "min_qty": 51000,
+          "unit_usd": 0.0057
+        }
+      ],
+      "stock": 2159576
+    }
+  },
+  "retrieved": "2026-09-02",
+  "schema_version": 1,
+  "source": "jlcpcb.com parts library"
+}

@@ -1,0 +1,16 @@
+{
+  "basic_clearance_mm": 1.5,
+  "basic_creepage_mm": 2.775964391691395,
+  "boundary_design_mm": 8.0,
+  "corroborating_document": "clearance_creepage_ti_slup419",
+  "document": "clearance_creepage_ti_slup421",
+  "material_group": "III",
+  "overvoltage_category": "II",
+  "pollution_degree": 2,
+  "reinforced_clearance_mm": 3.0,
+  "reinforced_creepage_mm": 5.55192878338279,
+  "relay_stated_isolation_mm": 8.0,
+  "standard": "IEC 60664-1 tables F.1, F.2 and F.4",
+  "within_channel_design_mm": 2.8000000000000003,
+  "working_voltage_rms_v": 250.0
+}

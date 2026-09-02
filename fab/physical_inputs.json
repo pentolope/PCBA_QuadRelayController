@@ -1,0 +1,28 @@
+{
+  "board_thickness_mm": {
+    "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only",
+    "digest": "0a4a44935045c30dcb07b379f59902df4a84e0ebabeb0bf0da7941c222ae5e4d",
+    "source": "board fabrication requirements (board_thickness_mm)",
+    "source_type": "derived",
+    "units": "mm",
+    "value": 1.6
+  },
+  "copper_thickness_mm": {
+    "B.Cu": {
+      "applicability": "external 1 oz finished copper",
+      "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+      "source": "finished_copper_external_1oz_mil",
+      "source_type": "approved-evidence",
+      "units": "mm",
+      "value": 0.04064
+    },
+    "F.Cu": {
+      "applicability": "external 1 oz finished copper",
+      "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+      "source": "finished_copper_external_1oz_mil",
+      "source_type": "approved-evidence",
+      "units": "mm",
+      "value": 0.04064
+    }
+  }
+}

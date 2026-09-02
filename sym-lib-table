@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "QuadRelayController")(type "KiCad")(uri "${KIPRJMOD}/library/QuadRelayController.kicad_sym")(options "")(descr ""))
+)

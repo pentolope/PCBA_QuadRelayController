@@ -1,0 +1,3165 @@
+{
+  "kind": "board-requirement-evidence",
+  "results": [
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "single_placement_side",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "assembly",
+          "level": "net"
+        },
+        "significance": "assembly",
+        "units": "violations"
+      },
+      "id": "all_parts_on_one_side",
+      "identity": "assembly",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "no_copper_crosses_the_boundary",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "violations"
+      },
+      "id": "boundary_band_is_free_of_copper_on_every_layer",
+      "identity": "isolation_boundary",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "pollution degree 2, material group III and overvoltage category II, which describe the installation rather than the board"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "clearance_creepage_ti_slup421",
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 9.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 8.0
+          },
+          "name": "at_or_above_the_reinforced_figure",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "mm"
+      },
+      "id": "boundary_width_meets_the_derived_figure",
+      "identity": "isolation_boundary",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "+5V",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "+5V",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "NRST",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "NRST",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "SWCLK",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "SWCLK",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "SWDIO",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "SWDIO",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "UART_RX",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "UART_RX",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "UART_TX",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "UART_TX",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "within_reverse_standoff",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "V5IN",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "clamp_standoff_covers_the_working_voltage",
+      "identity": "V5IN",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 4.478493333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 3.5
+          },
+          "name": "above_must_operate",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "VCOIL",
+          "level": "net"
+        },
+        "significance": "actuation",
+        "units": "V"
+      },
+      "id": "coil_reaches_must_operate_voltage",
+      "identity": "VCOIL",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 6.5
+          },
+          "name": "below_coil_maximum",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "VCOIL",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "coil_voltage_within_its_maximum",
+      "identity": "VCOIL",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.005782608695652175
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.008
+          },
+          "name": "at_or_below_the_voh_test_current",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY_CMD",
+          "level": "net"
+        },
+        "significance": "gate_drive",
+        "units": "A"
+      },
+      "id": "command_pin_current_keeps_the_output_level_valid",
+      "identity": "RLY_CMD",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "kt0603r_kento",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.005782608695652175
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.02
+          },
+          "name": "within_per_pin_source_current",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY_CMD",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "A"
+      },
+      "id": "command_pin_current_within_absolute_maximum",
+      "identity": "RLY_CMD",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the on-resistance is taken at the lowest gate drive the datasheet characterises, which is below the drive this board applies"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0004181333333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.9
+          },
+          "name": "within_package_dissipation",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "channel_driver",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "driver_dissipation_within_rating",
+      "identity": "Q1..Q4",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the output high level is the datasheet minimum at its stated 8 mA test current; the pin sources less than that here, and the level can only be higher"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 3.4558875362318844
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 2.5
+          },
+          "name": "gate_at_or_above_characterised_drive",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY1_G",
+          "level": "net"
+        },
+        "significance": "gate_drive",
+        "units": "V"
+      },
+      "id": "driver_fully_on_at_guaranteed_drive",
+      "identity": "RLY1_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the output high level is the datasheet minimum at its stated 8 mA test current; the pin sources less than that here, and the level can only be higher"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 3.4558875362318844
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 2.5
+          },
+          "name": "gate_at_or_above_characterised_drive",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY2_G",
+          "level": "net"
+        },
+        "significance": "gate_drive",
+        "units": "V"
+      },
+      "id": "driver_fully_on_at_guaranteed_drive",
+      "identity": "RLY2_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the output high level is the datasheet minimum at its stated 8 mA test current; the pin sources less than that here, and the level can only be higher"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 3.4558875362318844
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 2.5
+          },
+          "name": "gate_at_or_above_characterised_drive",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY3_G",
+          "level": "net"
+        },
+        "significance": "gate_drive",
+        "units": "V"
+      },
+      "id": "driver_fully_on_at_guaranteed_drive",
+      "identity": "RLY3_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the output high level is the datasheet minimum at its stated 8 mA test current; the pin sources less than that here, and the level can only be higher"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 3.4558875362318844
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 2.5
+          },
+          "name": "gate_at_or_above_characterised_drive",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY4_G",
+          "level": "net"
+        },
+        "significance": "gate_drive",
+        "units": "V"
+      },
+      "id": "driver_fully_on_at_guaranteed_drive",
+      "identity": "RLY4_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the worst case is an internal pull-up at its minimum resistance, which is stronger than the floating input the datasheet states for the reset state"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.35758513931888547
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.65
+          },
+          "name": "gate_below_threshold",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY1_G",
+          "level": "net"
+        },
+        "significance": "safe_state",
+        "units": "V"
+      },
+      "id": "driver_held_off_when_the_pin_does_not_drive",
+      "identity": "RLY1_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the worst case is an internal pull-up at its minimum resistance, which is stronger than the floating input the datasheet states for the reset state"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.35758513931888547
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.65
+          },
+          "name": "gate_below_threshold",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY2_G",
+          "level": "net"
+        },
+        "significance": "safe_state",
+        "units": "V"
+      },
+      "id": "driver_held_off_when_the_pin_does_not_drive",
+      "identity": "RLY2_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the worst case is an internal pull-up at its minimum resistance, which is stronger than the floating input the datasheet states for the reset state"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.35758513931888547
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.65
+          },
+          "name": "gate_below_threshold",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY3_G",
+          "level": "net"
+        },
+        "significance": "safe_state",
+        "units": "V"
+      },
+      "id": "driver_held_off_when_the_pin_does_not_drive",
+      "identity": "RLY3_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the worst case is an internal pull-up at its minimum resistance, which is stronger than the floating input the datasheet states for the reset state"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3400a_aos",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.35758513931888547
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.65
+          },
+          "name": "gate_below_threshold",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY4_G",
+          "level": "net"
+        },
+        "significance": "safe_state",
+        "units": "V"
+      },
+      "id": "driver_held_off_when_the_pin_does_not_drive",
+      "identity": "RLY4_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "switched_and_logic_copper_are_separated",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "isolation_boundary",
+          "level": "net"
+        },
+        "significance": "isolation",
+        "units": "violations"
+      },
+      "id": "every_conductor_is_on_its_own_side",
+      "identity": "isolation_boundary",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "tpd1e10b06_ti"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "every_entering_conductor_clamped",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "esd",
+          "level": "net"
+        },
+        "significance": "esd_protection",
+        "units": "violations"
+      },
+      "id": "every_entering_logic_conductor_is_clamped",
+      "identity": "esd",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "every_required_node_probed",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "bring_up",
+          "level": "net"
+        },
+        "significance": "test_access",
+        "units": "violations"
+      },
+      "id": "every_required_node_reaches_a_probe",
+      "identity": "bring_up",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "1n4148w_semtech",
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.09333333333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.15
+          },
+          "name": "within_average_forward_current",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "flyback",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "A"
+      },
+      "id": "flyback_carries_the_coil_current",
+      "identity": "flyback",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the forward drop is taken at the highest current the datasheet characterises, which is above the coil current"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "1n4148w_semtech",
+              "ao3400a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 6.5
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 30.0
+          },
+          "name": "below_drain_source_breakdown",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "flyback",
+          "level": "group"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "flyback_clamps_below_the_driver_breakdown",
+      "identity": "flyback",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the enclosing rectangle of the four pads bounds the area the turn-off current encloses"
+          ],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 45.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 60.0
+          },
+          "name": "within_the_declared_loop_target",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY1_C",
+          "level": "net"
+        },
+        "significance": "switching_loop",
+        "units": "mm2"
+      },
+      "id": "flyback_turn_off_loop_is_small",
+      "identity": "RLY1_C",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the enclosing rectangle of the four pads bounds the area the turn-off current encloses"
+          ],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 45.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 60.0
+          },
+          "name": "within_the_declared_loop_target",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY2_C",
+          "level": "net"
+        },
+        "significance": "switching_loop",
+        "units": "mm2"
+      },
+      "id": "flyback_turn_off_loop_is_small",
+      "identity": "RLY2_C",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the enclosing rectangle of the four pads bounds the area the turn-off current encloses"
+          ],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 45.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 60.0
+          },
+          "name": "within_the_declared_loop_target",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY3_C",
+          "level": "net"
+        },
+        "significance": "switching_loop",
+        "units": "mm2"
+      },
+      "id": "flyback_turn_off_loop_is_small",
+      "identity": "RLY3_C",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the enclosing rectangle of the four pads bounds the area the turn-off current encloses"
+          ],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 45.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 60.0
+          },
+          "name": "within_the_declared_loop_target",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "RLY4_C",
+          "level": "net"
+        },
+        "significance": "switching_loop",
+        "units": "mm2"
+      },
+      "id": "flyback_turn_off_loop_is_small",
+      "identity": "RLY4_C",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the current is bounded by the series resistor and the rail alone, with no credit for the forward drop, so no forward-voltage figure is needed"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "kt0603r_kento"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0035
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.025
+          },
+          "name": "within_forward_current",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "indicator",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "A"
+      },
+      "id": "indicator_current_within_rating",
+      "identity": "LED",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "kt0603r_kento"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0084
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.04
+          },
+          "name": "within_package_dissipation",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "indicator",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "indicator_dissipation_within_rating",
+      "identity": "LED",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos",
+              "g2rl_omron",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.4768333333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 10.0
+          },
+          "name": "within_the_terminal_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "V5IN",
+          "level": "net"
+        },
+        "significance": "supply_budget",
+        "units": "A"
+      },
+      "id": "input_current_budget",
+      "identity": "V5IN",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "every coil energised at once, each drawing the maximum its resistance tolerance allows, with the MCU rail loaded to the datasheet's own maximum current into VCC",
+            "the board is fed at the low end of its declared input range",
+            "the field wiring and the source feeding the input terminal together present no more than 0.5 ohm, which is a budget this board states rather than a property it can measure"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos",
+              "g2rl_omron",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 4.012973333333334
+        },
+        "requirement": {
+          "assertion": {
+            "op": ">=",
+            "value": 3.3
+          },
+          "name": "above_VBOR8",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "+5V",
+          "level": "net"
+        },
+        "significance": "rail_margin",
+        "units": "V"
+      },
+      "id": "logic_rail_stays_above_brown_out",
+      "identity": "+5V",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos",
+              "g2rl_omron",
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 5.5
+          },
+          "name": "below_characterised_maximum",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "+5V",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "logic_rail_within_operating_range",
+      "identity": "+5V",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.1
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_ivcc_maximum",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "+5V",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "A"
+      },
+      "id": "mcu_supply_current_within_its_maximum",
+      "identity": "+5V",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R5 from RLY1_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.000521030245746692
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R1",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R1",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "no forward drop is credited to the device in series, so the rail across this resistor alone bounds the current",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.018375000000000002
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R10",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R10",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "no forward drop is credited to the device in series, so the rail across this resistor alone bounds the current",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.018375000000000002
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R11",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R11",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "no forward drop is credited to the device in series, so the rail across this resistor alone bounds the current",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.018375000000000002
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R12",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R12",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "no forward drop is credited to the device in series, so the rail across this resistor alone bounds the current",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.018375000000000002
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R13",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R13",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with nothing from PFET_G to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.00027562500000000005
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R14",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R14",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with nothing from BOOT0 to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0027562499999999996
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R15",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R15",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the rail series element carries the whole MCU supply current, bounded by the datasheet maximum for current into VCC",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.047000000000000014
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R16",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R16",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R6 from RLY2_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.000521030245746692
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R2",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R2",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R7 from RLY3_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.000521030245746692
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R3",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R3",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R8 from RLY4_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.000521030245746692
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R4",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R4",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R1 from RLY1_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.011462665406427224
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R5",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R5",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R2 from RLY2_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.011462665406427224
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R6",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R6",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R3 from RLY3_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.011462665406427224
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R7",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R7",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "in series with R4 from RLY4_CMD to the reference",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.011462665406427224
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R8",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R8",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "no forward drop is credited to the device in series, so the rail across this resistor alone bounds the current",
+            "the driving node is at the top of its declared range and the resistors are at nominal value"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "res_0603_uniroyal"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.018375000000000002
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.1
+          },
+          "name": "within_resistor_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "R9",
+          "level": "group"
+        },
+        "significance": "thermal",
+        "units": "W"
+      },
+      "id": "resistor_dissipation_within_rating",
+      "identity": "R9",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.028610000000000003
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.475
+          },
+          "name": "below_a_tenth_of_the_input",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "V5IN",
+          "level": "net"
+        },
+        "significance": "rail_margin",
+        "units": "V"
+      },
+      "id": "reverse_protection_drop",
+      "identity": "V5IN",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [
+            "the gate is held at the reference through its pull-down, so the gate-source stress is the input voltage in either polarity"
+          ],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "ao3401a_aos"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 12.0
+          },
+          "name": "within_gate_source_maximum",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "PFET_G",
+          "level": "net"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "reverse_protection_gate_stress",
+      "identity": "PFET_G",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "py32f003_puya"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 5.25
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 6.25
+          },
+          "name": "within_absolute_maximum",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "U1.9",
+          "level": "group"
+        },
+        "significance": "absolute_maximum",
+        "units": "V"
+      },
+      "id": "supply_pin_within_absolute_maximum",
+      "identity": "U1.9",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "assumed-behavioral",
+          "omitted_contributions": [
+            "no conductor-sizing standard is frozen in this repository, so the rise at the marked current is not established; the width is a design choice pending a measurement on an assembled board"
+          ],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "unknown",
+        "knowledge_basis": null,
+        "quantity": {},
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 20.0
+          },
+          "name": "temperature_rise_within_20C",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "switched_copper",
+          "level": "board"
+        },
+        "significance": "thermal",
+        "units": "degC"
+      },
+      "id": "switched_copper_temperature_rise",
+      "identity": "switched_copper",
+      "verdict": {
+        "basis": "unknown",
+        "exact": false,
+        "knowledge_basis": null,
+        "result": "UNKNOWN"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "hb9500m_kangnex"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 4.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 20.0
+          },
+          "name": "within_the_component_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "J2",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "A"
+      },
+      "id": "switched_path_current_rating",
+      "identity": "J2",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 4.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 16.0
+          },
+          "name": "within_the_component_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "K1",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "A"
+      },
+      "id": "switched_path_current_rating",
+      "identity": "K1",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "hb9500m_kangnex"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 250.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 300.0
+          },
+          "name": "within_the_component_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "J2",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "V"
+      },
+      "id": "switched_path_voltage_rating",
+      "identity": "J2",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "datasheet-behavioral",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [
+              "g2rl_omron"
+            ],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 250.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 250.0
+          },
+          "name": "within_the_component_rating",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "K1",
+          "level": "group"
+        },
+        "significance": "component_rating",
+        "units": "V"
+      },
+      "id": "switched_path_voltage_rating",
+      "identity": "K1",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 0.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 0.0
+          },
+          "name": "every_required_marking_present",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "silkscreen",
+          "level": "net"
+        },
+        "significance": "marking",
+        "units": "violations"
+      },
+      "id": "the_board_carries_its_terminal_and_rating_markings",
+      "identity": "silkscreen",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    },
+    {
+      "claim": {
+        "evidence": {
+          "applicability": {
+            "detail": "model applies to this scope",
+            "status": "applicable"
+          },
+          "assumptions": [],
+          "evidence_class": "design-source",
+          "omitted_contributions": [],
+          "phenomenon": "device_electrical",
+          "provenance": {
+            "documents": [],
+            "source": "components/parameters.json"
+          }
+        },
+        "kind": "claim",
+        "knowledge": "exact",
+        "knowledge_basis": null,
+        "quantity": {
+          "value": 11.0
+        },
+        "requirement": {
+          "assertion": {
+            "op": "<=",
+            "value": 11.0
+          },
+          "name": "as_declared",
+          "source": "BRIEF.md"
+        },
+        "scope": {
+          "identity": "assembly",
+          "level": "board"
+        },
+        "significance": "assembly",
+        "units": "parts"
+      },
+      "id": "through_hole_population_as_declared",
+      "identity": "assembly",
+      "verdict": {
+        "basis": "exact",
+        "exact": true,
+        "knowledge_basis": null,
+        "result": "PASS"
+      }
+    }
+  ],
+  "summary": {
+    "PASS": 63,
+    "UNKNOWN": 1
+  }
+}

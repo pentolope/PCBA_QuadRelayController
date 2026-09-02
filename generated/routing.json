@@ -1,0 +1,147 @@
+{
+  "accepted_attempt": 1,
+  "adopted_sha256": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5",
+  "attempts": [
+    {
+      "accepted": true,
+      "attempt": 1,
+      "context": {
+        "ordering": "inside_out",
+        "router_summary": {
+          "failed": 0,
+          "failed_single": [],
+          "finalize_excluded_nets": [
+            "GND"
+          ],
+          "main_loop_time_s": 0.2,
+          "min_clearance_used": 0.25,
+          "multipoint_deficit": 0,
+          "open_single": [],
+          "pad_pairs_open": {
+            "count": 0,
+            "nets": []
+          },
+          "routed": 27,
+          "scope": "merged",
+          "terminal_restores_broken": [],
+          "vias": 32
+        }
+      },
+      "source_sha256": "b6213a744f599d332185de401fc210b472af1e10dd4a1ef33e27a860bc770cf0",
+      "stages": [
+        {
+          "produced_by": "router",
+          "sha256": "52e61f31f29fd2474d136fadde7c86a676de0d73b52f9aaeee7b14381df59539",
+          "stage": "routed"
+        },
+        {
+          "effects": {
+            "dangling_tracks_removed": 1,
+            "endpoints_snapped": 6,
+            "zones_refilled": 2
+          },
+          "parameters": {
+            "snap_tolerance_mm": 0.25,
+            "touch_tolerance_mm": 0.01
+          },
+          "produced_by": "transform",
+          "sha256": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5",
+          "stage": "tidied",
+          "transform": "snap track endpoints onto same-net via centres; prune dangling track ends, keeping any removal only while connectivity is unchanged; refill the zones so the pour is knocked out around the copper the router added"
+        }
+      ]
+    }
+  ],
+  "context": {
+    "options": [
+      "--track-width",
+      "0.25",
+      "--clearance",
+      "0.25",
+      "--via-size",
+      "0.6",
+      "--via-drill",
+      "0.3",
+      "--board-edge-clearance",
+      "0.45",
+      "--hole-to-hole-clearance",
+      "0.3",
+      "--same-net-pad-clearance",
+      "0.3"
+    ],
+    "reproducibility": "the router is not bit-reproducible; candidates are generated until one passes the board gates and every attempt is recorded here",
+    "reserved_nets": [
+      "CH1_COM",
+      "CH1_NC",
+      "CH1_NO",
+      "CH2_COM",
+      "CH2_NC",
+      "CH2_NO",
+      "CH3_COM",
+      "CH3_NC",
+      "CH3_NO",
+      "CH4_COM",
+      "CH4_NC",
+      "CH4_NO",
+      "GND"
+    ],
+    "resolution": {
+      "origin": "vendored submodule",
+      "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools"
+    },
+    "routed_nets": [
+      "+5V",
+      "BOOT0",
+      "LED1_A",
+      "LED2_A",
+      "LED3_A",
+      "LED4_A",
+      "NRST",
+      "PFET_G",
+      "PWR_LED_A",
+      "RLY1_C",
+      "RLY1_CMD",
+      "RLY1_G",
+      "RLY2_C",
+      "RLY2_CMD",
+      "RLY2_G",
+      "RLY3_C",
+      "RLY3_CMD",
+      "RLY3_G",
+      "RLY4_C",
+      "RLY4_CMD",
+      "RLY4_G",
+      "SWCLK",
+      "SWDIO",
+      "UART_RX",
+      "UART_TX",
+      "V5IN",
+      "VCOIL"
+    ],
+    "router": {
+      "git": {
+        "dirty": false,
+        "sha": "3fb9c05f182db88fe1fccfaa515bc5c466169dd4",
+        "upstream_base": null
+      },
+      "grid_router": {
+        "kind": "native-binary",
+        "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+        "sha256": "bac20f431312bdf6ab2e585295cb320e2b634a9f28a0c6286b6ae170a51b3cf2",
+        "version": "0.21.4"
+      },
+      "kicad_cli": "/usr/bin/kicad-cli",
+      "kicad_version": "10.0.5",
+      "kind": "krt-provenance",
+      "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it",
+      "python": {
+        "executable": "/usr/bin/python3",
+        "version": "3.12.3"
+      },
+      "source_path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools",
+      "version": "0.21.5"
+    }
+  },
+  "kind": "routing-run",
+  "source_sha256": "b6213a744f599d332185de401fc210b472af1e10dd4a1ef33e27a860bc770cf0"
+}

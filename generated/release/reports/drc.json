@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.kicad.org/drc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-09-02T01:44:36",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "schematic_parity": [],
+  "source": "quad_relay_controller.kicad_pcb",
+  "unconnected_items": [],
+  "violations": [],
+  "source_sha256": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5",
+  "source_closure_sha256": "0acc8a508b92a95cf22363c201ac8ecd2a73ccabe03519da583ffd6ff357d94d"
+}

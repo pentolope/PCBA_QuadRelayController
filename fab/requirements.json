@@ -1,0 +1,12 @@
+{
+  "board_thickness_mm": 1.6,
+  "copper_layers": 2,
+  "impedance_control": false,
+  "inner_copper_oz": null,
+  "material": "FR4",
+  "min_drill_mm": 0.3,
+  "min_space_mm": 0.15,
+  "min_track_mm": 0.25,
+  "min_via_diameter_mm": 0.6,
+  "outer_copper_oz": 1
+}

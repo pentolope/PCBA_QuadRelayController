@@ -1,0 +1,75 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the top of its declared range"
+    },
+    "RPULLDOWN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the gate pull-down at its nominal value, with no tolerance and no temperature coefficient"
+    },
+    "RPULLUP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "an internal pull-up at the lowest resistance the datasheet permits, which is stronger than the floating input the reset state actually gives"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the gate series resistor at its nominal value"
+    }
+  },
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 5.25
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLUP",
+      "nodes": [
+        "rail",
+        "pin"
+      ],
+      "value": 30000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "pin",
+        "gate"
+      ],
+      "value": 100.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLDOWN",
+      "nodes": [
+        "gate",
+        "0"
+      ],
+      "value": 2200.0
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.65
+      },
+      "kind": "op_voltage",
+      "name": "gate_voltage",
+      "node": "gate"
+    }
+  ],
+  "name": "driver_gate_held_off_against_a_worst_case_pull_up"
+}

@@ -1,0 +1,101 @@
+{
+  "intent_sha256": "2fc4150571d74e3cf368595cf5ea9fd95d59eab8c4392233db75f7bbb1d65f06",
+  "kind": "accepted-placement-provenance",
+  "locked": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "J2",
+    "J3",
+    "J4",
+    "J5",
+    "K1",
+    "K2",
+    "K3",
+    "K4"
+  ],
+  "max_displacement_mm": 3.0,
+  "optimized_sha256": "73a3dbaea803a3394f146cbcaad0068122d40cc95d4162562514eaf1accd4a65",
+  "optimizer": {
+    "git": {
+      "dirty": false,
+      "sha": "3fb9c05f182db88fe1fccfaa515bc5c466169dd4",
+      "upstream_base": null
+    },
+    "grid_router": {
+      "kind": "native-binary",
+      "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+      "sha256": "bac20f431312bdf6ab2e585295cb320e2b634a9f28a0c6286b6ae170a51b3cf2",
+      "version": "0.21.4"
+    },
+    "kicad_cli": "/usr/bin/kicad-cli",
+    "kicad_version": "10.0.5",
+    "kind": "krt-provenance",
+    "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it",
+    "python": {
+      "executable": "/usr/bin/python3",
+      "version": "3.12.3"
+    },
+    "source_path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools",
+    "version": "0.21.5"
+  },
+  "resolution": {
+    "origin": "vendored submodule",
+    "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools"
+  },
+  "seed_sha256": "849faf540edcc0164c186d3cc2f9cac61f62ded0d8f558994e17d6bb00649b31",
+  "summary": {
+    "airwire_length_after": 1184.9548422643657,
+    "airwire_length_before": 1249.2750200080286,
+    "block_parts": 0,
+    "blocks": 0,
+    "cost_after": 1568.0636088749566,
+    "cost_before": 2048.042791111679,
+    "crossings_after": 34,
+    "crossings_before": 74,
+    "hole_conflicts_after": 0,
+    "hole_conflicts_before": 0,
+    "hole_shortfall": 0.0,
+    "hpwl": 1208.4524999999999,
+    "hpwl_after": 1208.4524999999999,
+    "hpwl_before": 1262.2900000000002,
+    "intent": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/constraints/floorplan.json",
+    "intent_moves_refused": 576,
+    "intent_moves_refused_by_rule": {
+      "zone_containment": 576
+    },
+    "intent_moves_refused_by_site": {
+      "candidate_valid": 576
+    },
+    "intent_refs_bound": 71,
+    "intent_rules_enforced": [
+      "keepout",
+      "zone_containment",
+      "zone_exclusive"
+    ],
+    "locked_contact_pairs": 0,
+    "oob_amount": 0.0,
+    "oob_area": 0.0,
+    "oob_count": 0,
+    "oob_pad_count_after": 0,
+    "oob_pad_count_before": 0,
+    "overlap_area": 0.0,
+    "pad_clearance_required": [],
+    "pad_conflict_pairs": 0,
+    "pad_conflict_pairs_currency": "aabb-gate (conservative, phantoms)",
+    "pad_conflicts_after": 0,
+    "pad_conflicts_before": 0,
+    "pad_conflicts_currency": "exact geometry (phantom-free)",
+    "pad_intersection_pairs": 0,
+    "pad_overlap_pairs": 0,
+    "pad_shortfall": 0.0,
+    "pad_shortfall_after": 0.0,
+    "pad_shortfall_before": 0.0,
+    "parts_moved": 49
+  }
+}

@@ -1,0 +1,656 @@
+{
+  "schema_version": 2,
+  "board_id": "quad_relay_controller",
+  "constraint_version": "layout-stage-2026-09-02",
+  "project_root": "..",
+  "tools": {
+    "kicad_cli": "kicad-cli"
+  },
+  "sources": {
+    "schematic": "quad_relay_controller.kicad_sch",
+    "project": "quad_relay_controller.kicad_pro",
+    "pcb": "quad_relay_controller.kicad_pcb"
+  },
+  "board_origin_mm": [
+    30.0,
+    118.0
+  ],
+  "documentation_globs": [
+    "BRIEF.md"
+  ],
+  "checks": {
+    "erc": {
+      "extra_flags": []
+    },
+    "drc": {
+      "extra_flags": [],
+      "forbidden_severities": [
+        "ignore"
+      ],
+      "permitted_ignored_rules": [],
+      "constraint_floor": {
+        "rules": {
+          "min_clearance": 0.15,
+          "min_track_width": 0.15,
+          "min_via_diameter": 0.45,
+          "min_via_annular_width": 0.1,
+          "min_through_hole_diameter": 0.25,
+          "min_hole_clearance": 0.25,
+          "min_hole_to_hole": 0.25,
+          "min_copper_edge_clearance": 0.3
+        },
+        "net_classes": {
+          "Default": {
+            "clearance": 0.15,
+            "track_width": 0.25,
+            "via_diameter": 0.6,
+            "via_drill": 0.3
+          }
+        }
+      }
+    }
+  },
+  "waivers": [],
+  "geometry_profile": {
+    "version": "geom-1",
+    "tolerances": {
+      "waiver_location_mm": {
+        "value": 0.001,
+        "units": "mm"
+      },
+      "polygon_chord_error_mm": {
+        "value": 0.001,
+        "units": "mm"
+      },
+      "contact_mm": {
+        "value": 1e-06,
+        "units": "mm"
+      },
+      "coordinate_match_mm": {
+        "value": 0.002,
+        "units": "mm"
+      },
+      "rotation_match_deg": {
+        "value": 0.1,
+        "units": "deg"
+      },
+      "dimension_match_mm": {
+        "value": 0.002,
+        "units": "mm"
+      },
+      "clearance_match_mm": {
+        "value": 0.01,
+        "units": "mm"
+      },
+      "layer_symmetric_difference_mm2": {
+        "value": 0.05,
+        "units": "mm2"
+      }
+    }
+  },
+  "stackup": {
+    "expected": [
+      {
+        "role": "signal"
+      },
+      {
+        "role": "plane",
+        "plane_net": "GND"
+      }
+    ]
+  },
+  "placement_rules": [
+    {
+      "id": "RELAY_ARRAY",
+      "reference_regex": "^K[1-4]$",
+      "count": 4
+    },
+    {
+      "id": "SWITCHED_TERMINALS",
+      "reference_regex": "^J[2-5]$",
+      "count": 4
+    },
+    {
+      "id": "CHANNEL_DRIVERS",
+      "reference_regex": "^Q[1-4]$",
+      "count": 4
+    },
+    {
+      "id": "FLYBACK_DIODES",
+      "reference_regex": "^D[1-4]$",
+      "count": 4
+    },
+    {
+      "id": "CHANNEL_INDICATORS",
+      "reference_regex": "^D[5-8]$",
+      "count": 4
+    },
+    {
+      "id": "ESD_PROTECTION",
+      "reference_regex": "^D1[0-6]$",
+      "count": 7
+    },
+    {
+      "id": "MOUNTING",
+      "reference_regex": "^H[1-4]$",
+      "count": 4
+    }
+  ],
+  "net_topology": {
+    "rules": [
+      {
+        "id": "SWITCHED_CONTACT_PATHS",
+        "net_regex": "^CH\\d_(NO|COM|NC)$",
+        "source_pad_regex": "^K\\d\\.(11|12|14)$",
+        "load_pad_regex": "^J[2-5]\\.[123]$",
+        "max_vias_per_net": 0,
+        "permitted_layers": [
+          "F.Cu"
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "min_segment_mm": 0.1,
+    "short_segment_justification": {
+      "allow_pad_or_via_entry": true
+    },
+    "hygiene": {
+      "forbid_duplicate_geometry": true,
+      "forbid_net_crossings": true,
+      "forbid_dangling": true
+    },
+    "provenance": "generated/routing.json",
+    "acceptance_gates": [
+      "ERC.AUTHORITATIVE",
+      "DRC.AUTHORITATIVE",
+      "DRC.NO_SUPPRESSED_RULES",
+      "DRC.CONSTRAINT_FLOOR",
+      "NET.TOPOLOGY",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.TINY_SEGMENTS",
+      "ROUTE.PROVENANCE",
+      "CONTRACT.PLACEMENT",
+      "CONTRACT.CONNECTOR",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE"
+    ]
+  },
+  "via_mask": {
+    "pad_contact": {
+      "populated_pad_attributes": [
+        "SMD"
+      ],
+      "require_paste": true
+    },
+    "metric": "annulus_to_opening_mm",
+    "contact_semantics": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
+    "mask_dam_rule": "contact",
+    "design_target_mm": 0.15
+  },
+  "artifacts": {
+    "gerber_dir": "generated/release/gerbers",
+    "bom": "generated/release/bom.csv",
+    "cpl": "generated/release/cpl.csv",
+    "fabrication_manifest": "generated/release/fabrication.json",
+    "validation_report": "generated/release/validation.json",
+    "position_tolerance_mm": 0.01,
+    "cpl_fields": {
+      "designator": "Ref",
+      "x": "PosX",
+      "y": "PosY",
+      "side": "Side",
+      "rotation": "Rot"
+    },
+    "cpl_origin": {
+      "frame": "absolute page origin",
+      "offset_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    "gerber_export_flags": [
+      "--layers",
+      "F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+      "--no-protel-ext",
+      "--use-drill-file-origin",
+      "--subtract-soldermask"
+    ],
+    "reports_dir": "generated/release/reports"
+  },
+  "archive": {
+    "zip": "generated/release/quad_relay_controller-fabrication.zip",
+    "allow": [
+      {
+        "file_function": "Copper,L1,Top",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Copper,L2,Bot",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Soldermask,Top",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Soldermask,Bot",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Legend,Top",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Legend,Bot",
+        "require_payload": false,
+        "min_count": 1
+      },
+      {
+        "file_function": "Paste,Top",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Profile,NP",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Drill/plated",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "Drill/nonplated",
+        "require_payload": true,
+        "min_count": 1
+      },
+      {
+        "file_function": "JobFile",
+        "require_payload": true,
+        "min_count": 1
+      }
+    ]
+  },
+  "assembly": {
+    "schematic_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ],
+    "required_part_fields": [
+      "LCSC"
+    ],
+    "bom_fields": {
+      "designators": "Designator",
+      "value": "Comment",
+      "footprint": "Footprint",
+      "quantity": "Quantity",
+      "LCSC": "LCSC Part #"
+    },
+    "schematic_export": {
+      "fields": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "${DNP}",
+        "${EXCLUDE_FROM_BOM}",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "labels": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "DNP",
+        "ExcludeFromBOM",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "flags": [],
+      "reference_label": "Reference",
+      "value_label": "Value",
+      "footprint_label": "Footprint",
+      "dnp_label": "DNP",
+      "exclude_label": "ExcludeFromBOM",
+      "true_tokens": [
+        "1",
+        "true",
+        "yes",
+        "x",
+        "dnp"
+      ]
+    },
+    "compared_part_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ]
+  },
+  "release_generation": {
+    "lock_file_globs": [
+      "*.lck",
+      "~*.lck",
+      ".#*",
+      "*-lock",
+      "*.kicad_prl-lock"
+    ],
+    "erc": {
+      "output": "erc.json"
+    },
+    "drc": {
+      "output": "drc.json"
+    },
+    "drill": {
+      "flags": [
+        "--format",
+        "excellon",
+        "--excellon-separate-th",
+        "--drill-origin",
+        "plot"
+      ]
+    },
+    "bom": {
+      "output": "bom.csv",
+      "fields": [
+        "${QUANTITY}",
+        "Reference",
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "labels": [
+        "Quantity",
+        "Designator",
+        "Comment",
+        "Footprint",
+        "LCSC Part #"
+      ],
+      "group_by": [
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "flags": [
+        "--exclude-dnp",
+        "--ref-range-delimiter",
+        ""
+      ],
+      "field_map": {
+        "designators": "Designator",
+        "value": "Comment",
+        "footprint": "Footprint",
+        "quantity": "Quantity",
+        "LCSC": "LCSC Part #"
+      }
+    },
+    "cpl": {
+      "output": "cpl.csv",
+      "flags": [
+        "--format",
+        "csv",
+        "--units",
+        "mm",
+        "--side",
+        "both",
+        "--exclude-dnp"
+      ],
+      "field_map": {
+        "designator": "Ref",
+        "x": "PosX",
+        "y": "PosY",
+        "side": "Side",
+        "rotation": "Rot"
+      },
+      "origin": {
+        "frame": "absolute page origin",
+        "offset_mm": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "archive": {
+      "zip": "quad_relay_controller-fabrication.zip"
+    }
+  },
+  "reports": {
+    "files": [
+      "generated/release/reports/erc.json",
+      "generated/release/reports/drc.json"
+    ],
+    "source_field": "source",
+    "date_field": "date",
+    "require_source_hash": true,
+    "tolerance_seconds": 0,
+    "source_closure": [
+      "*.kicad_sch",
+      "*.kicad_pcb",
+      "*.kicad_pro",
+      "*.kicad_dru",
+      "constraints/*.json",
+      "sim/*.json",
+      "fab/*.json",
+      "components/*.json",
+      "evidence/index.json"
+    ],
+    "source_hash_field": "source_sha256",
+    "closure_field": "source_closure_sha256"
+  },
+  "fixture": {
+    "attributes_file": ".gitattributes"
+  },
+  "release_profile": {
+    "id": "jlcpcb-2layer-assembled",
+    "mandatory_gates": [
+      "ARCH.CONTENTS",
+      "ARCH.PROVENANCE",
+      "BOM.NATIVE_PARITY",
+      "CONTRACT.CONNECTOR",
+      "CONTRACT.PLACEMENT",
+      "CPL.NATIVE_PARITY",
+      "DRC.AUTHORITATIVE",
+      "DRC.CONSTRAINT_FLOOR",
+      "DRC.NO_SUPPRESSED_RULES",
+      "ERC.AUTHORITATIVE",
+      "NET.TOPOLOGY",
+      "PROV.REPORT_FRESHNESS",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.PROVENANCE",
+      "ROUTE.TINY_SEGMENTS",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE",
+      "STACK.GERBER_PARITY",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "VIA.MASK_CLEARANCE_TARGET"
+    ],
+    "required_evidence": [
+      "constraints/insulation.json",
+      "evidence/index.json",
+      "generated/placement.json",
+      "generated/requirements.json",
+      "generated/routing.json"
+    ]
+  },
+  "simulation": {
+    "stages": {
+      "pre_layout": [
+        "sim/pre_layout_rail_droop.json",
+        "sim/pre_layout_gate_hold_off.json"
+      ],
+      "post_layout": [
+        "sim/post_layout_rail_droop.json"
+      ]
+    },
+    "required_stages": [
+      "pre_layout",
+      "post_layout"
+    ],
+    "extracted_models": {
+      "paths": {
+        "coil_supply_copper": {
+          "net": "VCOIL",
+          "from_pad": "Q5.2",
+          "to_pad": "K1.A1"
+        }
+      },
+      "physical_inputs": "fab/physical_inputs.json"
+    }
+  },
+  "timing": {
+    "physical_stackup": {
+      "reference_nets": [
+        "GND"
+      ],
+      "require_complete": false
+    }
+  },
+  "connector_gender_tokens": {
+    "receptacle": [
+      "receptacle",
+      "socket",
+      "female"
+    ],
+    "plug": [
+      "plug",
+      "header",
+      "male"
+    ]
+  },
+  "connector_contracts": [
+    {
+      "id": "logic_supply_input",
+      "reference": "J1",
+      "required_positions": 2,
+      "required_rows": 1,
+      "required_pitch_mm": 5.08,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "V5IN",
+        "2": "GND"
+      }
+    },
+    {
+      "id": "programming_header",
+      "reference": "J6",
+      "required_positions": 5,
+      "required_rows": 1,
+      "required_pitch_mm": 2.54,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "+5V",
+        "2": "SWDIO",
+        "3": "SWCLK",
+        "4": "NRST",
+        "5": "GND"
+      }
+    },
+    {
+      "id": "host_interface_header",
+      "reference": "J7",
+      "required_positions": 4,
+      "required_rows": 1,
+      "required_pitch_mm": 2.54,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "+5V",
+        "2": "UART_TX",
+        "3": "UART_RX",
+        "4": "GND"
+      }
+    },
+    {
+      "id": "switched_terminal_ch1",
+      "reference": "J2",
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_pitch_mm": 9.5,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "CH1_NO",
+        "2": "CH1_COM",
+        "3": "CH1_NC"
+      }
+    },
+    {
+      "id": "switched_terminal_ch2",
+      "reference": "J3",
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_pitch_mm": 9.5,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "CH2_NO",
+        "2": "CH2_COM",
+        "3": "CH2_NC"
+      }
+    },
+    {
+      "id": "switched_terminal_ch3",
+      "reference": "J4",
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_pitch_mm": 9.5,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "CH3_NO",
+        "2": "CH3_COM",
+        "3": "CH3_NC"
+      }
+    },
+    {
+      "id": "switched_terminal_ch4",
+      "reference": "J5",
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_pitch_mm": 9.5,
+      "required_side": "front",
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "pin_map": {
+        "1": "CH4_NO",
+        "2": "CH4_COM",
+        "3": "CH4_NC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 1e-06,
+      "stop_s": 0.002
+    }
+  ],
+  "assumptions": {
+    "CBULK": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "every bulk and decoupling capacitance on the coil supply and the logic rail as one ideal capacitor, with no ESR, no ESL and no DC bias derating"
+    },
+    "RCOILS": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "all four coils as one resistance at the low end of their tolerance, which draws more than four real coils would"
+    },
+    "RLOGIC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the series element between the coil supply and the logic rail, at its nominal value"
+    },
+    "RMCU": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the MCU's draw as a fixed resistance at the datasheet's own maximum current into VCC, which is far above its stated typical consumption"
+    },
+    "RPATH": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the field wiring, the source and the reverse-polarity device as one series resistance; the wiring part is a budget this board states rather than measures"
+    },
+    "SRC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the external supply held at the low end of the board's declared input range, as an ideal source with no output impedance of its own"
+    },
+    "SWITCH": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the instant firmware energises every channel at once, as an ideal switch with no on-resistance"
+    }
+  },
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "SRC",
+      "nodes": [
+        "src",
+        "0"
+      ],
+      "value": 4.75
+    },
+    {
+      "kind": "resistor",
+      "name": "RPATH",
+      "nodes": [
+        "src",
+        "path"
+      ],
+      "value": 0.56
+    },
+    {
+      "kind": "model_instance",
+      "model": "coil_supply_copper",
+      "name": "COPPER",
+      "nodes": [
+        "path",
+        "rail"
+      ]
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 3.0199999999999995e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RCOILS",
+      "nodes": [
+        "rail",
+        "sink"
+      ],
+      "value": 14.0625
+    },
+    {
+      "kind": "vsource_pulse",
+      "name": "SWITCH",
+      "nodes": [
+        "sink",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 0.0001,
+        "fall_s": 1e-09,
+        "period_s": 0.004,
+        "rise_s": 1e-09,
+        "v1": 4.75,
+        "v2": 0.0,
+        "width_s": 0.002
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RLOGIC",
+      "nodes": [
+        "rail",
+        "logic"
+      ],
+      "value": 4.7
+    },
+    {
+      "kind": "resistor",
+      "name": "RMCU",
+      "nodes": [
+        "logic",
+        "0"
+      ],
+      "value": 47.5
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 5.5
+      },
+      "kind": "tran_max_voltage",
+      "knowledge": {
+        "basis": {
+          "detail": "the extracted copper resistance is a lower bound - via barrel resistance is omitted by the extraction - and the rail falls monotonically with series resistance, so every simulated rail voltage bounds the true one from above",
+          "kind": "assumed"
+        },
+        "kind": "upper_bound"
+      },
+      "name": "logic_rail_maximum",
+      "node": "logic"
+    },
+    {
+      "kind": "tran_min_voltage",
+      "knowledge": {
+        "basis": {
+          "detail": "the extracted copper resistance is a lower bound - via barrel resistance is omitted by the extraction - and the rail falls monotonically with series resistance, so every simulated rail voltage bounds the true one from above",
+          "kind": "assumed"
+        },
+        "kind": "upper_bound"
+      },
+      "name": "logic_rail_minimum",
+      "node": "logic"
+    }
+  ],
+  "name": "rail_droop_over_extracted_copper",
+  "required_coverage": {
+    "interconnect_dc": [
+      "geometry-derived",
+      "quasi-static-extracted",
+      "full-wave-extracted",
+      "measured"
+    ]
+  }
+}
