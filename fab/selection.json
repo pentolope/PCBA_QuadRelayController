@@ -19,7 +19,8 @@
     "the 0.3 mm minimum drill clears the stated 0.15-6.3 mm drilled-hole range for this board class [capabilities]",
     "the 0.6 mm minimum via diameter clears the stated 0.25 mm minimum for this board class (via hole size and diameter minima for 2-layer boards) [capabilities]",
     "no published construction matches 2 copper layers at 1.6 mm nominal for this requirement profile; the fabricator's stackup tables describe specific builds and nothing is scaled or invented for others",
-    "no impedance requirement is stated, so no impedance-grade process is selected: the least sophisticated process that satisfies the requirements is preferred"
+    "no impedance requirement is stated, so no impedance-grade process is selected: the least sophisticated process that satisfies the requirements is preferred",
+    "no 2-layer construction is published, but one can be composed for this profile from stated values, which is what export-stackup does"
   ],
   "requirements_checked": [
     "board_thickness_mm",
@@ -51,5 +52,5 @@
     "assembly constraints"
   ],
   "vocabulary_note": "feasible means feasible against the checked requirements only; the properties under not_in_vocabulary were NOT inspected and must be judged separately",
-  "approved_normalized_sha256": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c"
+  "approved_normalized_sha256": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65"
 }

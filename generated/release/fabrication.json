@@ -3,16 +3,16 @@
   "board_id": "quad_relay_controller",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-02T14:53:54.643569+00:00",
-  "source_closure_sha256": "8fe3d9a2ad5ae919cd0f23ed6b3284142e66e1dbe55b0a2784e25c68285dde2a",
+  "generated_utc": "2026-09-02T16:40:15.913312+00:00",
+  "source_closure_sha256": "361cf4a9c621ee9a5e586bf6040b26b85168e4589c231210ba7e2042d05eee1c",
   "source_closure_files": 21,
   "tools": {
     "kicad": "10.0.5",
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "c7efa05e007872a76f14601ac8b0f93c5e930aa5",
-    "working_tree_dirty": true,
+    "commit": "e125763cee7b8b5e0db7f27799e1003d239e531e",
+    "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
   "commands": [
@@ -27,20 +27,20 @@
   "artifacts": {
     "bom.csv": "ab5d9cdf6a7dd257312d13af7668848d36cd431992d2fb96f52b6f21fa8510cf",
     "cpl.csv": "c3bc546cc29ccb997a366b3b8a8b39029090bcb49497ee0386cc5aa173488233",
-    "gerbers/quad_relay_controller-B_Cu.gbr": "ded9bd7b1c0af85ba3cebe097b00dadf905133e6ce96b4888b3efc8f3c41fc6e",
-    "gerbers/quad_relay_controller-B_Mask.gbr": "501fc61be2250c72b76bc9ea7df8d4f86ff2931e8c67036395479ed543beb2b9",
-    "gerbers/quad_relay_controller-B_Silkscreen.gbr": "aaeb9cfb4a327920d358b35f68efdd65d754c23a7cfa8b5c3da04f2c0a6d5dca",
-    "gerbers/quad_relay_controller-Edge_Cuts.gbr": "bc54294924ae51765d8cb36cac63914271cba11b4264999734cdb70345658872",
-    "gerbers/quad_relay_controller-F_Cu.gbr": "7d6e37abf29511da18f2fa787c4ed153ae89bd076823a3f97f84f444ec13dbd6",
-    "gerbers/quad_relay_controller-F_Mask.gbr": "92a3c994680c51ab5a7e95652c30767f27c7c40584689e9abda4d536efefc726",
-    "gerbers/quad_relay_controller-F_Paste.gbr": "a2a3b93c91bce63f4b69f8d5cf1d6aa28107d58acb1dec8b7d97ab1f84036752",
-    "gerbers/quad_relay_controller-F_Silkscreen.gbr": "2aaee7ea6f91d1c5b079606fd088e5469e7ad6cbd7d96949b2a04da41a6c212e",
-    "gerbers/quad_relay_controller-NPTH.drl": "a52ccb16862c12b1854733a466b2f33ddb202f16e73923f44c14c708f633442a",
-    "gerbers/quad_relay_controller-PTH.drl": "e508b2ac72ea18580c90859d3bbabd42edbad56993c8a4565664a738ecc2e034",
-    "gerbers/quad_relay_controller-job.gbrjob": "f2e2f5fffe3ecfe1dff9fa66e798a50f839d0bbbe2ec9e448ed3647bfa53af95",
-    "quad_relay_controller-fabrication.zip": "2e9df9d15ea40f1506c7b0719d5a84ac0488f9d0a39584e5395a8e7084b87f48",
-    "reports/drc.json": "ef2e7e454e0b0447610a5a533b921ea73f5cec9b160d84206f7ca3e8cc9c94d5",
-    "reports/erc.json": "6024492e5e5e04a7fafc28f873b6efc1d79e4e7b785264b970b515f08bd4302a"
+    "gerbers/quad_relay_controller-B_Cu.gbr": "e8b110b5297e51ca51fde91c98030383ec7537b518a49ec0209fec5a992c143e",
+    "gerbers/quad_relay_controller-B_Mask.gbr": "718de83f4ce68946aee29aabe4c77d1d3f21b4d1450155d538cbc38eaf06a097",
+    "gerbers/quad_relay_controller-B_Silkscreen.gbr": "a3e53607ac1bd347c4ca7bc29fb299824d75816cd04d39b7d51dbc3403e8e397",
+    "gerbers/quad_relay_controller-Edge_Cuts.gbr": "dd291b95d116641784c4a595152526ec4e7f2211056b528057466f55f4cfbfd4",
+    "gerbers/quad_relay_controller-F_Cu.gbr": "36e6f59a2066ebade842bb894dd0099b6c1646054ca999656c1e1c94a27887de",
+    "gerbers/quad_relay_controller-F_Mask.gbr": "2c0805e0440df3085b4427b9698a5bbb4ae8f3e0db6e4d0b99681be463dbd086",
+    "gerbers/quad_relay_controller-F_Paste.gbr": "461b571e0176997961e8cc2094bdf529d3233cbebdb329281164276f442e895d",
+    "gerbers/quad_relay_controller-F_Silkscreen.gbr": "f8f32be86273d02b7faa2b7c8de52a653595e34c4bb4f70714f7725928ee6145",
+    "gerbers/quad_relay_controller-NPTH.drl": "da3fe3191a20b397eb094ff46a0682383000a4a4c1635d9937bd2b2b35d063f4",
+    "gerbers/quad_relay_controller-PTH.drl": "b240b19fcdec7d9a05919bc369a4518946d63b5071cd070777a58d73284d3abb",
+    "gerbers/quad_relay_controller-job.gbrjob": "c90245d72f803fbd5e005702ed0db24d86c9edff69e16d94a931183126c0c053",
+    "quad_relay_controller-fabrication.zip": "49a7541427441ffa5c08637d1773f941c0efb2fec2f8fd5dffb58a1b4d04203c",
+    "reports/drc.json": "795a814a6c38f6d558acb15bbf6cd0f66125aac2be2b53e0fcc4a0b276e8c9d3",
+    "reports/erc.json": "bc181fec95e5fefa1adc69dd2d758104ad8acfe11f496a157933364cd44e97c9"
   },
   "excluded_layers": []
 }

@@ -10,7 +10,7 @@
   "copper_thickness_mm": {
     "B.Cu": {
       "applicability": "external 1 oz finished copper",
-      "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+      "digest": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65",
       "source": "finished_copper_external_1oz_mil",
       "source_type": "approved-evidence",
       "units": "mm",
@@ -18,7 +18,7 @@
     },
     "F.Cu": {
       "applicability": "external 1 oz finished copper",
-      "digest": "f7cd05e75e1f9d6d015276986a43c13f2e2162ded30eea61f0362f999a97918c",
+      "digest": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65",
       "source": "finished_copper_external_1oz_mil",
       "source_type": "approved-evidence",
       "units": "mm",

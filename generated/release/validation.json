@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-02T08:18:51.460197+00:00",
-  "source_closure_sha256": "19c951c6cf20f2b2cf8802c7d1525abe23d2564851c89c4e27140883a6a64afe",
+  "generated_utc": "2026-09-02T16:40:25.936024+00:00",
+  "source_closure_sha256": "361cf4a9c621ee9a5e586bf6040b26b85168e4589c231210ba7e2042d05eee1c",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/board/manifest.json",
-    "sha256": "00e56deef387398c42f62f525a1f5b97fca9ee273f4e4fbb60e0f2223b2245e5",
+    "sha256": "fb697c688a53594edb1426308c717213a191f52e780c047eaa0c57957ff92148",
     "board_id": "quad_relay_controller",
     "constraint_version": "layout-stage-2026-09-02"
   },
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/tooling/PCBA_AutoDesignAndTest",
-      "commit": "c7efa05e007872a76f14601ac8b0f93c5e930aa5",
+      "commit": "e125763cee7b8b5e0db7f27799e1003d239e531e",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -60,8 +60,8 @@
   },
   "summary": {
     "counts": {
-      "PASS": 22,
-      "NOT_APPLICABLE": 14
+      "PASS": 24,
+      "NOT_APPLICABLE": 12
     },
     "blocking": [],
     "verdict": "ACCEPTED"
@@ -151,7 +151,7 @@
           "units": "file function",
           "kind": "policy",
           "manifest_key": "archive.allow",
-          "provenance": "manifest.json#archive.allow@00e56deef387"
+          "provenance": "manifest.json#archive.allow@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -160,7 +160,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/generated/release/quad_relay_controller-fabrication.zip",
           "name": "quad_relay_controller-fabrication.zip",
-          "sha256": "f64ba1a176009eb046a9bfb091421bde6ad4f8905c557ae40632349df2a51329"
+          "sha256": "49a7541427441ffa5c08637d1773f941c0efb2fec2f8fd5dffb58a1b4d04203c"
         }
       ]
     },
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "19c951c6cf20f2b2cf8802c7d1525abe23d2564851c89c4e27140883a6a64afe",
-        "recorded_source_closure_sha256": "19c951c6cf20f2b2cf8802c7d1525abe23d2564851c89c4e27140883a6a64afe"
+        "source_closure_sha256": "361cf4a9c621ee9a5e586bf6040b26b85168e4589c231210ba7e2042d05eee1c",
+        "recorded_source_closure_sha256": "361cf4a9c621ee9a5e586bf6040b26b85168e4589c231210ba7e2042d05eee1c"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "16a8dfc0c480818c557961b8efae593bf03e82f472384a23a2ec3e056ebc9d39"
+          "sha256": "8d20fca5a669e7931bf59ba355fb609cea69604586db255a69f5d30b21e62857"
         }
       ]
     },
@@ -229,7 +229,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.required_part_fields",
-          "provenance": "manifest.json#assembly.required_part_fields@00e56deef387"
+          "provenance": "manifest.json#assembly.required_part_fields@fb697c688a53"
         },
         "assembly.compared_part_fields": {
           "id": "assembly.compared_part_fields",
@@ -241,7 +241,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.compared_part_fields",
-          "provenance": "manifest.json#assembly.compared_part_fields@00e56deef387"
+          "provenance": "manifest.json#assembly.compared_part_fields@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -451,7 +451,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "artifacts.position_tolerance_mm",
-          "provenance": "manifest.json#artifacts.position_tolerance_mm@00e56deef387"
+          "provenance": "manifest.json#artifacts.position_tolerance_mm@fb697c688a53"
         },
         "geometry.rotation_match_deg": {
           "id": "geometry.rotation_match_deg",
@@ -459,7 +459,7 @@
           "units": "deg",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.rotation_match_deg.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@fb697c688a53"
         },
         "artifacts.cpl_origin": {
           "id": "artifacts.cpl_origin",
@@ -473,7 +473,7 @@
           "units": "frame",
           "kind": "policy",
           "manifest_key": "artifacts.cpl_origin",
-          "provenance": "manifest.json#artifacts.cpl_origin@00e56deef387"
+          "provenance": "manifest.json#artifacts.cpl_origin@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -520,12 +520,12 @@
         "source_sha256": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5",
         "checked_copy_sha256": "c864b145fe558fe060875d2138762c0de8b32b9a2d813e3334f3a3432d4cb4e7",
         "rules_sha256": "017d5881e875f6f4d74d7aa9cb3916e85e18229fa3d1a18fab9d78ef6e88085f",
-        "constraint_manifest_sha256": "00e56deef387398c42f62f525a1f5b97fca9ee273f4e4fbb60e0f2223b2245e5",
+        "constraint_manifest_sha256": "fb697c688a53594edb1426308c717213a191f52e780c047eaa0c57957ff92148",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-02T08:18:44.403648+00:00",
+        "generated_utc": "2026-09-02T16:40:18.817671+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-02T02:18:44",
+          "date": "2026-09-02T10:40:18",
           "kicad_version": "10.0.5",
           "source": "quad_relay_controller.kicad_pcb",
           "ignored_checks": [],
@@ -552,16 +552,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@fb697c688a53"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T081841Z-652dd214/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T164016Z-bbb3f0ef/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "e750cf2bd772e9bf753585b1be4da1289d52826b3068a1020ed549be04a1802c"
+          "sha256": "2af745aefa551e7b9363cc2b2b819da2515e458b332a0a5e1d5c8cadd98b7ef0"
         }
       ]
     },
@@ -581,7 +581,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_clearance@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_clearance@fb697c688a53"
         },
         "drc.floor.min_copper_edge_clearance": {
           "id": "drc.floor.min_copper_edge_clearance",
@@ -589,7 +589,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_copper_edge_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_copper_edge_clearance@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_copper_edge_clearance@fb697c688a53"
         },
         "drc.floor.min_hole_clearance": {
           "id": "drc.floor.min_hole_clearance",
@@ -597,7 +597,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_hole_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_clearance@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_clearance@fb697c688a53"
         },
         "drc.floor.min_hole_to_hole": {
           "id": "drc.floor.min_hole_to_hole",
@@ -605,7 +605,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_hole_to_hole",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_to_hole@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_to_hole@fb697c688a53"
         },
         "drc.floor.min_through_hole_diameter": {
           "id": "drc.floor.min_through_hole_diameter",
@@ -613,7 +613,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_through_hole_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_through_hole_diameter@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_through_hole_diameter@fb697c688a53"
         },
         "drc.floor.min_track_width": {
           "id": "drc.floor.min_track_width",
@@ -621,7 +621,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_track_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_track_width@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_track_width@fb697c688a53"
         },
         "drc.floor.min_via_annular_width": {
           "id": "drc.floor.min_via_annular_width",
@@ -629,7 +629,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_via_annular_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_annular_width@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_annular_width@fb697c688a53"
         },
         "drc.floor.min_via_diameter": {
           "id": "drc.floor.min_via_diameter",
@@ -637,7 +637,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_via_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_diameter@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_diameter@fb697c688a53"
         },
         "drc.floor.Default.clearance": {
           "id": "drc.floor.Default.clearance",
@@ -645,7 +645,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.clearance@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.clearance@fb697c688a53"
         },
         "drc.floor.Default.track_width": {
           "id": "drc.floor.Default.track_width",
@@ -653,7 +653,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.track_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.track_width@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.track_width@fb697c688a53"
         },
         "drc.floor.Default.via_diameter": {
           "id": "drc.floor.Default.via_diameter",
@@ -661,7 +661,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_diameter@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_diameter@fb697c688a53"
         },
         "drc.floor.Default.via_drill": {
           "id": "drc.floor.Default.via_drill",
@@ -669,7 +669,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_drill",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_drill@00e56deef387"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_drill@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -696,7 +696,7 @@
           "units": "severity",
           "kind": "policy",
           "manifest_key": "checks.drc.forbidden_severities",
-          "provenance": "manifest.json#checks.drc.forbidden_severities@00e56deef387"
+          "provenance": "manifest.json#checks.drc.forbidden_severities@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -728,12 +728,12 @@
         "source_sha256": "3a133402bf3c1fe3308fbb63c17bbc39c55cac31150599160ad99e6624dcbdbe",
         "checked_copy_sha256": "3a133402bf3c1fe3308fbb63c17bbc39c55cac31150599160ad99e6624dcbdbe",
         "rules_sha256": "017d5881e875f6f4d74d7aa9cb3916e85e18229fa3d1a18fab9d78ef6e88085f",
-        "constraint_manifest_sha256": "00e56deef387398c42f62f525a1f5b97fca9ee273f4e4fbb60e0f2223b2245e5",
+        "constraint_manifest_sha256": "fb697c688a53594edb1426308c717213a191f52e780c047eaa0c57957ff92148",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-02T08:18:46.190051+00:00",
+        "generated_utc": "2026-09-02T16:40:20.528359+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-02T02:18:46",
+          "date": "2026-09-02T10:40:20",
           "kicad_version": "10.0.5",
           "source": "quad_relay_controller.kicad_sch",
           "ignored_checks": [],
@@ -760,16 +760,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@fb697c688a53"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T081841Z-652dd214/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T164016Z-bbb3f0ef/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "700fa9fc038c4a47f2f385b4bb150d1cbfc0eb70e5dce9c4d3eb8f41d9663f25"
+          "sha256": "b4684d829f470d4186f553685d46796d70693f07922d77da95034f132c7004b2"
         }
       ]
     },
@@ -936,7 +936,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@fb697c688a53"
         },
         "net_topology.SWITCHED_CONTACT_PATHS.max_vias_per_net": {
           "id": "net_topology.SWITCHED_CONTACT_PATHS.max_vias_per_net",
@@ -944,7 +944,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.0.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@00e56deef387"
+          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -966,10 +966,10 @@
       "gate": "PROV.REPORT_FRESHNESS",
       "title": "Committed reports match the current sources",
       "status": "PASS",
-      "reason": "all 2 committed report(s) bind the canonical digest of all 18 source inputs, and every one still matches",
+      "reason": "all 2 committed report(s) bind the canonical digest of all 21 source inputs, and every one still matches",
       "measurements": {
-        "source_closure_files": 18,
-        "source_closure_sha256": "19c951c6cf20f2b2cf8802c7d1525abe23d2564851c89c4e27140883a6a64afe",
+        "source_closure_files": 21,
+        "source_closure_sha256": "361cf4a9c621ee9a5e586bf6040b26b85168e4589c231210ba7e2042d05eee1c",
         "source_sha256": {
           "pcb": "485533a3586c675d",
           "schematic": "3a133402bf3c1fe3"
@@ -998,7 +998,7 @@
           "units": "path glob",
           "kind": "policy",
           "manifest_key": "reports.source_closure",
-          "provenance": "manifest.json#reports.source_closure@00e56deef387"
+          "provenance": "manifest.json#reports.source_closure@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1077,7 +1077,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "routing.min_segment_mm",
-          "provenance": "manifest.json#routing.min_segment_mm@00e56deef387"
+          "provenance": "manifest.json#routing.min_segment_mm@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1087,9 +1087,13 @@
     {
       "gate": "SIM.MODEL_PROVENANCE",
       "title": "Board-derived simulation models describe the board being validated",
-      "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare simulation.models; this board does not opt in to this gate",
-      "measurements": {},
+      "status": "PASS",
+      "reason": "all 1 board-derived model(s) were extracted from this exact board",
+      "measurements": {
+        "models": 2,
+        "board_derived_models": 1,
+        "board_sha256": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5"
+      },
       "limits": {},
       "finding_count": 0,
       "findings": [],
@@ -1099,11 +1103,11 @@
       "gate": "SIM.SCENARIOS",
       "title": "Declared circuit simulations run and their assertions hold",
       "status": "PASS",
-      "reason": "3 scenario(s) ran and all 4 declared assertion(s) hold",
+      "reason": "4 scenario(s) ran and all 5 declared assertion(s) hold",
       "measurements": {
-        "scenarios_executed": 3,
-        "assertions_evaluated": 4,
-        "assertions_met": 4
+        "scenarios_executed": 4,
+        "assertions_evaluated": 5,
+        "assertions_met": 5
       },
       "limits": {},
       "finding_count": 0,
@@ -1123,7 +1127,7 @@
         ],
         "scenarios_per_stage": {
           "post_layout": 1,
-          "pre_layout": 2
+          "pre_layout": 3
         }
       },
       "limits": {
@@ -1136,7 +1140,7 @@
           "units": "stage name",
           "kind": "policy",
           "manifest_key": "simulation.required_stages",
-          "provenance": "manifest.json#simulation.required_stages@00e56deef387"
+          "provenance": "manifest.json#simulation.required_stages@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1149,7 +1153,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T081841Z-652dd214/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T081841Z-652dd214/work/design/quad_relay_controller.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T164016Z-bbb3f0ef/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260902T164016Z-bbb3f0ef/work/design/quad_relay_controller.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
@@ -1187,7 +1191,7 @@
           "units": "cli option",
           "kind": "policy",
           "manifest_key": "artifacts.gerber_export_flags",
-          "provenance": "manifest.json#artifacts.gerber_export_flags@00e56deef387"
+          "provenance": "manifest.json#artifacts.gerber_export_flags@fb697c688a53"
         },
         "geometry.layer_symmetric_difference_mm2": {
           "id": "geometry.layer_symmetric_difference_mm2",
@@ -1195,7 +1199,7 @@
           "units": "mm2",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.layer_symmetric_difference_mm2.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1241,7 +1245,7 @@
           "units": "layer roles",
           "kind": "policy",
           "manifest_key": "stackup.expected",
-          "provenance": "manifest.json#stackup.expected@00e56deef387"
+          "provenance": "manifest.json#stackup.expected@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1266,7 +1270,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.contact_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@fb697c688a53"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -1274,7 +1278,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1304,7 +1308,7 @@
           "units": "pad attribute",
           "kind": "policy",
           "manifest_key": "via_mask.pad_contact.populated_pad_attributes",
-          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@00e56deef387"
+          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@fb697c688a53"
         },
         "via_mask.mask_dam_rule": {
           "id": "via_mask.mask_dam_rule",
@@ -1312,7 +1316,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "via_mask.mask_dam_rule",
-          "provenance": "manifest.json#via_mask.mask_dam_rule@00e56deef387"
+          "provenance": "manifest.json#via_mask.mask_dam_rule@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1346,7 +1350,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.design_target_mm",
-          "provenance": "manifest.json#via_mask.design_target_mm@00e56deef387"
+          "provenance": "manifest.json#via_mask.design_target_mm@fb697c688a53"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -1354,7 +1358,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@00e56deef387"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@fb697c688a53"
         },
         "via_mask.metric": {
           "id": "via_mask.metric",
@@ -1362,7 +1366,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "via_mask.metric",
-          "provenance": "manifest.json#via_mask.metric@00e56deef387"
+          "provenance": "manifest.json#via_mask.metric@fb697c688a53"
         }
       },
       "finding_count": 0,
@@ -1403,8 +1407,18 @@
         "reference_plane_layers": [
           "B.Cu"
         ],
-        "layers_in_use": null,
-        "fields_required_by_declared_analyses": [],
+        "reference_copper_layers": [
+          "B.Cu"
+        ],
+        "reference_layers_not_filled": [],
+        "layers_in_use": [
+          "B.Cu",
+          "F.Cu"
+        ],
+        "fields_required_by_declared_analyses": [
+          "dielectric_thickness",
+          "epsilon_r"
+        ],
         "insufficient_fields": [
           {
             "issue": "no physical stackup is available at all",
@@ -1428,7 +1442,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "timing.physical_stackup.require_complete",
-          "provenance": "manifest.json#timing.physical_stackup.require_complete@00e56deef387"
+          "provenance": "manifest.json#timing.physical_stackup.require_complete@fb697c688a53"
         }
       },
       "finding_count": 1,
@@ -1444,10 +1458,421 @@
     {
       "gate": "TIMING.PATH_INTEGRITY",
       "title": "Declared electrical paths exist, end to end, across every component",
-      "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
-      "measurements": {},
-      "limits": {},
+      "status": "PASS",
+      "reason": "all 8 declared electrical path(s) across 2 interface(s) resolve end to end, each crossing the series component(s) it declares",
+      "measurements": {
+        "worst_path_unreferenced_mm": 7.6128,
+        "worst_unreferenced_path": "relay_command_ch3->Q3.1",
+        "unreferenced_mm_by_path": {
+          "channel_indicator_ch1->D5.2": 2.4414,
+          "channel_indicator_ch2->D6.2": 1.5218,
+          "channel_indicator_ch3->D7.2": 5.9886,
+          "channel_indicator_ch4->D8.2": 7.4044,
+          "relay_command_ch1->Q1.1": 2.4414,
+          "relay_command_ch2->Q2.1": 1.5218,
+          "relay_command_ch3->Q3.1": 7.6128,
+          "relay_command_ch4->Q4.1": 7.4044
+        },
+        "reference_layers_not_filled": [],
+        "interfaces": {
+          "channel_indicator": {
+            "description": null,
+            "declared_routes": 4,
+            "resolved_paths": 4,
+            "paths": [
+              {
+                "path": "channel_indicator_ch1",
+                "source": "U1.3",
+                "destination": "D5.2",
+                "nets": [
+                  "RLY1_CMD",
+                  "LED1_A"
+                ],
+                "crosses": [
+                  "R9"
+                ],
+                "copper_length_mm": 46.9056,
+                "length_by_layer_mm": {
+                  "F.Cu": 46.905592
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY1_CMD",
+                    "reference": null,
+                    "from": "U1.3",
+                    "to": "R9.1",
+                    "length_mm": 43.3257
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R9",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "LED1_A",
+                    "reference": null,
+                    "from": "R9.2",
+                    "to": "D5.2",
+                    "length_mm": 3.5799
+                  }
+                ]
+              },
+              {
+                "path": "channel_indicator_ch2",
+                "source": "U1.4",
+                "destination": "D6.2",
+                "nets": [
+                  "RLY2_CMD",
+                  "LED2_A"
+                ],
+                "crosses": [
+                  "R10"
+                ],
+                "copper_length_mm": 26.264,
+                "length_by_layer_mm": {
+                  "F.Cu": 26.263961
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY2_CMD",
+                    "reference": null,
+                    "from": "U1.4",
+                    "to": "R10.1",
+                    "length_mm": 22.8497
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R10",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "LED2_A",
+                    "reference": null,
+                    "from": "R10.2",
+                    "to": "D6.2",
+                    "length_mm": 3.4142
+                  }
+                ]
+              },
+              {
+                "path": "channel_indicator_ch3",
+                "source": "U1.5",
+                "destination": "D7.2",
+                "nets": [
+                  "RLY3_CMD",
+                  "LED3_A"
+                ],
+                "crosses": [
+                  "R11"
+                ],
+                "copper_length_mm": 40.2257,
+                "length_by_layer_mm": {
+                  "B.Cu": 1.414214,
+                  "F.Cu": 38.811479
+                },
+                "via_transitions": 2,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY3_CMD",
+                    "reference": null,
+                    "from": "U1.5",
+                    "to": "R11.1",
+                    "length_mm": 37.2257
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R11",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "LED3_A",
+                    "reference": null,
+                    "from": "R11.2",
+                    "to": "D7.2",
+                    "length_mm": 3.0
+                  }
+                ]
+              },
+              {
+                "path": "channel_indicator_ch4",
+                "source": "U1.6",
+                "destination": "D8.2",
+                "nets": [
+                  "RLY4_CMD",
+                  "LED4_A"
+                ],
+                "crosses": [
+                  "R12"
+                ],
+                "copper_length_mm": 76.9073,
+                "length_by_layer_mm": {
+                  "F.Cu": 76.907332
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY4_CMD",
+                    "reference": null,
+                    "from": "U1.6",
+                    "to": "R12.1",
+                    "length_mm": 73.376
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R12",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "LED4_A",
+                    "reference": null,
+                    "from": "R12.2",
+                    "to": "D8.2",
+                    "length_mm": 3.5314
+                  }
+                ]
+              }
+            ]
+          },
+          "relay_command": {
+            "description": null,
+            "declared_routes": 4,
+            "resolved_paths": 4,
+            "paths": [
+              {
+                "path": "relay_command_ch1",
+                "source": "U1.3",
+                "destination": "Q1.1",
+                "nets": [
+                  "RLY1_CMD",
+                  "RLY1_G"
+                ],
+                "crosses": [
+                  "R1"
+                ],
+                "copper_length_mm": 52.5754,
+                "length_by_layer_mm": {
+                  "F.Cu": 52.575441
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY1_CMD",
+                    "reference": null,
+                    "from": "U1.3",
+                    "to": "R1.1",
+                    "length_mm": 48.3612
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R1",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "RLY1_G",
+                    "reference": null,
+                    "from": "R1.2",
+                    "to": "Q1.1",
+                    "length_mm": 4.2142
+                  }
+                ]
+              },
+              {
+                "path": "relay_command_ch2",
+                "source": "U1.4",
+                "destination": "Q2.1",
+                "nets": [
+                  "RLY2_CMD",
+                  "RLY2_G"
+                ],
+                "crosses": [
+                  "R2"
+                ],
+                "copper_length_mm": 30.8723,
+                "length_by_layer_mm": {
+                  "F.Cu": 30.872287
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY2_CMD",
+                    "reference": null,
+                    "from": "U1.4",
+                    "to": "R2.1",
+                    "length_mm": 26.2439
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R2",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "RLY2_G",
+                    "reference": null,
+                    "from": "R2.2",
+                    "to": "Q2.1",
+                    "length_mm": 4.6284
+                  }
+                ]
+              },
+              {
+                "path": "relay_command_ch3",
+                "source": "U1.5",
+                "destination": "Q3.1",
+                "nets": [
+                  "RLY3_CMD",
+                  "RLY3_G"
+                ],
+                "crosses": [
+                  "R3"
+                ],
+                "copper_length_mm": 44.2133,
+                "length_by_layer_mm": {
+                  "B.Cu": 2.81778,
+                  "F.Cu": 41.395541
+                },
+                "via_transitions": 4,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY3_CMD",
+                    "reference": null,
+                    "from": "U1.5",
+                    "to": "R3.1",
+                    "length_mm": 38.7021
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R3",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "RLY3_G",
+                    "reference": null,
+                    "from": "R3.2",
+                    "to": "Q3.1",
+                    "length_mm": 5.5113
+                  }
+                ]
+              },
+              {
+                "path": "relay_command_ch4",
+                "source": "U1.6",
+                "destination": "Q4.1",
+                "nets": [
+                  "RLY4_CMD",
+                  "RLY4_G"
+                ],
+                "crosses": [
+                  "R4"
+                ],
+                "copper_length_mm": 75.4995,
+                "length_by_layer_mm": {
+                  "F.Cu": 75.499463
+                },
+                "via_transitions": 0,
+                "steps": [
+                  {
+                    "kind": "copper",
+                    "net": "RLY4_CMD",
+                    "reference": null,
+                    "from": "U1.6",
+                    "to": "R4.1",
+                    "length_mm": 69.8852
+                  },
+                  {
+                    "kind": "component",
+                    "net": null,
+                    "reference": "R4",
+                    "from": "1",
+                    "to": "2",
+                    "length_mm": 0.0
+                  },
+                  {
+                    "kind": "copper",
+                    "net": "RLY4_G",
+                    "reference": null,
+                    "from": "R4.2",
+                    "to": "Q4.1",
+                    "length_mm": 5.6142
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "paths_resolved": 8,
+        "scope": "geometry and connectivity only; independent of the physical stackup, the propagation model and any solver"
+      },
+      "limits": {
+        "timing.channel_indicator.expected_path_count": {
+          "id": "timing.channel_indicator.expected_path_count",
+          "value": 4,
+          "units": "paths",
+          "kind": "policy",
+          "manifest_key": "timing.interfaces.channel_indicator.expected_path_count",
+          "provenance": "manifest.json#timing.interfaces.channel_indicator.expected_path_count@fb697c688a53"
+        },
+        "timing.channel_indicator.required_component_crossings": {
+          "id": "timing.channel_indicator.required_component_crossings",
+          "value": 1,
+          "units": "component crossings per path",
+          "kind": "policy",
+          "manifest_key": "timing.interfaces.channel_indicator.required_component_crossings",
+          "provenance": "manifest.json#timing.interfaces.channel_indicator.required_component_crossings@fb697c688a53"
+        },
+        "timing.relay_command.expected_path_count": {
+          "id": "timing.relay_command.expected_path_count",
+          "value": 4,
+          "units": "paths",
+          "kind": "policy",
+          "manifest_key": "timing.interfaces.relay_command.expected_path_count",
+          "provenance": "manifest.json#timing.interfaces.relay_command.expected_path_count@fb697c688a53"
+        },
+        "timing.relay_command.required_component_crossings": {
+          "id": "timing.relay_command.required_component_crossings",
+          "value": 1,
+          "units": "component crossings per path",
+          "kind": "policy",
+          "manifest_key": "timing.interfaces.relay_command.required_component_crossings",
+          "provenance": "manifest.json#timing.interfaces.relay_command.required_component_crossings@fb697c688a53"
+        }
+      },
       "finding_count": 0,
       "findings": [],
       "evidence": []
@@ -1456,19 +1881,993 @@
       "gate": "TIMING.INTERCONNECT_DELAY",
       "title": "Passive PCB propagation delay of each declared path is within its limit",
       "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
-      "measurements": {},
+      "reason": "no timing interface declares a maximum interconnect delay, so there is nothing to compare the 8 measured path(s) against; the measurements are recorded",
+      "measurements": {
+        "scope": "passive PCB interconnect only: copper propagation and, where a model is declared, via vertical transit. Excludes driver output delay and output-to-output skew, package delay, receiver threshold behaviour and PVT variation.",
+        "paths": [
+          {
+            "interface": "channel_indicator",
+            "path": "channel_indicator_ch1",
+            "source": "U1.3",
+            "destination": "D5.2",
+            "copper_length_mm": 46.905592,
+            "length_by_layer_mm": {
+              "F.Cu": 46.905592
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "channel_indicator_ch1"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.0,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R9"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R9",
+                "from_net": "RLY1_CMD",
+                "to_net": "LED1_A",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R9.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 46.905592,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "channel_indicator",
+            "path": "channel_indicator_ch2",
+            "source": "U1.4",
+            "destination": "D6.2",
+            "copper_length_mm": 26.263961,
+            "length_by_layer_mm": {
+              "F.Cu": 26.263961
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "channel_indicator_ch2"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.0,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R10"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R10",
+                "from_net": "RLY2_CMD",
+                "to_net": "LED2_A",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R10.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 26.263961,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "channel_indicator",
+            "path": "channel_indicator_ch3",
+            "source": "U1.5",
+            "destination": "D7.2",
+            "copper_length_mm": 40.225693,
+            "length_by_layer_mm": {
+              "B.Cu": 1.414214,
+              "F.Cu": 38.811479
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "channel_indicator_ch3"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.333075,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R11"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R11",
+                "from_net": "RLY3_CMD",
+                "to_net": "LED3_A",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R11.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 2,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "B.Cu",
+                "width_mm": 0.25,
+                "length_mm": 1.414214,
+                "issue": "layer 'B.Cu': the physical stackup describes no layer by this name"
+              },
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 38.811479,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "channel_indicator",
+            "path": "channel_indicator_ch4",
+            "source": "U1.6",
+            "destination": "D8.2",
+            "copper_length_mm": 76.907332,
+            "length_by_layer_mm": {
+              "F.Cu": 76.907332
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "channel_indicator_ch4"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.107322,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R12"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R12",
+                "from_net": "RLY4_CMD",
+                "to_net": "LED4_A",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R12.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 76.907332,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "relay_command",
+            "path": "relay_command_ch1",
+            "source": "U1.3",
+            "destination": "Q1.1",
+            "copper_length_mm": 52.575441,
+            "length_by_layer_mm": {
+              "F.Cu": 52.575441
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "relay_command_ch1"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.213388,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R1"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R1",
+                "from_net": "RLY1_CMD",
+                "to_net": "RLY1_G",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R1.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 52.575441,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "relay_command",
+            "path": "relay_command_ch2",
+            "source": "U1.4",
+            "destination": "Q2.1",
+            "copper_length_mm": 30.872287,
+            "length_by_layer_mm": {
+              "F.Cu": 30.872287
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "relay_command_ch2"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.125,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R2"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R2",
+                "from_net": "RLY2_CMD",
+                "to_net": "RLY2_G",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R2.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 30.872287,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "relay_command",
+            "path": "relay_command_ch3",
+            "source": "U1.5",
+            "destination": "Q3.1",
+            "copper_length_mm": 44.213322,
+            "length_by_layer_mm": {
+              "B.Cu": 2.81778,
+              "F.Cu": 41.395541
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "relay_command_ch3"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.244687,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R3"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R3",
+                "from_net": "RLY3_CMD",
+                "to_net": "RLY3_G",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R3.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 4,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "B.Cu",
+                "width_mm": 0.25,
+                "length_mm": 2.81778,
+                "issue": "layer 'B.Cu': the physical stackup describes no layer by this name"
+              },
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 41.395541,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          },
+          {
+            "interface": "relay_command",
+            "path": "relay_command_ch4",
+            "source": "U1.6",
+            "destination": "Q4.1",
+            "copper_length_mm": 75.499463,
+            "length_by_layer_mm": {
+              "F.Cu": 75.499463
+            },
+            "modelled_delay_ps": null,
+            "claim": {
+              "kind": "claim",
+              "scope": {
+                "level": "path",
+                "identity": "relay_command_ch4"
+              },
+              "units": "ps",
+              "knowledge": "unknown",
+              "quantity": {},
+              "evidence": {
+                "phenomenon": "propagation_delay",
+                "evidence_class": null,
+                "provenance": {
+                  "source": "native_kicad_board",
+                  "model": "hammerstad"
+                },
+                "applicability": {
+                  "status": "unsupported",
+                  "detail": "one or more path portions are outside the implemented propagation models"
+                },
+                "assumptions": [],
+                "omitted_contributions": []
+              },
+              "knowledge_basis": null,
+              "requirement": null,
+              "significance": "no propagation-delay conclusion is available"
+            },
+            "delay_lower_ps": null,
+            "delay_upper_ps": null,
+            "geometric_uncertainty_ps": null,
+            "length_uncertainty_mm": 0.0625,
+            "assumptions": [],
+            "evidence_class": null,
+            "crosses": [
+              "R4"
+            ],
+            "component_traversals": [
+              {
+                "reference": "R4",
+                "from_net": "RLY4_CMD",
+                "to_net": "RLY4_G",
+                "claim": {
+                  "kind": "claim",
+                  "scope": {
+                    "level": "traversal",
+                    "identity": "R4.1"
+                  },
+                  "units": "ps",
+                  "knowledge": "lower_bound",
+                  "quantity": {
+                    "value": 0.0
+                  },
+                  "evidence": {
+                    "phenomenon": "propagation_delay",
+                    "evidence_class": "unmodelled-contribution",
+                    "provenance": {
+                      "source": "manifest component delay_model",
+                      "model": "none"
+                    },
+                    "applicability": {
+                      "status": "applicable",
+                      "detail": "model applies to this scope"
+                    },
+                    "assumptions": [
+                      "a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                    ],
+                    "omitted_contributions": [
+                      {
+                        "detail": "delay omitted deliberately: a chip resistor's own traversal delay is not stated by its datasheet and cannot be bounded from above by geometry - distance over the speed of light bounds a delay from BELOW, not above - so no delay is attributed to it and the omission is recorded rather than being silently taken as zero"
+                      }
+                    ]
+                  },
+                  "knowledge_basis": {
+                    "kind": "derived",
+                    "detail": "passivity establishes zero as a lower bound; prose does not establish an upper bound"
+                  },
+                  "requirement": null,
+                  "significance": "zero is a lower bound; the reason does not measure the part"
+                }
+              }
+            ],
+            "vias": 0,
+            "insufficient": [
+              {
+                "portion": "conductor",
+                "layer": "F.Cu",
+                "width_mm": 0.25,
+                "length_mm": 75.499463,
+                "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+              }
+            ]
+          }
+        ],
+        "evidence_classes": [],
+        "physical_stackup_source": "native_kicad_board",
+        "propagation_model": "hammerstad",
+        "via_delay_model": "none",
+        "paths_without_derivable_delay": 8,
+        "paths_with_bounded_or_incomplete_delay": 8
+      },
       "limits": {},
-      "finding_count": 0,
-      "findings": [],
+      "finding_count": 8,
+      "findings": [
+        {
+          "interface": "channel_indicator",
+          "path": "channel_indicator_ch1",
+          "destination": "D5.2",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 46.905592,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "channel_indicator",
+          "path": "channel_indicator_ch2",
+          "destination": "D6.2",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 26.263961,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "channel_indicator",
+          "path": "channel_indicator_ch3",
+          "destination": "D7.2",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "B.Cu",
+              "width_mm": 0.25,
+              "length_mm": 1.414214,
+              "issue": "layer 'B.Cu': the physical stackup describes no layer by this name"
+            },
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 38.811479,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "channel_indicator",
+          "path": "channel_indicator_ch4",
+          "destination": "D8.2",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 76.907332,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "relay_command",
+          "path": "relay_command_ch1",
+          "destination": "Q1.1",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 52.575441,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "relay_command",
+          "path": "relay_command_ch2",
+          "destination": "Q2.1",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 30.872287,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "relay_command",
+          "path": "relay_command_ch3",
+          "destination": "Q3.1",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "B.Cu",
+              "width_mm": 0.25,
+              "length_mm": 2.81778,
+              "issue": "layer 'B.Cu': the physical stackup describes no layer by this name"
+            },
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 41.395541,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        },
+        {
+          "interface": "relay_command",
+          "path": "relay_command_ch4",
+          "destination": "Q4.1",
+          "insufficient": [
+            {
+              "portion": "conductor",
+              "layer": "F.Cu",
+              "width_mm": 0.25,
+              "length_mm": 75.499463,
+              "issue": "layer 'F.Cu': the physical stackup describes no layer by this name"
+            }
+          ]
+        }
+      ],
       "evidence": []
     },
     {
       "gate": "TIMING.INTERCONNECT_SKEW",
       "title": "Passive PCB arrival spread within each declared endpoint group",
       "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
-      "measurements": {},
+      "reason": "no endpoint group declares a skew or length-spread limit, so there is nothing to compare the 0 measured group(s) against; the measurements are recorded",
+      "measurements": {
+        "scope": "passive PCB interconnect only. This is NOT total clock arrival skew: it excludes driver output-to-output skew, driver and receiver package delay, receiver threshold behaviour and PVT variation.",
+        "groups": [],
+        "physical_stackup_source": "native_kicad_board",
+        "propagation_model": "hammerstad"
+      },
       "limits": {},
       "finding_count": 0,
       "findings": [],
