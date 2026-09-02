@@ -199,11 +199,11 @@
     "validation_report": "generated/release/validation.json",
     "position_tolerance_mm": 0.01,
     "cpl_fields": {
-      "designator": "Ref",
-      "x": "PosX",
-      "y": "PosY",
-      "side": "Side",
-      "rotation": "Rot"
+      "designator": "Designator",
+      "x": "Mid X",
+      "y": "Mid Y",
+      "side": "Layer",
+      "rotation": "Rotation"
     },
     "cpl_origin": {
       "frame": "absolute page origin",
@@ -423,6 +423,447 @@
     },
     "archive": {
       "zip": "quad_relay_controller-fabrication.zip"
+    },
+    "cpl_orientation": {
+      "part_number_field": "LCSC",
+      "normalize_range_deg": [
+        0,
+        360
+      ],
+      "angle_decimals": 4,
+      "evidence": {
+        "fixtures": "fabrication/jlc_orientation/*.json",
+        "note": "the raw library response and a normalised extract of it are both committed; the extract is re-derived from the body whenever it is read, and the offsets are scored from the body rather than from the extract"
+      },
+      "reproduction_inputs": {
+        "required_globs": [
+          "tools/jlc_orientation.py",
+          "fabrication/jlc_orientation/*.json",
+          "fabrication/jlc_orientation/raw/*.json"
+        ]
+      },
+      "registry": [
+        {
+          "lcsc": "C14663",
+          "mpn": "CC0603KRX7R9BB104",
+          "package": "C0603",
+          "kicad_footprint": "Capacitor_SMD:C_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C14663.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C14663.json",
+          "evidence_sha256": "da57f785d1276a39857a7005c30ba2a380fa5ab03262920b814834ea1640139f",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "C4",
+            "C5",
+            "C6"
+          ]
+        },
+        {
+          "lcsc": "C15127",
+          "mpn": "AO3401A",
+          "package": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+          "kicad_footprint": "Package_TO_SOT_SMD:SOT-23",
+          "offset_deg": 180.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C15127.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C15127.json",
+          "evidence_sha256": "8056e1283b07b8139b5639c8d2589491e2585539740e18194ad9572a41d53ee2",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 5.5642,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "Q5"
+          ]
+        },
+        {
+          "lcsc": "C1524515",
+          "mpn": "G2RL-1-E DC5",
+          "package": "RELAY-TH_G2RL-1-E-CN",
+          "kicad_footprint": "Relay_THT:Relay_SPDT_Omron_G2RL-1-E",
+          "offset_deg": 270.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C1524515.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C1524515.json",
+          "evidence_sha256": "886cfabac9e427fa3f1cf08c0f856ddeddeec00d24470d44a4f9822f96d5d9b8",
+          "pairing": "nearest position",
+          "worst_pad_disagreement_deg": 0.0051,
+          "margin_over_runner_up_deg": 53.1289,
+          "references": [
+            "K1",
+            "K2",
+            "K3",
+            "K4"
+          ]
+        },
+        {
+          "lcsc": "C15850",
+          "mpn": "CL21A106KAYNNNE",
+          "package": "C0805",
+          "kicad_footprint": "Capacitor_SMD:C_0805_2012Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C15850.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C15850.json",
+          "evidence_sha256": "148539e888c899988dae8ec77672a397282879b457c90e71a70c2cb80f42b1d0",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "C1",
+            "C2",
+            "C3"
+          ]
+        },
+        {
+          "lcsc": "C162697",
+          "mpn": "HB9500M-9.5-03P-13-00A",
+          "package": "CONN-TH_3P-P9.50_HB9500-9.5-3P",
+          "kicad_footprint": "TerminalBlock_Ningbo-Kagnex:TerminalBlock_Ningbo-Kagnex_HB9500M_1x03_P9.5mm",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C162697.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C162697.json",
+          "evidence_sha256": "f4e64ea5be79303bce8cbe3f03b1113127591a6988b8ed6a97e7783a9f47bcbc",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "J2",
+            "J3",
+            "J4",
+            "J5"
+          ]
+        },
+        {
+          "lcsc": "C20917",
+          "mpn": "AO3400A",
+          "package": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+          "kicad_footprint": "Package_TO_SOT_SMD:SOT-23",
+          "offset_deg": 180.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C20917.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C20917.json",
+          "evidence_sha256": "e645129c2bc5269e49f2e8934500fe62799fef26a583703acfe5c519c70b15c9",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 1.7198,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ]
+        },
+        {
+          "lcsc": "C22775",
+          "mpn": "0603WAF1000T5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C22775.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C22775.json",
+          "evidence_sha256": "22ea8b49969753bcebe52e1f1d953cd30fe6f10a20d23e8d8cf74ba8a5a6c209",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R1",
+            "R2",
+            "R3",
+            "R4"
+          ]
+        },
+        {
+          "lcsc": "C22843",
+          "mpn": "0603WAF1501T5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C22843.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C22843.json",
+          "evidence_sha256": "93a136c3f76167c82597fa4289d79f8adef05d14d24928f5bc318b7d6860e5d7",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R10",
+            "R11",
+            "R12",
+            "R13",
+            "R9"
+          ]
+        },
+        {
+          "lcsc": "C2286",
+          "mpn": "KT-0603R",
+          "package": "LED-SMD_L1.6-W0.8-R-RD",
+          "kicad_footprint": "LED_SMD:LED_0603_1608Metric",
+          "offset_deg": 180.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C2286.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C2286.json",
+          "evidence_sha256": "58e2adbe67b780c8dbf1ba8b142f0269f1d165a369198afd3aa39a22edd82895",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "D5",
+            "D6",
+            "D7",
+            "D8",
+            "D9"
+          ]
+        },
+        {
+          "lcsc": "C23164",
+          "mpn": "0603WAF470KT5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C23164.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C23164.json",
+          "evidence_sha256": "4c39efd014856d0fac73c7e1516501d1d64b769373d34eaadd0bacd2de5e181e",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R16"
+          ]
+        },
+        {
+          "lcsc": "C25803",
+          "mpn": "0603WAF1003T5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C25803.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C25803.json",
+          "evidence_sha256": "2610bc072eb307236fb330989cf094543322db349c1e26669e37b7b4a5d58741",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R14"
+          ]
+        },
+        {
+          "lcsc": "C25804",
+          "mpn": "0603WAF1002T5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C25804.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C25804.json",
+          "evidence_sha256": "43470186f06d72a3f3de9b120c5cc9eff9741bb241174e950e3dc8c909834a6d",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R15"
+          ]
+        },
+        {
+          "lcsc": "C2905435",
+          "mpn": "KH-2.54PH180-1X4P-L11.5",
+          "package": "HDR-TH_4P-P2.54-V-M",
+          "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+          "offset_deg": 270.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C2905435.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C2905435.json",
+          "evidence_sha256": "d4b6b86cd651f002531009bf932936db32d2abfb0cb98d5d3b74e1dc62eaa6df",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "J7"
+          ]
+        },
+        {
+          "lcsc": "C2932699",
+          "mpn": "KH-2.54PH180-1X5P-L11.5",
+          "package": "HDR-TH_5P-P2.54-V-M",
+          "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical",
+          "offset_deg": 270.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C2932699.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C2932699.json",
+          "evidence_sha256": "6a7b7089a1e667dd2b2f2f6a46b520a910bda616e650a2d731a8d2ce3f2b2c06",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "J6"
+          ]
+        },
+        {
+          "lcsc": "C4190",
+          "mpn": "0603WAF2201T5E",
+          "package": "R0603",
+          "kicad_footprint": "Resistor_SMD:R_0603_1608Metric",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C4190.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C4190.json",
+          "evidence_sha256": "815a56dc4091430cabe351bd75a426197cfd83a62157d1df61dbab7541f0ab64",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "R5",
+            "R6",
+            "R7",
+            "R8"
+          ]
+        },
+        {
+          "lcsc": "C474952",
+          "mpn": "KF128-5.08-2P-AA",
+          "package": "CONN-TH_P5.08_KF128-5.08-2P",
+          "kicad_footprint": "QuadRelayController:TerminalBlock_KF128-5.08_1x02_P5.08mm",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C474952.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C474952.json",
+          "evidence_sha256": "7740b09f4780783bfe6e65844fbc756f955964c527e32fe4bef9024d0cc20b7c",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "J1"
+          ]
+        },
+        {
+          "lcsc": "C48260",
+          "mpn": "TPD1E10B06DPYR",
+          "package": "X1SON-2_L1.0-W0.6-P0.65-BI-1",
+          "kicad_footprint": "QuadRelayController:TI_X1SON-2_1.0x0.6mm_P0.65mm",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C48260.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C48260.json",
+          "evidence_sha256": "3e0ac35c417f395128506ad09533d529dd95994da269c6b2817e43e33939643a",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "D10",
+            "D11",
+            "D12",
+            "D13",
+            "D14",
+            "D15",
+            "D16"
+          ]
+        },
+        {
+          "lcsc": "C5379864",
+          "mpn": "PY32F003F18P6TU",
+          "package": "TSSOP-20_L6.5-W4.4-P0.65-LS6.4-BL",
+          "kicad_footprint": "Package_SO:TSSOP-20_4.4x6.5mm_P0.65mm",
+          "offset_deg": 270.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C5379864.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C5379864.json",
+          "evidence_sha256": "00e3a2887cca263595e1f4bdbd7b9939fd42128e104b22476646d108b90db5ba",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0842,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "U1"
+          ]
+        },
+        {
+          "lcsc": "C81598",
+          "mpn": "1N4148W",
+          "package": "SOD-123F_L2.7-W1.6-LS3.8-RD",
+          "kicad_footprint": "Diode_SMD:D_SOD-123",
+          "offset_deg": 0.0,
+          "review_status": "reviewed",
+          "review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
+          "evidence_file": "fabrication/jlc_orientation/C81598.json",
+          "raw_file": "fabrication/jlc_orientation/raw/C81598.json",
+          "evidence_sha256": "12ffabcf0fefdba253670d91c3b05cc9e1cf97bd7e78344d7697c2c5922cf82f",
+          "pairing": "pad number",
+          "worst_pad_disagreement_deg": 0.0,
+          "margin_over_runner_up_deg": 45.0,
+          "references": [
+            "D1",
+            "D2",
+            "D3",
+            "D4"
+          ]
+        }
+      ]
+    },
+    "fab_format": {
+      "note": "the column names and side words the assembly house reads, and the step where the reviewed library-zero offsets are applied to the exported angles",
+      "cpl": {
+        "columns": [
+          {
+            "from": "Ref",
+            "label": "Designator"
+          },
+          {
+            "from": "PosX",
+            "label": "Mid X"
+          },
+          {
+            "from": "PosY",
+            "label": "Mid Y"
+          },
+          {
+            "from": "Side",
+            "label": "Layer",
+            "values": {
+              "top": "Top",
+              "bottom": "Bottom"
+            }
+          },
+          {
+            "from": "Rot",
+            "label": "Rotation"
+          }
+        ],
+        "required_columns": [
+          "Designator",
+          "Mid X",
+          "Mid Y",
+          "Layer",
+          "Rotation"
+        ],
+        "field_map": {
+          "designator": "Designator",
+          "rotation": "Rotation"
+        }
+      }
     }
   },
   "reports": {
@@ -443,7 +884,10 @@
       "sim/*.json",
       "fab/*.json",
       "components/*.json",
-      "evidence/index.json"
+      "evidence/index.json",
+      "tools/*.py",
+      "fabrication/jlc_orientation/*.json",
+      "fabrication/jlc_orientation/raw/*.json"
     ],
     "source_hash_field": "source_sha256",
     "closure_field": "source_closure_sha256"

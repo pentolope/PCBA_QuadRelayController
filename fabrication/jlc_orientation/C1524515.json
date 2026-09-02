@@ -1,0 +1,61 @@
+{
+  "derived_by": "tools/jlc_orientation.py pads_from_raw",
+  "kind": "normalised extract",
+  "lcsc": "C1524515",
+  "pads": {
+    "1": [
+      [
+        -12.50061,
+        -3.75031
+      ]
+    ],
+    "2": [
+      [
+        2.500122,
+        -3.75031
+      ]
+    ],
+    "3": [
+      [
+        7.49935,
+        -3.75031
+      ]
+    ],
+    "4": [
+      [
+        12.50061,
+        -3.75031
+      ]
+    ],
+    "5": [
+      [
+        12.50061,
+        3.75031
+      ]
+    ],
+    "6": [
+      [
+        7.49935,
+        3.75031
+      ]
+    ],
+    "7": [
+      [
+        2.500122,
+        3.75031
+      ]
+    ],
+    "8": [
+      [
+        -12.50061,
+        3.75031
+      ]
+    ]
+  },
+  "raw_bytes": 12297,
+  "raw_sha256": "886cfabac9e427fa3f1cf08c0f856ddeddeec00d24470d44a4f9822f96d5d9b8",
+  "retrieved_utc": "2026-09-02T18:19:32Z",
+  "source_url": "https://easyeda.com/api/products/C1524515/components?version=6.4.19.5",
+  "units": "mm, measured from the package origin, y up",
+  "user_agent": "pcbqa-jlc-orientation/1 (+board evidence freeze)"
+}

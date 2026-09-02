@@ -1,0 +1,25 @@
+{
+  "derived_by": "tools/jlc_orientation.py pads_from_raw",
+  "kind": "normalised extract",
+  "lcsc": "C4190",
+  "pads": {
+    "1": [
+      [
+        -0.753364,
+        -0.0
+      ]
+    ],
+    "2": [
+      [
+        0.753364,
+        -0.0
+      ]
+    ]
+  },
+  "raw_bytes": 16386,
+  "raw_sha256": "815a56dc4091430cabe351bd75a426197cfd83a62157d1df61dbab7541f0ab64",
+  "retrieved_utc": "2026-09-02T18:19:37Z",
+  "source_url": "https://easyeda.com/api/products/C4190/components?version=6.4.19.5",
+  "units": "mm, measured from the package origin, y up",
+  "user_agent": "pcbqa-jlc-orientation/1 (+board evidence freeze)"
+}

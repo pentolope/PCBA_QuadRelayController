@@ -583,6 +583,44 @@ STATEMENTS = {
          "solution for this relay's contact pin order",),
         (GEOMETRY,)),
 
+    "orientation_review_basis": _decision(
+        "an orientation registry entry counts as reviewed when its offset is "
+        "derived from the frozen library response and re-derived from the "
+        "same committed evidence on every release",
+        "the field exists to keep 'we have not looked at this part' apart "
+        "from 'we looked and it needs nothing', and a number nobody "
+        "established must never ship. What establishes these is stronger "
+        "than a reading of a table: the raw library response is committed "
+        "byte for byte, the offsets are scored from that body rather than "
+        "from any summary of it, and a release re-runs the derivation and "
+        "fails if it disagrees. Every entry also records how its pads were "
+        "paired, because pairing by pad number settles polarity and pairing "
+        "by position does not",
+        ("a hand-entered table, rejected because nothing would re-check it "
+         "and a typo in the LED's 180 degrees would ship",
+         "assuming zero for every part, rejected because it is "
+         "indistinguishable in the output from having checked and found "
+         "zero - and it is wrong for six of this board's nineteen part "
+         "numbers"),
+        (GEOMETRY, DOCUMENTATION), physical_test=True),
+
+    "library_zero_source": {
+        "kind": ASSUMPTION,
+        "statement": "the orientation the assembly house holds a part number "
+                     "at is the one the EasyEDA component record for that "
+                     "part number shows",
+        "reason": "the assembly library is not published in a form that can "
+                  "be frozen; the component record is the same vendor's "
+                  "description of the same part number and is the closest "
+                  "evidence available offline",
+        "revisable": True,
+        "invalidated_by": "a first article that comes back with any part "
+                          "fitted turned, which would show the two "
+                          "libraries do not share a zero for that package",
+        "verified_by": (PHYSICAL_TEST,),
+        "physical_test_still_required": True,
+    },
+
     "input_path_budget": {
         "kind": ASSUMPTION,
         "statement": "the field wiring and the source feeding the input "

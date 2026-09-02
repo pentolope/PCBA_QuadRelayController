@@ -12,8 +12,8 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from design import (build, clearance, cost, evidence, floorplan,  # noqa: E402
-                    ksym, layout, models, netlist, place, requirements,
-                    route, rules, simulation, thermal)
+                    ksym, layout, models, netlist, orientation, place,
+                    requirements, route, rules, simulation, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -708,6 +708,148 @@ class RoutingAngles(unittest.TestCase):
                   encoding="utf-8") as handle:
             manifest = json.load(handle)
         self.assertNotIn("permitted_turn_degrees", manifest.get("routing", {}))
+
+
+class OrientationRegistry(unittest.TestCase):
+    """Every placement angle traces to frozen library evidence."""
+
+    #: The corrections this board ships, as plain numbers. Recorded here so a
+    #: change to any of them has to be argued for twice: once against the
+    #: evidence, and once here. Six of nineteen are non-zero, which is why
+    #: assuming zero would not have been harmless.
+    EXPECTED_OFFSETS = {
+        "C14663": 0.0,      "C15127": 180.0,    "C1524515": 270.0,
+        "C15850": 0.0,      "C162697": 0.0,     "C20917": 180.0,
+        "C22775": 0.0,      "C22843": 0.0,      "C2286": 180.0,
+        "C23164": 0.0,      "C25803": 0.0,      "C25804": 0.0,
+        "C2905435": 270.0,  "C2932699": 270.0,  "C4190": 0.0,
+        "C474952": 0.0,     "C48260": 0.0,      "C5379864": 270.0,
+        "C81598": 0.0,
+    }
+
+    @classmethod
+    def setUpClass(cls):
+        sys.path.insert(0, os.path.join(REPO_ROOT, "tools"))
+        import jlc_orientation
+        cls.tool = jlc_orientation
+        cls.derived = jlc_orientation.derive(orientation.PART_NUMBER_FIELD)
+
+    def _spec(self):
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            return json.load(handle)["release_generation"]["cpl_orientation"]
+
+    def test_every_offset_is_the_one_the_evidence_derives(self):
+        for lcsc, expected in self.EXPECTED_OFFSETS.items():
+            record = self.derived[lcsc]
+            self.assertTrue(record["decisive"], lcsc)
+            self.assertAlmostEqual(record["best_offset_deg"], expected,
+                                   places=3, msg=lcsc)
+
+    def test_the_committed_registry_is_the_derived_one(self):
+        rows, refused = orientation.registry()
+        self.assertEqual(refused, [])
+        self.assertEqual(self._spec()["registry"], rows)
+
+    def test_every_part_number_on_the_board_has_an_entry(self):
+        board = self.tool.footprint_pads(self.tool.BOARD,
+                                         orientation.PART_NUMBER_FIELD)
+        covered = {row["lcsc"] for row in self._spec()["registry"]}
+        self.assertEqual(sorted(board), sorted(covered))
+
+    def test_the_polarised_two_pad_parts_do_not_share_an_offset(self):
+        """The LED and the diode are both two-pad polarised parts, and they
+        differ. Nothing but evidence would have told them apart."""
+        self.assertNotEqual(self.EXPECTED_OFFSETS["C2286"],
+                            self.EXPECTED_OFFSETS["C81598"])
+
+    def test_the_relay_is_paired_by_position_and_says_so(self):
+        """Its footprint names pads by function and the library numbers them
+        by position, so pairing cannot settle polarity - and the entry has to
+        record that rather than look like the others."""
+        row = next(r for r in self._spec()["registry"]
+                   if r["lcsc"] == "C1524515")
+        self.assertEqual(row["pairing"], self.tool.BY_POSITION)
+        for other in self._spec()["registry"]:
+            if other["lcsc"] != "C1524515":
+                self.assertEqual(other["pairing"], self.tool.BY_NUMBER,
+                                 other["lcsc"])
+
+    def test_editing_the_raw_body_is_caught(self):
+        raw = self.tool.raw_path("C2286")
+        with open(raw, "rb") as handle:
+            body = handle.read()
+        try:
+            with open(raw, "wb") as handle:
+                handle.write(body + b" ")     # one byte, still valid JSON
+            problems, _pads = self.tool.verify("C2286")
+            self.assertTrue(problems)
+            self.assertIn("digest", " ".join(p["issue"] for p in problems))
+        finally:
+            with open(raw, "wb") as handle:
+                handle.write(body)
+
+    def test_editing_the_extract_cannot_move_an_offset(self):
+        """Scoring reads the body, so a doctored extract shows up as a
+        mismatch rather than as a different answer."""
+        path = self.tool.extract_path("C2286")
+        with open(path, "rb") as handle:
+            original = handle.read()
+        try:
+            record = json.loads(original.decode("utf-8"))
+            record["pads"] = {n: [[-p[0], -p[1]] for p in points]
+                              for n, points in record["pads"].items()}
+            with open(path, "w", encoding="utf-8") as handle:
+                json.dump(record, handle, indent=2)
+            derived = self.tool.derive(orientation.PART_NUMBER_FIELD)
+            self.assertAlmostEqual(derived["C2286"]["best_offset_deg"], 180.0,
+                                   places=3)
+            self.assertTrue(derived["C2286"]["evidence_problems"])
+        finally:
+            with open(path, "wb") as handle:
+                handle.write(original)
+
+    def test_deriving_never_reaches_the_network(self):
+        """A release must not depend on the library API being up, or on what
+        it would say today."""
+        def refuse(*_args, **_kwargs):
+            raise AssertionError("the offline path reached the network")
+
+        saved = self.tool.fetch
+        self.tool.fetch = refuse
+        try:
+            derived = self.tool.derive(orientation.PART_NUMBER_FIELD)
+        finally:
+            self.tool.fetch = saved
+        self.assertEqual(len(derived), len(self.EXPECTED_OFFSETS))
+        for lcsc, record in derived.items():
+            self.assertEqual(record["evidence_problems"], [], lcsc)
+
+    def test_the_shipped_angles_are_the_board_angles_plus_the_offsets(self):
+        import csv
+
+        import pcbnew
+        board = pcbnew.LoadBoard(layout.BOARD_PATH)
+        offsets = {row["lcsc"]: float(row["offset_deg"])
+                   for row in self._spec()["registry"]}
+        angle, number = {}, {}
+        for footprint in board.GetFootprints():
+            reference = footprint.GetReference()
+            angle[reference] = footprint.GetOrientationDegrees()
+            for field in footprint.GetFields():
+                if field.GetName() == orientation.PART_NUMBER_FIELD:
+                    number[reference] = field.GetText().strip()
+        path = os.path.join(REPO_ROOT, "generated", "release", "cpl.csv")
+        with open(path, newline="", encoding="utf-8-sig") as handle:
+            rows = list(csv.DictReader(handle))
+        self.assertTrue(rows)
+        for row in rows:
+            reference = row["Designator"]
+            shipped = float(row["Rotation"])
+            self.assertGreaterEqual(shipped, 0.0, reference)
+            self.assertLess(shipped, 360.0, reference)
+            want = (angle[reference] + offsets[number[reference]]) % 360.0
+            self.assertAlmostEqual(shipped, want, places=3, msg=reference)
 
 
 if __name__ == "__main__":
