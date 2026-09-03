@@ -152,10 +152,12 @@ def _write_routing_project(path):
     return path
 
 
-#: Candidate acceptance judges the toolkit's design gate class: every gate
-#: that judges the design itself, expanded by the toolkit, so the selection
-#: cannot rot as gates are added.
-ACCEPTANCE_SELECTION = "design"
+#: Candidate acceptance judges the toolkit's design gate class - every gate
+#: that judges the design itself, expanded by the toolkit so the selection
+#: cannot rot as gates are added - plus ROUTE.PROVENANCE, whose record this
+#: loop writes before judging, so the record-board agreement is judged per
+#: candidate exactly as it was under the hand-written list.
+ACCEPTANCE_SELECTION = "design,ROUTE.PROVENANCE"
 
 
 def _gates_pass():

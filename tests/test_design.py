@@ -854,3 +854,26 @@ class OrientationRegistry(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RoutingAcceptance(unittest.TestCase):
+    """The candidate-acceptance selection keeps judging what the loop needs."""
+
+    def test_the_selection_holds_its_floor_and_no_artifact_gates(self):
+        from pcbqa import core as pcbqa_core
+        from pcbqa import gates as pcbqa_gates
+        pcbqa_gates.load()
+        ids, unknown = pcbqa_core.select_gates(
+            route.ACCEPTANCE_SELECTION.split(","))
+        self.assertEqual(unknown, [])
+        floor = {"ERC.AUTHORITATIVE", "DRC.AUTHORITATIVE",
+                 "ROUTE.GEOMETRY_HYGIENE", "ROUTE.TINY_SEGMENTS",
+                 "ROUTE.PROVENANCE"}
+        self.assertEqual(floor - set(ids), set(),
+                         "the acceptance selection lost a gate the routing "
+                         "loop depends on")
+        artifact_gates = {"ARCH.CONTENTS", "ARCH.PROVENANCE",
+                          "BOM.NATIVE_PARITY",
+                          "CPL.NATIVE_PARITY", "STACK.GERBER_PARITY",
+                          "PROV.REPORT_FRESHNESS"}
+        self.assertEqual(set(ids) & artifact_gates, set())
