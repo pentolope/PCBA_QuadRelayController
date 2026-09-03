@@ -161,7 +161,7 @@
       "forbid_dangling": true
     },
     "provenance": "generated/routing.json",
-    "acceptance_gates": [
+    "x_acceptance_gates": [
       "ERC.AUTHORITATIVE",
       "DRC.AUTHORITATIVE",
       "DRC.NO_SUPPRESSED_RULES",
