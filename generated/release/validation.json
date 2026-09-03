@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-03T08:53:30.597770+00:00",
-  "source_closure_sha256": "5f42c33df48cf1023b085377bd9bc3d523ec4725a2f2e648687e29bd1db5118d",
+  "generated_utc": "2026-09-03T16:27:52.742920+00:00",
+  "source_closure_sha256": "ae49734508ad0a0eea056fb1b4ec81ab0c7a903a52939600354bb40b7083bbd5",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/board/manifest.json",
     "sha256": "3c06216b17d3cdb4cd38fceffd69a58b71abb3dbd394b69b3c986bb3ab869910",
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/tooling/PCBA_AutoDesignAndTest",
-      "commit": "a0f53eb0a0245d7c12d10c3f31f39af1ba53cc43",
+      "commit": "0c051f23f5cb7c08360e7db4ab231ec321a4459c",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -160,7 +160,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/generated/release/quad_relay_controller-fabrication.zip",
           "name": "quad_relay_controller-fabrication.zip",
-          "sha256": "25579c19ebc4800c12caee0ebea0f7cd1807be32e632b4c08c368fbc1981cc1e"
+          "sha256": "671ff73ee7b53ad07a08c5128fd517a4c3b3733b9f5ce33d63aa675268549c34"
         }
       ]
     },
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "5f42c33df48cf1023b085377bd9bc3d523ec4725a2f2e648687e29bd1db5118d",
-        "recorded_source_closure_sha256": "5f42c33df48cf1023b085377bd9bc3d523ec4725a2f2e648687e29bd1db5118d"
+        "source_closure_sha256": "ae49734508ad0a0eea056fb1b4ec81ab0c7a903a52939600354bb40b7083bbd5",
+        "recorded_source_closure_sha256": "ae49734508ad0a0eea056fb1b4ec81ab0c7a903a52939600354bb40b7083bbd5"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "cde37c27ced8bcd022738531ebc2f072b41a02747169f28cdcfba7ee88132681"
+          "sha256": "1114b9e5525d73b9a8f73516ea7334373cd025f04919a844f08f9d887eb79432"
         }
       ]
     },
@@ -745,10 +745,10 @@
         "rules_sha256": "017d5881e875f6f4d74d7aa9cb3916e85e18229fa3d1a18fab9d78ef6e88085f",
         "constraint_manifest_sha256": "3c06216b17d3cdb4cd38fceffd69a58b71abb3dbd394b69b3c986bb3ab869910",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-03T08:53:22.613973+00:00",
+        "generated_utc": "2026-09-03T16:27:43.535241+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-03T02:53:22",
+          "date": "2026-09-03T10:27:43",
           "kicad_version": "10.0.5",
           "source": "quad_relay_controller.kicad_pcb",
           "ignored_checks": [],
@@ -782,9 +782,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T085319Z-fc90081d/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T162739Z-a60f8ff7/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "8779a342c5098339e3ef452f114e3cd80f63c4dd29239bc631beb378c0140470"
+          "sha256": "94425b3a55b5d86e42a86fc0a6ddaf83a5d1783f40ea11fd2a04f0742c5122e6"
         }
       ]
     },
@@ -953,10 +953,10 @@
         "rules_sha256": "017d5881e875f6f4d74d7aa9cb3916e85e18229fa3d1a18fab9d78ef6e88085f",
         "constraint_manifest_sha256": "3c06216b17d3cdb4cd38fceffd69a58b71abb3dbd394b69b3c986bb3ab869910",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-03T08:53:24.511403+00:00",
+        "generated_utc": "2026-09-03T16:27:45.937619+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-03T02:53:24",
+          "date": "2026-09-03T10:27:45",
           "kicad_version": "10.0.5",
           "source": "quad_relay_controller.kicad_sch",
           "ignored_checks": [],
@@ -990,9 +990,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T085319Z-fc90081d/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T162739Z-a60f8ff7/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "234d9629e4e4b06bd3f6744892495c6b5e993c0ed8158165382db28d5bc3f5a8"
+          "sha256": "aa52a52db642967be349d7a854350593606c438ce3404b03bd8bc3ef2388e044"
         }
       ]
     },
@@ -1192,7 +1192,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 60 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 60,
-        "source_closure_sha256": "5f42c33df48cf1023b085377bd9bc3d523ec4725a2f2e648687e29bd1db5118d",
+        "source_closure_sha256": "ae49734508ad0a0eea056fb1b4ec81ab0c7a903a52939600354bb40b7083bbd5",
         "source_sha256": {
           "pcb": "485533a3586c675d",
           "schematic": "3a133402bf3c1fe3"
@@ -1437,7 +1437,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T085319Z-fc90081d/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T085319Z-fc90081d/work/design/quad_relay_controller.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T162739Z-a60f8ff7/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/03_PCBA_QuadRelayController/out/quad_relay_controller/20260903T162739Z-a60f8ff7/work/design/quad_relay_controller.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
