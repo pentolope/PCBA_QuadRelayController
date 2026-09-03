@@ -91,16 +91,16 @@ def registry():
             "kicad_footprint": record["kicad_footprint"],
             "offset_deg": record["best_offset_deg"],
             "review_status": "reviewed",
-            "review_basis": REVIEW_BASIS,
+            "x_review_basis": REVIEW_BASIS,
             "evidence_file": os.path.relpath(tool.extract_path(lcsc),
                                              REPO_ROOT).replace("\\", "/"),
             "raw_file": os.path.relpath(tool.raw_path(lcsc),
                                         REPO_ROOT).replace("\\", "/"),
             "evidence_sha256": record["evidence_sha256"],
-            "pairing": record["pairing"],
-            "worst_pad_disagreement_deg": record["best_worst_deg"],
-            "margin_over_runner_up_deg": record["margin_deg"],
-            "references": record["references"],
+            "x_pairing": record["pairing"],
+            "x_worst_pad_disagreement_deg": record["best_worst_deg"],
+            "x_margin_over_runner_up_deg": record["margin_deg"],
+            "x_references": record["references"],
         })
     return rows, refused
 
@@ -150,7 +150,7 @@ if __name__ == "__main__":
     for row in rows:
         sys.stdout.write("%-10s %-24s %-46s %5.0f deg  %s\n" % (
             row["lcsc"], row["mpn"][:24], row["kicad_footprint"][:46],
-            row["offset_deg"], row["pairing"]))
+            row["offset_deg"], row["x_pairing"]))
     for entry in refused:
         sys.stdout.write("REFUSED %s\n" % json.dumps(entry))
     sys.stdout.write("\n" + write() + "\n")

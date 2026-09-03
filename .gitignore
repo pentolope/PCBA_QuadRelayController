@@ -22,3 +22,4 @@ openems/
 *.vtr
 *.vtu
 *.log
+.pcbqa-hold-*

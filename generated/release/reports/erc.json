@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-03T10:27:33",
+  "date": "2026-09-03T15:08:29",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,10 +18,10 @@
   ],
   "source": "quad_relay_controller.kicad_sch",
   "source_sha256": "3a133402bf3c1fe3308fbb63c17bbc39c55cac31150599160ad99e6624dcbdbe",
-  "source_closure_sha256": "ae49734508ad0a0eea056fb1b4ec81ab0c7a903a52939600354bb40b7083bbd5",
+  "source_closure_sha256": "faf72b280ad835a37d377fd88b25b3e706cfb3c37208a0148ae3cc74e8a45b0b",
   "source_closure": {
-    "<configuration>": "6177d348ff1f1a0bc9cadacfd3db01ba64cbf3b5b4836eca149b19eeb55005a8",
-    "<toolkit>": "0c051f23f5cb7c08360e7db4ab231ec321a4459c+clean",
+    "<configuration>": "c5e1d17b31f63314269b8891909f869bb6cd41cd02f4cd3d55d93f8d532c153c",
+    "<toolkit>": "7f51066b4095042726be2be3824c3b9ff2f5158a+clean",
     "components/jlcpcb.json": "c89e306ba0264ce5053805c24ed39b8c9aa23f990f15189aa71ed72e0baab1e6",
     "components/parameters.json": "bfd5a9b7bb10419550dad7b56b33a4aa2054448eb307288169831482db4197fc",
     "constraints/floorplan.json": "2fc4150571d74e3cf368595cf5ea9fd95d59eab8c4392233db75f7bbb1d65f06",
@@ -70,8 +70,13 @@
     "fabrication/jlc_orientation/raw/C48260.json": "3e0ac35c417f395128506ad09533d529dd95994da269c6b2817e43e33939643a",
     "fabrication/jlc_orientation/raw/C5379864.json": "00e3a2887cca263595e1f4bdbd7b9939fd42128e104b22476646d108b90db5ba",
     "fabrication/jlc_orientation/raw/C81598.json": "12ffabcf0fefdba253670d91c3b05cc9e1cf97bd7e78344d7697c2c5922cf82f",
+    "fp-lib-table": "59fbca7396bdb20eedbba96c215acc21a0b641f5438a9bedd07bc64d160c81d6",
+    "library/QuadRelayController.kicad_sym": "754590d58e6ba2d332f72b896d079a0f01a0f789758aa368e5f0ec7782136ef1",
+    "library/QuadRelayController.pretty/TI_X1SON-2_1.0x0.6mm_P0.65mm.kicad_mod": "dd95a24ead0e2b8c10526bf5d8547be48c6280154b61244eb466ecc3cbebec67",
+    "library/QuadRelayController.pretty/TerminalBlock_KF128-5.08_1x02_P5.08mm.kicad_mod": "f44ee32225a5611155efecd1832ce4efa528bf47ce91ee204a052c2b1724e32b",
     "quad_relay_controller.kicad_dru": "5da874f6ed0df93c102ada1fce51d805c176fc8a1c3f596d60ee4c9f98d1a2b7",
     "quad_relay_controller.kicad_pcb": "485533a3586c675d20fbb63c09abe0fbc3f239342663d0a41715d8e7e4e649a5",
+    "quad_relay_controller.kicad_prl": "3f15742f577088a2b15fa2199bad11206b2d17134fb9dba905e2a368a3390caa",
     "quad_relay_controller.kicad_pro": "017d5881e875f6f4d74d7aa9cb3916e85e18229fa3d1a18fab9d78ef6e88085f",
     "quad_relay_controller.kicad_sch": "3a133402bf3c1fe3308fbb63c17bbc39c55cac31150599160ad99e6624dcbdbe",
     "sim/models.json": "a560c43010f0721ebc9485d28b75b06e1b4b31c3bef834cf1923b306371301b8",
@@ -79,6 +84,7 @@
     "sim/pre_layout_coil_turn_off.json": "2f856d0234cb7c772319c5c72a30ed84ceb42247901f2ab8035e4e657b8001f6",
     "sim/pre_layout_gate_hold_off.json": "4a098dfa4b48b0edbd7292977b8ad61e2a10da192de65208cb32dbcbf689c67a",
     "sim/pre_layout_rail_droop.json": "a402a31545ab76f4c24c8f73c7ba056d04aeb541c056790a7e9e9b189d4e75e8",
+    "sym-lib-table": "4ea1f15920cc6589f8a21099d578250d7891118113e85f2a0ba49122f210c21e",
     "tools/jlc_orientation.py": "a3b444919cc8af220f63f38424829a798e9495cc3389d1b245ae239bbbc092d7"
   }
 }
