@@ -160,24 +160,7 @@
       "forbid_net_crossings": true,
       "forbid_dangling": true
     },
-    "provenance": "generated/routing.json",
-    "x_acceptance_gates": [
-      "ERC.AUTHORITATIVE",
-      "DRC.AUTHORITATIVE",
-      "DRC.NO_SUPPRESSED_RULES",
-      "DRC.CONSTRAINT_FLOOR",
-      "NET.TOPOLOGY",
-      "ROUTE.GEOMETRY_HYGIENE",
-      "ROUTE.TINY_SEGMENTS",
-      "ROUTE.PROVENANCE",
-      "CONTRACT.PLACEMENT",
-      "CONTRACT.CONNECTOR",
-      "STACK.NATIVE_VS_MANIFEST",
-      "VIA.ANNULUS_MASK_OVERLAP",
-      "VIA.IN_PAD_CONTACT",
-      "SIM.SCENARIOS",
-      "SIM.STAGE_COVERAGE"
-    ]
+    "provenance": "generated/routing.json"
   },
   "via_mask": {
     "pad_contact": {
